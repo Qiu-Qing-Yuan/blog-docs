@@ -1,0 +1,127 @@
+body {
+  background-image: url('/images/bg.gif') !important;
+}
+
+.theme-container {
+  .sidebar {
+    z-index: 200;
+  }
+}
+
+//手机隐藏雪花效果
+@media (max-width: 640px) {
+  .Sakura {
+    display: none;
+  }
+}
+
+.navbar {
+  backdrop-filter: saturate(180%) blur(5px);
+  background: rgba(255, 255, 255, 0.6);
+  z-index: 10000;
+}
+
+// logo
+.navbar {
+  .logo {
+    border-radius: 50%;
+  }
+}
+
+// markdown中图片居中
+.medium-zoom-image {
+  display: block;
+  margin: 0px auto;
+}
+
+//所有段落下面的图片居中
+p > img {
+  display: block;
+  margin: 0px auto;
+}
+
+//page页面增加box-shadow
+.page .theme-default-content {
+  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.1);
+  padding: 1rem 1.5rem;
+  border-radius: 0.25rem;
+
+  //markdown中table居中
+  & table {
+    display: table;
+    margin: 0px auto;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+//左侧sider激活样式
+.active {
+  background-color: #3eaf7c1a;
+  border-left-color: #3eaf7c;
+}
+
+.home .hero img {
+  width: 100px;
+  border-radius: 50%;
+}
+
+.home .footer {
+  position: absolute;
+  bottom: 0px;
+  width: var(--content-width);
+}
+
+h1:focus {
+  border: none;
+}
+
+:root {
+  // markdown 宽度900px
+  --content-width: 900px !important;
+}
+
+.navbar {
+  .site-name {
+    font-weight: 400;
+    color: #000;
+  }
+
+  .navbar-dropdown-title {
+    .title {
+      color: #000;
+    }
+
+    .down {
+      border-top: 6px solid #000;
+    }
+  }
+
+  .toggle-color-mode-button {
+    color: #000;
+  }
+}
+
+.back-to-top {
+  bottom: 4rem;
+}
+
+//复制插件图标颜色
+.copy-code-button {
+  background: var(--c-text-accent) !important;
+}
+
+#app {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+
+#bgCanvas {
+  z-index: auto !important;
+  background-color: initial !important;
+}
+
+@import 'common';
+@import 'tailwind';
+@import 'container';
