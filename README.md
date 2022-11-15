@@ -23,7 +23,7 @@ npm run dev
 npm run build
 ```
 
-## 项目 部署
+## 项目  部署
 
 > 通过 github actions 进行持续集成部署，静态页面部署在 github pages, 并主动推动至 Gitee 进行自动部署。
 
