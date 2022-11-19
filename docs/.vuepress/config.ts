@@ -14,7 +14,7 @@ export default defineUserConfig({
   //站点语言配置
   lang: "zh-CN",
   title: "技术经验总结",
-  description: "技术经验总结，资料文档汇集网站，小紫念沁的博客",
+  description: "技术经验总结，资料文档汇集网站，清源君的博客",
   dest: "dist",
   head: [
     ["link", { rel: "shortcut icon", type: "image/x-icon", href: "/blog-docs/favicon.ico" }],
@@ -28,10 +28,10 @@ export default defineUserConfig({
   ],
   theme: AnyForkTheme({
     logo: "/images/logo.png",
-    author: "小紫念沁",
+    author: "清源君",
     authorAvatar: "/images/logo.png",
     //仓库地址
-    repo: 'https://github.com/AnyFork/blog-docs',
+    repo: 'https://github.com/Qiu-Qing-Yuan/blog-docs',
     //如果你的文档不在仓库的根部
     docsDir: 'docs',
     //是否开启编辑链接
@@ -50,9 +50,9 @@ export default defineUserConfig({
     contributorsText: '贡献者',
     //信息栏展示社交信息
     socialLinks: [
-      { icon: 'GithubOutlined', link: 'https://anyFork.github.io/blog-docs/' },
-      { icon: 'GoogleCircleFilled', link: 'https://anyFork.gitee.io/blog-docs/' },
-      { icon: 'CloudOutlined', link: 'https://www.anyfork.top/' }
+      { icon: 'GithubOutlined', link: 'https://qiu-qing-yuan.github.io/blog-docs/' },
+      { icon: 'GoogleCircleFilled', link: 'https://qiu-qing-yuan.gitee.io/blog-docs/' },
+      { icon: 'CloudOutlined', link: 'https://github.com/Qiu-Qing-Yuan' }
     ],
     //友情链接
     friendLink: firendLink,

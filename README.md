@@ -4,14 +4,14 @@
 
 - 仓库地址：https://github.com/AnyFork/blog-docs.git
 - vuePress 官网地址：https://v2.vuepress.vuejs.org/zh/
-- Github 访问地址：https://anyfork.github.io/blog-docs/
-- Gitee 访问地址：https://anyfork.gitee.io/blog-docs/
+- Github 访问地址：https://qiu-qing-yuan.github.io/blog-docs/
+- Gitee 访问地址：https://qiu-qing-yuan.gitee.io/blog-docs/
 
 ## 项目启动
 
 ```bash
 #拉取代码
-git clone -b main https://github.com/AnyFork/blog-docs.git
+git clone -b main https://github.com/Qiu-Qing-Yuan/blog-docs.git
 
 # 安装依赖包
 npm install
