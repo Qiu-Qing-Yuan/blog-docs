@@ -60,7 +60,7 @@ export const plugins = [
     seoPlugin({
         hostname: 'https://anyfork.github.io/',
         author: {
-            name: '小紫念沁',
+            name: '游履平生',
             url: 'https://anyfork.github.io/blog-docs/'
         }
     }),
@@ -82,7 +82,7 @@ export const plugins = [
     //复制加版权插件，https://vuepress-theme-hope.github.io/v2/copyright/zh/config.html
     copyrightPlugin({
         hostname: 'https://anyfork.github.io/blog-docs/',
-        author: "小紫念沁",
+        author: "游履平生",
         global: true
     }),
     //音乐播放器插件。
