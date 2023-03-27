@@ -2,7 +2,7 @@
   "name": "blog-docs",
   "short_name": "blog-docs",
   "version": "1.0.0",
-  "description": "小紫念沁的博客",
+  "description": "游履平生的博客",
   "manifest_version": 2,  
   "start_url": "/index.html",
   "display": "standalone",
