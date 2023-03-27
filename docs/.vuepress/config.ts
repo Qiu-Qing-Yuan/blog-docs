@@ -14,7 +14,7 @@ export default defineUserConfig({
   //站点语言配置
   lang: "zh-CN",
   title: "技术经验总结",
-  description: "技术经验总结，资料文档汇集网站，清源君的博客",
+  description: "技术经验总结，资料文档汇集网站，游履平生的博客",
   dest: "dist",
   head: [
     ["link", { rel: "shortcut icon", type: "image/x-icon", href: "/blog-docs/favicon.ico" }],
@@ -28,7 +28,7 @@ export default defineUserConfig({
   ],
   theme: AnyForkTheme({
     logo: "/images/logo.png",
-    author: "清源君",
+    author: "游履平生",
     authorAvatar: "/images/logo.png",
     //仓库地址
     repo: 'https://github.com/Qiu-Qing-Yuan/blog-docs',
