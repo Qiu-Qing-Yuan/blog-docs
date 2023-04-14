@@ -21,7 +21,7 @@ bgImageStyle: { height: '550px', color: '#fff' }
 #是否展示箭头
 showArrow: true
 #个人摘要
-summary: 加油,为更美好的明天而战!
+summary: 千里始足下，高山起微尘。
 #兴趣爱好
 hobby:
   - 游泳
