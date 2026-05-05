@@ -92,11 +92,15 @@ p > img {
 // 文章目录（TOC）激活样式
 .sidebar-item.active:not(.sidebar-heading) {
   font-weight: 600;
-  color: #3eaf7c !important;
-  border-left-color: #3eaf7c !important;
-  background-color: rgba(62, 175, 124, 0.08);
-  border-radius: 0 6px 6px 0;
-  transition: all 0.2s ease;
+  color: #3eaf7c;
+  border-left-color: #3eaf7c;
+  background-color: transparent;
+}
+
+.dark .sidebar-item.active:not(.sidebar-heading) {
+  color: #5bd99b;
+  border-left-color: #5bd99b;
+  background-color: transparent;
 }
 
 .home .hero img {
