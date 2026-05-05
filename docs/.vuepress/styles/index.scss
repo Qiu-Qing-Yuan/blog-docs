@@ -126,19 +126,18 @@ h1:focus {
 .navbar {
   .site-name {
     font-weight: 600;
-    background: linear-gradient(135deg, #3eaf7c, #2d8cf0);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #fff !important;
+    -webkit-text-fill-color: #fff;
+    background: none;
   }
 
   // 菜单链接白色
-  .navbar-links .navbar-link,
-  .navbar-links .repo-link,
-  a.nav-link {
+  .navbar-items a,
+  .navbar-item > a {
     color: #fff !important;
 
-    &:hover {
+    &:hover,
+    &.router-link-active {
       color: #5bd99b !important;
     }
   }
@@ -159,19 +158,18 @@ h1:focus {
 
 .dark .navbar {
   .site-name {
-    background: linear-gradient(135deg, #5bd99b, #5b9bd5);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #5bd99b !important;
+    -webkit-text-fill-color: #5bd99b;
+    background: none;
   }
 
   // 菜单链接文字颜色
-  .navbar-links .navbar-link,
-  .navbar-links .repo-link,
-  a.nav-link {
+  .navbar-items a,
+  .navbar-item > a {
     color: rgba(255, 255, 255, 0.85) !important;
 
-    &:hover {
+    &:hover,
+    &.router-link-active {
       color: #5bd99b !important;
     }
   }
