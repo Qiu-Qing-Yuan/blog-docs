@@ -4,17 +4,17 @@
       <main class="page">
         <div class="pt-[20px] w-full sm:w-[var(--content-width)] my-0 mx-auto">
           <div class="flex items-center gap-[8px] mb-[16px] ml-[10px]">
-            <Icon :icon="icon" :iconSize="22" />
-            <span class="text-[1.2rem] font-[600] bg-gradient-to-r from-[#3eaf7c] to-[#2d8cf0] bg-clip-text text-transparent">{{ title }}</span>
+            <Icon :icon="icon" :iconSize="22" class="text-[#2c7a5a]" />
+            <span class="text-[1.2rem] font-[700] tracking-tight text-[#1e293b] dark:text-[#e2e8f0]">{{ title }}</span>
           </div>
-          <div class="w-full flex flex-wrap my-[12px] gap-[8px]">
-            <RouterLink v-for="({ items, path }, name) in blogMap.map" :key="name" :to="path" class="flex items-center text-[#666] font-normal px-[14px] h-[36px] bg-[#f8f9fa] hover:bg-[#3eaf7c] hover:text-[#fff] dark:bg-[#2a2a3a] dark:hover:bg-[#3eaf7c] dark:text-[#ddd] rounded-full transition-all duration-200 hover:shadow-md hover:scale-105">
+          <div class="w-full flex flex-wrap my-[12px] gap-[6px]">
+            <RouterLink v-for="({ items, path }, name) in blogMap.map" :key="name" :to="path" class="flex items-center text-[#64748b] dark:text-[#94a3b8] font-normal px-[14px] h-[34px] bg-[#f8fafb] hover:bg-[#2c7a5a] hover:text-[#fff] dark:bg-[#1a1e2e] dark:hover:bg-[#2c7a5a] rounded-full transition-all duration-250 hover:shadow-md border border-[#e2e8f0]/40 dark:border-[rgba(255,255,255,0.04)] hover:border-[#2c7a5a]/20">
               <span class="text-[13px]">{{ name }}</span>
-              <span class="ml-[8px] w-[1.2rem] h-[1.2rem] leading-[1.2rem] text-center text-[.7rem] text-[#fff] rounded-full" :style="{ 'background-color': getRandomColor() }"> {{ items.length }}</span>
+              <span class="ml-[8px] min-w-[1.2rem] h-[1.2rem] leading-[1.2rem] text-center text-[10px] text-[#fff] rounded-full px-[4px] font-[600]" style="background: linear-gradient(135deg, #2c7a5a, #3eaf7c)"> {{ items.length }}</span>
             </RouterLink>
           </div>
           <BlogItem v-for="(item, index) in paginatedData" :page="item.info" :position="index % 2 == 0 ? 'left' : 'right'" :key="index" />
-          <Pagination :pageTotal="pages.pageTotal" :pageNumber="pages.pageNumber" :pageSize="pages.pageSize" @click="onPageChange"> </Pagination>
+          <Pagination :pageTotal="pages.pageTotal" :pageSize="pages.pageSize" @click="onPageChange"> </Pagination>
         </div>
       </main>
     </template>
@@ -24,7 +24,6 @@
 import { useBlogCategory } from 'vuepress-plugin-blog2/lib/client'
 import ParentLayout from '@vuepress/theme-default/lib/client/layouts/Layout.vue'
 import BlogItem from './BlogItem.vue'
-import { useRandomColor } from '../../utils/useColor'
 import { usePagination } from '../../composables'
 import { watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
@@ -36,7 +35,6 @@ const props = defineProps<{
   defaultPath: string
 }>()
 
-const getRandomColor = useRandomColor
 const blogMap = useBlogCategory(props.type)
 const route = useRoute()
 const router = useRouter()
@@ -59,8 +57,9 @@ watch(
 </script>
 <style scoped>
 .router-link-exact-active {
-  background: #3eaf7c !important;
+  background: linear-gradient(135deg, #2c7a5a, #3eaf7c) !important;
   color: #fff !important;
-  box-shadow: 0 4px 12px rgba(62, 175, 124, 0.3);
+  border-color: transparent !important;
+  box-shadow: 0 2px 12px rgba(44, 122, 90, 0.25);
 }
 </style>

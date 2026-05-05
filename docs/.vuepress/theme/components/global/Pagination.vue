@@ -29,7 +29,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch, h } from 'vue'
+import { computed, ref, watch } from 'vue'
 import Paginate from 'vuejs-paginate-next'
 import { isMobile } from '../../utils'
 

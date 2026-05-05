@@ -137,7 +137,7 @@ body {
   .toggle-sidebar-button .icon span { background-color: rgba(255, 255, 255, 0.82); }
 }
 
-// ─── Markdown 内容区域 ─────────────────
+// ─── Markdown 图片 ────────────────────
 .medium-zoom-image {
   display: block;
   margin: 0 auto;
@@ -150,6 +150,7 @@ p > img {
   border-radius: 10px;
 }
 
+// ─── Markdown 内容区域 ─────────────────
 .page .theme-default-content {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 20px rgba(0, 0, 0, 0.06);
   padding: 2.2rem 2.8rem;
@@ -164,6 +165,7 @@ p > img {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06), 0 12px 40px rgba(0, 0, 0, 0.08);
   }
 
+  // 表格
   & table {
     display: table;
     margin: 0 auto;
@@ -172,10 +174,62 @@ p > img {
     border-radius: 10px;
     overflow: hidden;
   }
+  & table thead tr {
+    background: rgba(44, 122, 90, 0.04);
+  }
+  & table tr:hover {
+    background: rgba(44, 122, 90, 0.03);
+  }
+  & th {
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    color: #475569;
+  }
+  & td {
+    font-size: 14px;
+    color: #64748b;
+  }
+
+  // 引用块
+  & blockquote {
+    border-left: 3px solid #2c7a5a;
+    background: rgba(44, 122, 90, 0.03);
+    border-radius: 0 8px 8px 0;
+    color: #64748b;
+    font-style: normal;
+  }
+
+  // 行内代码
+  & code {
+    background: rgba(44, 122, 90, 0.06);
+    color: #2c7a5a;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-size: 0.88em;
+  }
+
+  // 标题锚点
+  & .header-anchor {
+    color: #2c7a5a;
+    opacity: 0.4;
+    transition: opacity 0.2s;
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
 
 .dark .page .theme-default-content {
   background: rgba(20, 24, 34, 0.92);
+  & th { color: #94a3b8; }
+  & td { color: #94a3b8; }
+  & blockquote { color: #94a3b8; }
+  & code {
+    background: rgba(78, 202, 138, 0.08);
+    color: #4eca8a;
+  }
+  & .header-anchor { color: #4eca8a; }
 }
 
 // ─── 目录 (TOC) 激活样式 ──────────────
@@ -272,63 +326,6 @@ div[class*="language-"] {
 ::selection {
   background: rgba(44, 122, 90, 0.2);
   color: inherit;
-}
-
-
-// ─── 表格样式增强 ─────────────────────
-.page .theme-default-content {
-  & table thead tr {
-    background: rgba(44, 122, 90, 0.04);
-  }
-  & table tr:hover {
-    background: rgba(44, 122, 90, 0.03);
-  }
-  & th {
-    font-weight: 600;
-    font-size: 13px;
-    letter-spacing: 0.02em;
-    color: #475569;
-  }
-  & td {
-    font-size: 14px;
-    color: #64748b;
-  }
-  // 引用块
-  & blockquote {
-    border-left: 3px solid #2c7a5a;
-    background: rgba(44, 122, 90, 0.03);
-    border-radius: 0 8px 8px 0;
-    color: #64748b;
-    font-style: normal;
-  }
-  // 行内代码
-  & code {
-    background: rgba(44, 122, 90, 0.06);
-    color: #2c7a5a;
-    border-radius: 4px;
-    padding: 1px 5px;
-    font-size: 0.88em;
-  }
-  // 标题锚点
-  & .header-anchor {
-    color: #2c7a5a;
-    opacity: 0.4;
-    transition: opacity 0.2s;
-    &:hover {
-      opacity: 1;
-    }
-  }
-}
-
-.dark .page .theme-default-content {
-  & th { color: #94a3b8; }
-  & td { color: #94a3b8; }
-  & blockquote { color: #94a3b8; }
-  & code {
-    background: rgba(78, 202, 138, 0.08);
-    color: #4eca8a;
-  }
-  & .header-anchor { color: #4eca8a; }
 }
 
 @import 'common';
