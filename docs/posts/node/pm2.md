@@ -126,7 +126,7 @@ force 默认 false，如果 true，可以重复启动一个脚本。pm2 不建�
 restart_delay 异常重启情况下，延时重启时间；
 ```
 
-**注意：** 设置环境变量时需要以`env_`开头，详细参考：<https:#pm2.keymetrics.io/docs/usage/environment/>。例如设置了环境变量`env_production`，采用 pm2 启动时如下：`pm2 start ecosystem.config.js --env production`
+**注意：** 设置环境变量时需要以`env_`开头，详细参考：<https://pm2.keymetrics.io/docs/usage/environment/>。例如设置了环境变量`env_production`，采用 pm2 启动时如下：`pm2 start ecosystem.config.js --env production`
 
 启动项目实例
 

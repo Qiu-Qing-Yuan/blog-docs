@@ -44,7 +44,7 @@ ps -ef | grep node
 
 ## 二、pm2 方式部署
 
-pm2 是一个进程管理工具,可以用它来管理你的 node 进程，并查看 node 进程的状态，当然也支持性能监控，进程守护，负载均衡等功能。详情参考：[pm2 官网](https:#pm2.keymetrics.io/)
+pm2 是一个进程管理工具,可以用它来管理你的 node 进程，并查看 node 进程的状态，当然也支持性能监控，进程守护，负载均衡等功能。详情参考：[pm2 官网](https://pm2.keymetrics.io/)
 
 1、在项目根目录下创建文件`ecosystem.config.js`,并根据自己项目情况进行配置：
 
@@ -141,7 +141,7 @@ force 默认 false，如果 true，可以重复启动一个脚本。pm2 不建�
 restart_delay 异常重启情况下，延时重启时间；
 ```
 
-**注意：** 设置环境变量时需要以`env_`开头，详细参考：<https:#pm2.keymetrics.io/docs/usage/environment/>。例如设置了环境变量`env_production`，采用 pm2 启动时如下：`pm2 start ecosystem.config.js --env production`
+**注意：** 设置环境变量时需要以`env_`开头，详细参考：<https://pm2.keymetrics.io/docs/usage/environment/>。例如设置了环境变量`env_production`，采用 pm2 启动时如下：`pm2 start ecosystem.config.js --env production`
 
 2、项目打包：`npm run build`
 
@@ -169,7 +169,7 @@ pm2 list
 ```
 
 结果如下图，status:online 表示项目正在运行。
-![](https:#cdn.jsdelivr.net/gh/AnyFork/blog-images/markdown/202204071138505.png)
+![](https://cdn.jsdelivr.net/gh/AnyFork/blog-images/markdown/202204071138505.png)
 
 7、查看项目运行日志：`pm2 logs id` 或者查看 logs 日志文件查看日志。
 
