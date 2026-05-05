@@ -18,9 +18,10 @@
 }
 
 .border::before, .border::after {
-  border: 2px solid transparent;
+  border: 1.5px solid transparent;
   width: 0;
   height: 0;
+  border-radius: 16px;
 }
 
 .draw::before {
@@ -39,15 +40,15 @@
 }
 
 .draw:hover::before {
-  border-top-color: #60daaa;
-  border-right-color: #60daaa;
-  transition: width 0.25s ease-out, height 0.25s ease-out 0.25s;
+  border-top-color: rgba(44, 122, 90, 0.3);
+  border-right-color: rgba(44, 122, 90, 0.3);
+  transition: width 0.3s ease-out, height 0.3s ease-out 0.3s;
 }
 
 .draw:hover::after {
-  border-bottom-color: #60daaa;
-  border-left-color: #60daaa;
-  transition: border-color 0s ease-out 0.5s, width 0.25s ease-out 0.5s, height 0.25s ease-out 0.75s;
+  border-bottom-color: rgba(44, 122, 90, 0.3);
+  border-left-color: rgba(44, 122, 90, 0.3);
+  transition: border-color 0s ease-out 0.6s, width 0.3s ease-out 0.6s, height 0.3s ease-out 0.9s;
 }
 
 .meet::after {
@@ -56,14 +57,14 @@
 }
 
 .meet:hover::before {
-  border-top-color: #60daaa;
-  border-right-color: #60daaa;
+  border-top-color: rgba(45, 140, 240, 0.25);
+  border-right-color: rgba(45, 140, 240, 0.25);
 }
 
 .meet:hover::after {
-  border-bottom-color: #60daaa;
-  border-left-color: #60daaa;
-  transition: height 0.25s ease-out, width 0.25s ease-out 0.25s;
+  border-bottom-color: rgba(45, 140, 240, 0.25);
+  border-left-color: rgba(45, 140, 240, 0.25);
+  transition: height 0.3s ease-out, width 0.3s ease-out 0.3s;
 }
 
 .center::before, .center::after {
@@ -76,15 +77,15 @@
 }
 
 .center::before {
-  border-top: 2px solid #67cc86;
-  border-bottom: 2px solid #67cc86;
+  border-top: 1.5px solid rgba(44, 122, 90, 0.2);
+  border-bottom: 1.5px solid rgba(44, 122, 90, 0.2);
   -webkit-transform: scale3d(0, 1, 1);
   transform: scale3d(0, 1, 1);
 }
 
 .center::after {
-  border-left: 2px solid #67cc86;
-  border-right: 2px solid #67cc86;
+  border-left: 1.5px solid rgba(45, 140, 240, 0.2);
+  border-right: 1.5px solid rgba(45, 140, 240, 0.2);
   -webkit-transform: scale3d(1, 0, 1);
   transform: scale3d(1, 0, 1);
 }
@@ -92,5 +93,5 @@
 .center:hover::before, .center:hover::after {
   -webkit-transform: scale3d(1, 1, 1);
   transform: scale3d(1, 1, 1);
-  transition: transform 0.5s, -webkit-transform 0.5s;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }

@@ -19,5 +19,5 @@ hobby:
   - 计算机视觉
   - 深度学习
   - 强化学习
-bubbles: false
+bubbles: true
 ---

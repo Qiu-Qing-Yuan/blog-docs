@@ -1,10 +1,10 @@
 <template>
-  <div class="mx-[5px] mt-[10px] flex sm:w-[1120px] sm:mx-auto">
-    <div class="w-full sm:flex-1">
-      <BlogItem class="border border-[#eee]/50 dark:border-[#333]/50" v-for="(item, index) in paginatedData" :key="index" :page="item.info" :position="index % 2 == 0 ? 'left' : 'right'" :class="index % 3 == 0 ? 'draw' : index % 3 == 1 ? 'draw meet' : 'center'"></BlogItem>
+  <div class="mx-[8px] mt-[16px] flex sm:w-[1140px] sm:mx-auto">
+    <div class="w-full sm:flex-1 sm:pr-[20px]">
+      <BlogItem v-for="(item, index) in paginatedData" :key="index" :page="item.info" :position="index % 2 == 0 ? 'left' : 'right'" class="animate-fade-in" :style="{ animationDelay: `${index * 0.08}s` }"></BlogItem>
       <Pagination :pageTotal="pages.pageTotal" :pageSize="pages.pageSize" @click="onPageChange"> </Pagination>
     </div>
-    <div class="sm:w-[300px] ml-[15px]" v-if="!isMobile">
+    <div class="sm:w-[300px] ml-[12px]" v-if="!isMobile">
       <BlogSider></BlogSider>
     </div>
   </div>

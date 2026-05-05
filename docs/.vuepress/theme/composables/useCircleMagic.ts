@@ -34,7 +34,7 @@ function circleMagic(options: CircleOptions): () => void {
 
   let container = document.getElementById("bubbles") as HTMLElement;
   if (!container) {
-    throw new Error("bubbles dom is not exist !!");
+    return () => {};
   }
 
   function initCanvas(): HTMLCanvasElement {

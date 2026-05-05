@@ -1,30 +1,30 @@
 <template>
-  <footer class="footer-wrapper mt-[40px] py-[30px] text-center border-t border-t-[color:rgba(0,0,0,0.06)] dark:border-t-[color:rgba(255,255,255,0.06)]">
+  <footer class="footer-wrapper mt-[48px] py-[32px] text-center">
     <div class="max-w-[900px] mx-auto px-[15px]">
       <!-- 社交链接 -->
-      <div class="flex justify-center gap-[20px] mb-[16px]">
-        <a v-for="(item, index) in socialLinks" :key="index" :href="item.link" target="_blank" class="inline-flex items-center justify-center w-[36px] h-[36px] rounded-full bg-[#f0f0f0] dark:bg-[#2a2a3a] text-[#666] dark:text-[#ccc] transition-all duration-300 hover:bg-[#3eaf7c] hover:text-[#fff] hover:scale-110 hover:shadow-md">
-          <Icon :icon="item.icon" :iconSize="18" />
+      <div class="flex justify-center gap-[16px] mb-[18px]">
+        <a v-for="(item, index) in socialLinks" :key="index" :href="item.link" target="_blank" class="inline-flex items-center justify-center w-[34px] h-[34px] rounded-[10px] bg-[#f1f5f9] dark:bg-[#1e2233] text-[#64748b] dark:text-[#94a3b8] transition-all duration-300 hover:bg-[#2c7a5a] hover:text-[#fff] hover:scale-105 hover:shadow-md">
+          <Icon :icon="item.icon" :iconSize="16" />
         </a>
       </div>
       <!-- 运行时间 -->
-      <div class="mb-[12px] text-[13px] text-[#999]">
-        <span class="inline-flex items-center gap-[6px]">
-          <Icon icon="ClockCircleOutlined" :iconSize="14" />
-          <span>本站已上线运行</span>
-          <span class="font-mono text-[#3eaf7c] font-[600]">{{ runningTime }}</span>
+      <div class="mb-[14px] text-[12.5px] text-[#94a3b8]">
+        <span class="inline-flex items-center gap-[5px]">
+          <Icon icon="ClockCircleOutlined" :iconSize="13" class="opacity-50" />
+          <span>本站已运行</span>
+          <span class="font-mono text-[#2c7a5a] font-[600] tracking-tight">{{ runningTime }}</span>
         </span>
       </div>
       <!-- 版权信息 -->
-      <div class="flex flex-wrap justify-center items-center gap-[16px] text-[13px] text-[#999]">
-        <Icon icon="CopyrightCircleOutlined" text="游履平生 2022" :textSize="13" />
-        <span class="hidden sm:inline text-[#ddd] dark:text-[#444]">|</span>
-        <Icon icon="FireOutlined" class="text-[13px]">
-          <span class="waline-pageview-count" data-path="/" style="padding-left: 5px"></span>
+      <div class="flex flex-wrap justify-center items-center gap-[14px] text-[12.5px] text-[#94a3b8]">
+        <Icon icon="CopyrightCircleOutlined" text="游履平生 2022" :textSize="12" />
+        <span class="hidden sm:inline text-[#e2e8f0] dark:text-[#1e293b]">|</span>
+        <Icon icon="FireOutlined" class="text-[12px]" :iconSize="13">
+          <span class="waline-pageview-count" data-path="/" style="padding-left: 4px"></span>
         </Icon>
       </div>
       <!-- Powered by -->
-      <div class="mt-[12px] text-[12px] text-[#ccc] dark:text-[#555]">
+      <div class="mt-[14px] text-[11px] text-[#cbd5e1] dark:text-[#334155] tracking-wide">
         Powered by VuePress & Theme AnyFork
       </div>
     </div>

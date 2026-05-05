@@ -1,42 +1,45 @@
 <template>
-  <div class="blog-item relative w-full py-[12px] px-[14px] sm:px-[24px] sm:py-[20px] rounded-[12px] dark:bg-[#1e1e2a] bg-[#fff] shadow-card mb-[24px] cursor-pointer box-border transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1">
+  <div class="blog-item group relative w-full py-[16px] px-[16px] sm:px-[28px] sm:py-[24px] rounded-[16px] dark:bg-[#161822] bg-[#fff] shadow-card mb-[20px] cursor-pointer box-border transition-all duration-500 ease-out hover:shadow-card-hover hover:-translate-y-[3px] border border-transparent dark:border-[rgba(255,255,255,0.04)]">
+    <!-- 顶部装饰线 -->
+    <div class="absolute top-0 left-[28px] right-[28px] h-[2px] bg-gradient-to-r from-transparent via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full"></div>
+
     <div v-if="!isMobile">
-      <div class="left-box flex mt-[15px] items-center z-[300]" v-if="position == 'left'">
-        <div class="img h-[220px] rounded-[10px] overflow-hidden flex-[0_0_50%]">
-          <img :src="page.data.frontmatter.image ? page.data.frontmatter.image : withBase('/images/index/bg1.jpg')" class="w-full h-full scale-100 transition-transform duration-[.6s] hover:scale-[1.08]" loading="lazy" />
+      <div class="left-box flex mt-[12px] items-center" v-if="position == 'left'">
+        <div class="img h-[200px] rounded-[12px] overflow-hidden flex-[0_0_48%]">
+          <img :src="page.data.frontmatter.image ? page.data.frontmatter.image : withBase('/images/index/bg1.jpg')" class="w-full h-full scale-100 transition-transform duration-700 ease-out group-hover:scale-[1.06]" loading="lazy" />
         </div>
-        <div class="content flex-1 pl-[40px] flex flex-wrap m-0 px-[0.2rem] overflow-hidden">
-          <div class="title w-full text-[1.28rem]">
-            <router-link :to="page.data.path" class="font-bold text-[color:var(--text-color)] truncate block" :title="page.data.title">{{ page.data.title }}</router-link>
+        <div class="content flex-1 pl-[36px] flex flex-wrap m-0 overflow-hidden">
+          <div class="title w-full">
+            <router-link :to="page.data.path" class="font-[600] text-[1.2rem] text-[color:var(--text-color)] truncate block tracking-tight" :title="page.data.title">{{ page.data.title }}</router-link>
           </div>
-          <div class="abstract w-full h-[180px] font-normal indent-6" v-html="page.data.excerpt"></div>
+          <div class="abstract w-full h-[160px] font-normal text-[#64748b] dark:text-[#94a3b8] text-[13.5px] leading-[1.8]" v-html="page.data.excerpt"></div>
         </div>
       </div>
-      <div class="right-box flex mt-[15px] items-center z-[300]" v-else>
-        <div class="content flex-1 pr-[40px] flex flex-wrap m-0 px-[0.2rem] overflow-hidden">
-          <div class="title w-full text-[1.28rem]">
-            <router-link :to="page.data.path" class="font-bold text-[color:var(--text-color)] truncate block" :title="page.data.title">{{ page.data.title }}</router-link>
+      <div class="right-box flex mt-[12px] items-center" v-else>
+        <div class="content flex-1 pr-[36px] flex flex-wrap m-0 overflow-hidden">
+          <div class="title w-full">
+            <router-link :to="page.data.path" class="font-[600] text-[1.2rem] text-[color:var(--text-color)] truncate block tracking-tight" :title="page.data.title">{{ page.data.title }}</router-link>
           </div>
-          <div class="abstract w-full h-[180px] font-normal indent-6" v-html="page.data.excerpt"></div>
+          <div class="abstract w-full h-[160px] font-normal text-[#64748b] dark:text-[#94a3b8] text-[13.5px] leading-[1.8]" v-html="page.data.excerpt"></div>
         </div>
-        <div class="img h-[220px] rounded-[10px] overflow-hidden flex-[0_0_50%] mr-[1rem]">
-          <img :src="page.data.frontmatter.image ? page.data.frontmatter.image : withBase('/images/index/bg1.jpg')" class="w-full h-full scale-100 transition-transform duration-[.6s] hover:scale-[1.08]" loading="lazy" />
+        <div class="img h-[200px] rounded-[12px] overflow-hidden flex-[0_0_48%]">
+          <img :src="page.data.frontmatter.image ? page.data.frontmatter.image : withBase('/images/index/bg1.jpg')" class="w-full h-full scale-100 transition-transform duration-700 ease-out group-hover:scale-[1.06]" loading="lazy" />
         </div>
       </div>
     </div>
-    <div class="mobile-box flex flex-wrap z-[300] !h-auto" v-else>
-      <div class="img w-full h-[160px] rounded-[10px] overflow-hidden">
-        <img :src="page.data.frontmatter.image ? page.data.frontmatter.image : withBase('/images/index/bg1.jpg')" class="w-full h-full" loading="lazy" />
+    <div class="mobile-box flex flex-wrap !h-auto" v-else>
+      <div class="img w-full h-[150px] rounded-[10px] overflow-hidden">
+        <img :src="page.data.frontmatter.image ? page.data.frontmatter.image : withBase('/images/index/bg1.jpg')" class="w-full h-full object-cover" loading="lazy" />
       </div>
       <div class="content w-full flex flex-wrap overflow-hidden">
-        <div class="title w-full !text-[0.9rem] mt-2">
-          <router-link :to="page.data.path" class="font-bold text-[color:var(--text-color)] truncate block" :title="page.data.title">{{ page.data.title }}</router-link>
+        <div class="title w-full mt-[10px]">
+          <router-link :to="page.data.path" class="font-[600] text-[0.95rem] text-[color:var(--text-color)] truncate block" :title="page.data.title">{{ page.data.title }}</router-link>
         </div>
-        <div class="abstract w-full h-[100px] font-normal text-[0.8rem] overflow-hidden" v-html="page.data.excerpt"></div>
+        <div class="abstract w-full h-[80px] font-normal text-[#64748b] dark:text-[#94a3b8] text-[12.5px] leading-[1.7] overflow-hidden" v-html="page.data.excerpt"></div>
       </div>
     </div>
     <div class="toTop absolute top-[10px] right-[10px] z-0" v-if="page.data.frontmatter.sticky">
-      <Icon icon="VerticalAlignTopOutlined" :iconSize="28" iconColor="#fff"> </Icon>
+      <Icon icon="VerticalAlignTopOutlined" :iconSize="26" iconColor="#fff"> </Icon>
     </div>
     <BlogItemInfo :page="page.data"></BlogItemInfo>
   </div>
@@ -70,31 +73,29 @@ const props = defineProps<{
   .abstract {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 6;
+    -webkit-line-clamp: 5;
   }
 
   .title {
     position: relative;
-    font-size: 1.28rem;
-    display: inline-block;
-    z-index: 100;
 
     &:after {
       content: '';
       position: absolute;
       width: 100%;
       height: 2px;
-      bottom: 0;
+      bottom: -2px;
       left: 0;
-      background: linear-gradient(90deg, #3eaf7c, #2d8cf0);
+      background: linear-gradient(90deg, #2c7a5a, #2d8cf0);
       visibility: hidden;
       transform: scaleX(0);
-      transition: transform 0.5s ease-in-out;
+      transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
       transform-origin: left;
+      border-radius: 2px;
     }
 
     &:hover a {
-      color: #3eaf7c;
+      color: #2c7a5a;
     }
 
     &:hover:after {
@@ -105,12 +106,12 @@ const props = defineProps<{
 
   .toTop::before {
     content: '';
-    width: 0px;
-    height: 0px;
-    border-left: 50px solid transparent;
-    border-top: 50px solid #3eaf7c;
+    width: 0;
+    height: 0;
+    border-left: 46px solid transparent;
+    border-top: 46px solid #2c7a5a;
     position: absolute;
-    left: -20px;
+    left: -18px;
     z-index: -10;
   }
 }
