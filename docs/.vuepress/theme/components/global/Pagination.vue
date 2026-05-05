@@ -10,9 +10,9 @@
       <span class="text-[#94a3b8]">共 <span class="font-[600] text-[#475569] dark:text-[#94a3b8] tabular-nums">{{ props.pageTotal }}</span> 条</span>
       <span class="w-px h-[12px] bg-[#e2e8f0] dark:bg-[rgba(255,255,255,0.08)]"></span>
       <!-- 每页条数 -->
-      <span class="inline-flex items-center gap-[4px] text-[#94a3b8]">
+      <span class="inline-flex items-center gap-[4px] text-[#94a3b8] whitespace-nowrap">
         <span>每页</span>
-        <select v-model="currentPageSize" class="pagination-select bg-[#f8fafb] dark:bg-[#1a1e2e] border border-[#e2e8f0] dark:border-[rgba(255,255,255,0.08)] rounded-[6px] px-[6px] py-[2px] text-[12px] text-[#475569] dark:text-[#94a3b8] outline-none cursor-pointer focus:border-[#2c7a5a] transition-colors">
+        <select v-model="currentPageSize" class="pagination-select bg-[#f8fafb] dark:bg-[#1a1e2e] border border-[#e2e8f0] dark:border-[rgba(255,255,255,0.08)] rounded-[6px] px-[6px] py-[2px] text-[12px] text-[#475569] dark:text-[#94a3b8] outline-none cursor-pointer focus:border-[#2c7a5a] transition-colors w-[48px]">
           <option :value="10">10</option>
           <option :value="15">15</option>
           <option :value="20">20</option>
@@ -21,7 +21,7 @@
       </span>
       <span class="w-px h-[12px] bg-[#e2e8f0] dark:bg-[rgba(255,255,255,0.08)]"></span>
       <!-- 跳页 -->
-      <span class="inline-flex items-center gap-[4px] text-[#94a3b8]">
+      <span class="inline-flex items-center gap-[4px] text-[#94a3b8] whitespace-nowrap">
         <span>跳至</span>
         <input type="text" v-model="jumpPageNumber" class="pagination-input w-[36px] h-[22px] bg-[#f8fafb] dark:bg-[#1a1e2e] border border-[#e2e8f0] dark:border-[rgba(255,255,255,0.08)] rounded-[6px] px-[6px] text-[12px] text-center text-[#475569] dark:text-[#94a3b8] outline-none focus:border-[#2c7a5a] transition-colors tabular-nums" />
         <span>页</span>

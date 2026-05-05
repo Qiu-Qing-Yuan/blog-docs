@@ -73,7 +73,7 @@ const updateRunningTime = () => {
   const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))
   const seconds = Math.floor((diff % (1000 * 60)) / 1000)
 
-  runningTime.value = `${days}d ${hours}h ${minutes}m ${seconds}s`
+  runningTime.value = `${days} 天 ${hours} 时 ${minutes} 分 ${seconds} 秒`
 }
 
 onMounted(() => {
