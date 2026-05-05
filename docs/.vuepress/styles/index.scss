@@ -279,8 +279,65 @@ div[class*="language-"] {
   .pagination-list {
     .page-number, li {
       border-radius: 10px !important;
+      transition: all 0.25s ease;
     }
   }
+}
+
+// ─── 表格样式增强 ─────────────────────
+.page .theme-default-content {
+  & table thead tr {
+    background: rgba(44, 122, 90, 0.04);
+  }
+  & table tr:hover {
+    background: rgba(44, 122, 90, 0.03);
+  }
+  & th {
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    color: #475569;
+  }
+  & td {
+    font-size: 14px;
+    color: #64748b;
+  }
+  // 引用块
+  & blockquote {
+    border-left: 3px solid #2c7a5a;
+    background: rgba(44, 122, 90, 0.03);
+    border-radius: 0 8px 8px 0;
+    color: #64748b;
+    font-style: normal;
+  }
+  // 行内代码
+  & code {
+    background: rgba(44, 122, 90, 0.06);
+    color: #2c7a5a;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-size: 0.88em;
+  }
+  // 标题锚点
+  & .header-anchor {
+    color: #2c7a5a;
+    opacity: 0.4;
+    transition: opacity 0.2s;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.dark .page .theme-default-content {
+  & th { color: #94a3b8; }
+  & td { color: #94a3b8; }
+  & blockquote { color: #94a3b8; }
+  & code {
+    background: rgba(78, 202, 138, 0.08);
+    color: #4eca8a;
+  }
+  & .header-anchor { color: #4eca8a; }
 }
 
 @import 'common';

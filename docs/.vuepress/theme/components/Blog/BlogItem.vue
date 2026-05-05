@@ -12,7 +12,7 @@
           <div class="title w-full">
             <router-link :to="page.data.path" class="font-[600] text-[1.2rem] text-[color:var(--text-color)] truncate block tracking-tight" :title="page.data.title">{{ page.data.title }}</router-link>
           </div>
-          <div class="abstract w-full h-[160px] font-normal text-[#64748b] dark:text-[#94a3b8] text-[13.5px] leading-[1.8]" v-html="page.data.excerpt"></div>
+          <div class="abstract w-full h-[160px] font-normal text-[#64748b] dark:text-[#94a3b8] text-[13.5px] leading-[1.85]" v-html="page.data.excerpt"></div>
         </div>
       </div>
       <div class="right-box flex mt-[12px] items-center" v-else>
@@ -20,7 +20,7 @@
           <div class="title w-full">
             <router-link :to="page.data.path" class="font-[600] text-[1.2rem] text-[color:var(--text-color)] truncate block tracking-tight" :title="page.data.title">{{ page.data.title }}</router-link>
           </div>
-          <div class="abstract w-full h-[160px] font-normal text-[#64748b] dark:text-[#94a3b8] text-[13.5px] leading-[1.8]" v-html="page.data.excerpt"></div>
+          <div class="abstract w-full h-[160px] font-normal text-[#64748b] dark:text-[#94a3b8] text-[13.5px] leading-[1.85]" v-html="page.data.excerpt"></div>
         </div>
         <div class="img h-[200px] rounded-[12px] overflow-hidden flex-[0_0_48%]">
           <img :src="page.data.frontmatter.image ? page.data.frontmatter.image : withBase('/images/index/bg1.jpg')" class="w-full h-full scale-100 transition-transform duration-700 ease-out group-hover:scale-[1.06]" loading="lazy" />
@@ -74,6 +74,12 @@ const props = defineProps<{
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 5;
+    // 去掉首行缩进，改用更现代的排版
+    text-indent: 0;
+    // 摘要中的段落样式
+    p {
+      margin: 0;
+    }
   }
 
   .title {
