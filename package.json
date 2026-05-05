@@ -30,14 +30,14 @@
     "tailwindcss": "^3.4.3",
     "vite-plugin-compression": "^0.5.1",
     "vuepress": "2.0.0-beta.49",
-    "vuepress-plugin-blog2": "^2.0.0-beta.91",
-    "vuepress-plugin-comment2": "^2.0.0-beta.91",
-    "vuepress-plugin-copy-code2": "^2.0.0-beta.91",
-    "vuepress-plugin-copyright2": "^2.0.0-beta.91",
-    "vuepress-plugin-md-enhance": "^2.0.0-beta.91",
-    "vuepress-plugin-reading-time2": "^2.0.0-beta.91",
-    "vuepress-plugin-seo2": "^2.0.0-beta.91",
-    "vuepress-plugin-sitemap2": "^2.0.0-beta.91"
+    "vuepress-plugin-blog2": "2.0.0-beta.91",
+    "vuepress-plugin-comment2": "2.0.0-beta.91",
+    "vuepress-plugin-copy-code2": "2.0.0-beta.91",
+    "vuepress-plugin-copyright2": "2.0.0-beta.91",
+    "vuepress-plugin-md-enhance": "2.0.0-beta.91",
+    "vuepress-plugin-reading-time2": "2.0.0-beta.91",
+    "vuepress-plugin-seo2": "2.0.0-beta.91",
+    "vuepress-plugin-sitemap2": "2.0.0-beta.91"
   },
   "dependencies": {
     "dayjs": "^1.11.11",
