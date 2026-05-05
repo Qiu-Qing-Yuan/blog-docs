@@ -146,17 +146,61 @@ h1:focus {
     background-clip: text;
   }
 
-  .navbar-dropdown-title {
-    .title {
-      color: #fff;
+  // 菜单链接文字颜色
+  .navbar-links .navbar-link,
+  .navbar-links .repo-link,
+  a.nav-link {
+    color: rgba(255, 255, 255, 0.85) !important;
+
+    &:hover {
+      color: #5bd99b !important;
     }
-    .down {
-      border-top: 6px solid #fff;
+  }
+
+  // 下拉菜单
+  .navbar-dropdown {
+    background: rgba(26, 26, 46, 0.95) !important;
+    border-color: rgba(255, 255, 255, 0.1);
+
+    .navbar-dropdown-title {
+      .title {
+        color: rgba(255, 255, 255, 0.85);
+      }
+      .down {
+        border-top: 6px solid rgba(255, 255, 255, 0.85);
+      }
+    }
+
+    .navbar-dropdown-item {
+      color: rgba(255, 255, 255, 0.75);
+
+      &:hover {
+        color: #5bd99b;
+        background: rgba(91, 217, 155, 0.1);
+      }
+    }
+  }
+
+  // 搜索框
+  .search-box input {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.15);
+    color: #fff;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.4);
     }
   }
 
   .toggle-color-mode-button {
-    color: #fff;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  // 汉堡菜单按钮（移动端）
+  .toggle-sidebar-button {
+    .icon {
+      color: rgba(255, 255, 255, 0.85);
+    }
   }
 }
 
