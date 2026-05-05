@@ -2,25 +2,23 @@
   <footer class="footer-wrapper mt-[48px]">
     <div class="max-w-[900px] mx-auto px-[20px]">
       <!-- 顶部渐变分隔 -->
-      <div class="h-px bg-gradient-to-r from-transparent via-[#e2e8f0] to-transparent dark:via-[rgba(255,255,255,0.06)] mb-[28px]"></div>
+      <div class="h-px bg-gradient-to-r from-transparent via-[#e2e8f0] to-transparent dark:via-[rgba(255,255,255,0.06)] mb-[24px]"></div>
 
-      <!-- 主体内容：三栏布局 -->
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-[20px] py-[20px]">
-        <!-- 左侧：站点信息 -->
-        <div class="flex flex-col items-center sm:items-start gap-[8px]">
+      <!-- 主体内容 -->
+      <div class="flex flex-col items-center gap-[20px] py-[16px]">
+        <!-- 站点信息 -->
+        <div class="flex flex-col items-center gap-[6px]">
           <span class="text-[14px] font-[700] tracking-tight text-[#1e293b] dark:text-[#e2e8f0]">论文阅读笔记</span>
           <span class="text-[12px] text-[#94a3b8]">AI/ML/NLP/CV 方向论文阅读与思考</span>
         </div>
 
-        <!-- 中间：运行时间 -->
-        <div class="flex flex-col items-center gap-[6px]">
-          <div class="inline-flex items-center gap-[8px] text-[12px] text-[#94a3b8] bg-[#f8fafb] dark:bg-[#1a1e2e] px-[18px] py-[8px] rounded-[12px] border border-[#e2e8f0]/40 dark:border-[rgba(255,255,255,0.04)]">
-            <div class="w-[6px] h-[6px] rounded-full bg-[#2c7a5a] animate-pulse-soft"></div>
-            <span class="font-mono text-[#2c7a5a] font-[600] text-[13px] tracking-tight tabular-nums">{{ runningTime }}</span>
-          </div>
+        <!-- 运行时间 -->
+        <div class="inline-flex items-center gap-[8px] text-[12px] text-[#94a3b8] bg-[#f8fafb] dark:bg-[#1a1e2e] px-[18px] py-[8px] rounded-[12px] border border-[#e2e8f0]/40 dark:border-[rgba(255,255,255,0.04)]">
+          <div class="w-[6px] h-[6px] rounded-full bg-[#2c7a5a] animate-pulse-soft"></div>
+          <span class="font-mono text-[#2c7a5a] font-[600] text-[13px] tracking-tight tabular-nums">{{ runningTime }}</span>
         </div>
 
-        <!-- 右侧：社交链接 -->
+        <!-- 社交链接 -->
         <div class="flex items-center gap-[10px]">
           <a v-for="(item, index) in socialLinks" :key="index" :href="item.link" target="_blank" class="inline-flex items-center justify-center w-[32px] h-[32px] rounded-[8px] text-[#94a3b8] dark:text-[#64748b] transition-all duration-300 hover:text-[#2c7a5a] dark:hover:text-[#4eca8a] hover:bg-[#f0faf6] dark:hover:bg-[rgba(78,202,138,0.06)]">
             <Icon :icon="item.icon" :iconSize="16" />

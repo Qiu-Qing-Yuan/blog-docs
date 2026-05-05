@@ -1,9 +1,11 @@
 <template>
-  <div class="pagination-wrapper w-full flex items-center justify-center flex-wrap py-[16px]" v-if="pageTotal > pageSize">
+  <div class="pagination-wrapper w-full py-[16px]" v-if="pageTotal > pageSize">
     <!-- 分页按钮 -->
-    <Paginate v-model="currentPageNumber" :page-count="pageCount" :prev-text="prevText" :next-text="nextText" :container-class="'pagination'" :page-class="'page-item'" :page-range="3" :margin-pages="2" :hide-prev-next="false"> </Paginate>
+    <div class="flex items-center justify-center">
+      <Paginate v-model="currentPageNumber" :page-count="pageCount" :prev-text="prevText" :next-text="nextText" :container-class="'pagination'" :page-class="'page-item'" :page-range="3" :margin-pages="2" :hide-prev-next="false" />
+    </div>
     <!-- 辅助信息 -->
-    <div class="pagination-meta flex items-center gap-[12px] ml-0 sm:ml-[24px] mt-[12px] sm:mt-0 text-[12px]">
+    <div class="pagination-meta flex items-center justify-center flex-wrap gap-[12px] mt-[14px] text-[12px]">
       <!-- 总数 -->
       <span class="text-[#94a3b8]">共 <span class="font-[600] text-[#475569] dark:text-[#94a3b8] tabular-nums">{{ props.pageTotal }}</span> 条</span>
       <span class="w-px h-[12px] bg-[#e2e8f0] dark:bg-[rgba(255,255,255,0.08)]"></span>
