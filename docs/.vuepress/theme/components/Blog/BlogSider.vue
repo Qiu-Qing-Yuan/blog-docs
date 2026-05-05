@@ -30,7 +30,7 @@
     <div v-if="frontmatter.hobby" class="mt-[14px]">
       <Icon icon="ExperimentOutlined" text="研究方向" :textSize="13" class="font-[600] text-[#475569] dark:text-[#94a3b8] tracking-wide"></Icon>
       <div class="mt-[10px] flex flex-wrap gap-[6px]">
-        <span v-for="(item, index) in frontmatter.hobby" :key="index" class="px-[12px] py-[5px] rounded-full inline-block text-[12px] text-[#fff] transition-all duration-250 hover:scale-105 hover:shadow-md font-[500]" :style="{ background: `linear-gradient(135deg, ${useRandomColor()}, ${useRandomColor()})` }">{{ item }}</span>
+        <span v-for="(item, index) in frontmatter.hobby" :key="index" class="px-[12px] py-[5px] rounded-full inline-block text-[12px] text-[#fff] transition-all duration-250 hover:scale-105 hover:shadow-md font-[500]" :style="{ background: hobbyGradients[index % hobbyGradients.length] }">{{ item }}</span>
       </div>
     </div>
 
@@ -40,7 +40,7 @@
       <div class="pt-[10px] flex justify-center gap-[14px]">
         <span v-for="(item, index) in themeData.socialLinks" :key="index">
           <client-only>
-            <Icon :icon="item.icon" :link="item.link" target="_blank" :iconSize="22" :iconColor="useRandomColor()" class="transition-transform duration-250 hover:scale-125"></Icon>
+            <Icon :icon="item.icon" :link="item.link" target="_blank" :iconSize="22" :iconColor="socialColors[index % socialColors.length]" class="transition-transform duration-250 hover:scale-125"></Icon>
           </client-only>
         </span>
       </div>
@@ -57,13 +57,13 @@
         <Icon icon="AppstoreTwotone" text="研究领域" :textSize="13" class="font-[600] text-[#475569] dark:text-[#94a3b8] tracking-wide" />
       </div>
       <RouterLink
-        v-for="({ items, path }, name) in category.map"
+        v-for="({ items, path }, name, idx) in category.map"
         :key="name"
         :to="path"
         class="w-full flex items-center justify-between text-[#64748b] dark:text-[#94a3b8] px-[14px] my-[3px] font-normal h-[36px] bg-[#f8fafb] hover:bg-[#2c7a5a] hover:text-[#fff] dark:bg-[#1a1e2e] dark:hover:bg-[#2c7a5a] rounded-[10px] transition-all duration-250 border border-transparent hover:border-[#2c7a5a]/20"
       >
         <span class="text-[13px]">{{ name }}</span>
-        <span class="ml-[10px] min-w-[1.3rem] h-[1.3rem] leading-[1.3rem] text-center text-[10px] text-[#fff] rounded-[6px] px-[5px] font-[600]" style="background: linear-gradient(135deg, #2c7a5a, #3eaf7c)"> {{ items.length }}</span>
+        <span class="ml-[10px] min-w-[1.3rem] h-[1.3rem] leading-[1.3rem] text-center text-[10px] text-[#fff] rounded-[6px] px-[5px] font-[600]" :style="{ background: categoryGradients[idx % categoryGradients.length] }"> {{ items.length }}</span>
       </RouterLink>
     </div>
 
@@ -72,9 +72,9 @@
       <div class="w-full mb-[10px]">
         <Icon icon="TagsOutlined" text="标签列表" :textSize="13" class="font-[600] text-[#475569] dark:text-[#94a3b8] tracking-wide" />
       </div>
-      <RouterLink v-for="({ items, path }, name) in tag.map" :key="name" :to="path" class="flex items-center text-[#64748b] dark:text-[#94a3b8] px-[10px] my-[3px] font-normal h-[26px] bg-[#f8fafb] hover:bg-[#2c7a5a] hover:text-[#fff] dark:bg-[#1a1e2e] dark:hover:bg-[#2c7a5a] rounded-full mx-[2px] transition-all duration-250 border border-[#e2e8f0]/40 dark:border-[rgba(255,255,255,0.04)] hover:border-[#2c7a5a]/20">
+      <RouterLink v-for="({ items, path }, name, idx) in tag.map" :key="name" :to="path" class="flex items-center text-[#64748b] dark:text-[#94a3b8] px-[10px] my-[3px] font-normal h-[26px] bg-[#f8fafb] hover:bg-[#2c7a5a] hover:text-[#fff] dark:bg-[#1a1e2e] dark:hover:bg-[#2c7a5a] rounded-full mx-[2px] transition-all duration-250 border border-[#e2e8f0]/40 dark:border-[rgba(255,255,255,0.04)] hover:border-[#2c7a5a]/20">
         <span class="text-[11px]">{{ name }}</span>
-        <span class="ml-[4px] min-w-[1rem] h-[1rem] leading-[1rem] text-center text-[9px] text-[#fff] rounded-full px-[3px] font-[600]" style="background: linear-gradient(135deg, #2c7a5a, #2d8cf0)"> {{ items.length }}</span>
+        <span class="ml-[4px] min-w-[1rem] h-[1rem] leading-[1rem] text-center text-[9px] text-[#fff] rounded-full px-[3px] font-[600]" :style="{ background: tagGradients[idx % tagGradients.length] }"> {{ items.length }}</span>
       </RouterLink>
     </div>
 
@@ -95,7 +95,6 @@
 <script setup lang="ts">
 import { useThemeData } from '@vuepress/plugin-theme-data/lib/client'
 import { usePageFrontmatter, withBase } from '@vuepress/client'
-import { useRandomColor } from '../../utils/useColor'
 import { useBlogCategory, useBlogType } from 'vuepress-plugin-blog2/lib/client'
 interface ThemeData {
   author?: string;
@@ -110,4 +109,44 @@ const frontmatter = usePageFrontmatter()
 const category = useBlogCategory('category')
 const tag = useBlogCategory('tag')
 const post = useBlogType('article')
+
+// 预计算的渐变色（避免每次渲染随机生成导致闪烁）
+const hobbyGradients = [
+  'linear-gradient(135deg, #e15b64, #f47e60)',
+  'linear-gradient(135deg, #f8b26a, #abbd81)',
+  'linear-gradient(135deg, #849b87, #67cc86)',
+  'linear-gradient(135deg, #f26d6d, #fb9b5f)',
+  'linear-gradient(135deg, #3498db, #2d8cf0)',
+  'linear-gradient(135deg, #e15b64, #f8b26a)',
+  'linear-gradient(135deg, #f47e60, #67cc86)',
+  'linear-gradient(135deg, #abbd81, #3498db)',
+]
+
+const socialColors = ['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87', '#67cc86', '#3498db', '#2d8cf0']
+
+const categoryGradients = [
+  'linear-gradient(135deg, #2c7a5a, #3eaf7c)',
+  'linear-gradient(135deg, #2d8cf0, #7c3aed)',
+  'linear-gradient(135deg, #e15b64, #f47e60)',
+  'linear-gradient(135deg, #f8b26a, #e6a23c)',
+  'linear-gradient(135deg, #849b87, #67cc86)',
+  'linear-gradient(135deg, #a18cd1, #fbc2eb)',
+  'linear-gradient(135deg, #667eea, #764ba2)',
+  'linear-gradient(135deg, #4facfe, #00f2fe)',
+]
+
+const tagGradients = [
+  'linear-gradient(135deg, #f093fb, #f5576c)',
+  'linear-gradient(135deg, #4facfe, #00f2fe)',
+  'linear-gradient(135deg, #43e97b, #38f9d7)',
+  'linear-gradient(135deg, #fa709a, #fee140)',
+  'linear-gradient(135deg, #a18cd1, #fbc2eb)',
+  'linear-gradient(135deg, #fccb90, #d57eeb)',
+  'linear-gradient(135deg, #e0c3fc, #8ec5fc)',
+  'linear-gradient(135deg, #f9d423, #ff4e50)',
+  'linear-gradient(135deg, #667eea, #764ba2)',
+  'linear-gradient(135deg, #89f7fe, #66a6ff)',
+  'linear-gradient(135deg, #fddb92, #d1fdff)',
+  'linear-gradient(135deg, #9890e3, #b1f4cf)',
+]
 </script>

@@ -82,8 +82,13 @@ useCount()
 
 const currentYear = new Date().getFullYear()
 
-// 网站上线时间
-const startDate = new Date()
+// 网站上线时间（持久化到 localStorage，刷新不会重置）
+const SITE_START_KEY = 'site-start-time'
+const storedStart = localStorage.getItem(SITE_START_KEY)
+const startDate = storedStart ? new Date(storedStart) : new Date()
+if (!storedStart) {
+  localStorage.setItem(SITE_START_KEY, startDate.toISOString())
+}
 const timeData = reactive({ days: '000', hours: '00', minutes: '00', seconds: '00' })
 let timer: ReturnType<typeof setInterval> | null = null
 
