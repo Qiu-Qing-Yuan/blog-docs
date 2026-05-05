@@ -43,5 +43,16 @@
     "dayjs": "^1.11.11",
     "typed.js": "^2.1.0",
     "vuejs-paginate-next": "^1.0.2"
+  },
+  "overrides": {
+    "@vuepress/utils": "2.0.0-beta.49",
+    "@vuepress/core": "2.0.0-beta.49",
+    "@vuepress/shared": "2.0.0-beta.49",
+    "@vuepress/client": "2.0.0-beta.49",
+    "@vuepress/cli": "2.0.0-beta.49",
+    "@vuepress/bundler-vite": "2.0.0-beta.49",
+    "@vuepress/theme-default": "2.0.0-beta.49",
+    "@vuepress/plugin-theme-data": "2.0.0-beta.49",
+    "@vuepress/plugin-container": "2.0.0-beta.49"
   }
 }
