@@ -222,14 +222,28 @@ p > img {
 
 .dark .page .theme-default-content {
   background: rgba(20, 24, 34, 0.92);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 3px rgba(255, 255, 255, 0.02), 0 4px 20px rgba(255, 255, 255, 0.03);
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.03), 0 12px 40px rgba(255, 255, 255, 0.04);
+  }
+
   & th { color: #94a3b8; }
   & td { color: #94a3b8; }
-  & blockquote { color: #94a3b8; }
+  & blockquote {
+    color: #94a3b8;
+    border-left-color: #4eca8a;
+  }
   & code {
     background: rgba(78, 202, 138, 0.08);
     color: #4eca8a;
   }
   & .header-anchor { color: #4eca8a; }
+  & table { border-color: rgba(255, 255, 255, 0.06); }
+  & th, & td { border-color: rgba(255, 255, 255, 0.06); }
+  & table thead tr { background: rgba(78, 202, 138, 0.04); }
+  & table tr:hover { background: rgba(78, 202, 138, 0.03); }
 }
 
 // ─── 目录 (TOC) 激活样式 ──────────────
