@@ -3,7 +3,7 @@ import { defineUserConfig } from "vuepress";
 import { viteBundler } from "@vuepress/bundler-vite";
 import { navbar, plugins, sidebar, firendLink } from './config/index'
 import { AnyForkThemeOptions } from "./theme/types/theme";
-import { path } from '@vuepress/utils'
+import path from 'path'
 //打包文件大小分析插件
 import { visualizer } from 'rollup-plugin-visualizer';
 //打包压缩插件

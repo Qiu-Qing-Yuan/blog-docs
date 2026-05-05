@@ -1,6 +1,6 @@
 import type { Theme } from '@vuepress/core'
 import { defaultTheme } from '@vuepress/theme-default'
-import { path } from '@vuepress/utils'
+import path from 'path'
 import { AnyForkThemeOptions } from './types/theme'
 
 export const AnyForkTheme = (options: AnyForkThemeOptions): Theme => {

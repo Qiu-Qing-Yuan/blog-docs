@@ -19,7 +19,7 @@ import { commentPlugin } from "vuepress-plugin-comment2";
 import { containerPlugin } from '@vuepress/plugin-container'
 import { resolveContainerOptions } from './container'
 import { loadingPage } from '@anyfork/vuepress-plugin-loading-page-next'
-import { path } from '@vuepress/utils'
+import path from 'path'
 
 export const plugins = [
     // 注册全局插件
