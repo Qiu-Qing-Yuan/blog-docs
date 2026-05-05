@@ -1,37 +1,46 @@
 <template>
-  <footer class="footer-wrapper mt-[48px] py-[36px] text-center">
+  <footer class="footer-wrapper mt-[48px]">
     <div class="max-w-[900px] mx-auto px-[20px]">
-      <!-- 顶部装饰线 -->
-      <div class="flex items-center gap-[16px] mb-[28px]">
-        <div class="flex-1 h-px bg-gradient-to-r from-transparent via-[#e2e8f0] to-transparent dark:via-[rgba(255,255,255,0.06)]"></div>
-        <span class="text-[#cbd5e1] dark:text-[#475569] text-[14px]">&#9670;</span>
-        <div class="flex-1 h-px bg-gradient-to-r from-transparent via-[#e2e8f0] to-transparent dark:via-[rgba(255,255,255,0.06)]"></div>
+      <!-- 顶部渐变分隔 -->
+      <div class="h-px bg-gradient-to-r from-transparent via-[#e2e8f0] to-transparent dark:via-[rgba(255,255,255,0.06)] mb-[28px]"></div>
+
+      <!-- 主体内容：三栏布局 -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-[20px] py-[20px]">
+        <!-- 左侧：站点信息 -->
+        <div class="flex flex-col items-center sm:items-start gap-[8px]">
+          <span class="text-[14px] font-[700] tracking-tight text-[#1e293b] dark:text-[#e2e8f0]">论文阅读笔记</span>
+          <span class="text-[12px] text-[#94a3b8]">AI/ML/NLP/CV 方向论文阅读与思考</span>
+        </div>
+
+        <!-- 中间：运行时间 -->
+        <div class="flex flex-col items-center gap-[6px]">
+          <div class="inline-flex items-center gap-[8px] text-[12px] text-[#94a3b8] bg-[#f8fafb] dark:bg-[#1a1e2e] px-[18px] py-[8px] rounded-[12px] border border-[#e2e8f0]/40 dark:border-[rgba(255,255,255,0.04)]">
+            <div class="w-[6px] h-[6px] rounded-full bg-[#2c7a5a] animate-pulse-soft"></div>
+            <span class="font-mono text-[#2c7a5a] font-[600] text-[13px] tracking-tight tabular-nums">{{ runningTime }}</span>
+          </div>
+        </div>
+
+        <!-- 右侧：社交链接 -->
+        <div class="flex items-center gap-[10px]">
+          <a v-for="(item, index) in socialLinks" :key="index" :href="item.link" target="_blank" class="inline-flex items-center justify-center w-[32px] h-[32px] rounded-[8px] text-[#94a3b8] dark:text-[#64748b] transition-all duration-300 hover:text-[#2c7a5a] dark:hover:text-[#4eca8a] hover:bg-[#f0faf6] dark:hover:bg-[rgba(78,202,138,0.06)]">
+            <Icon :icon="item.icon" :iconSize="16" />
+          </a>
+        </div>
       </div>
-      <!-- 社交链接 -->
-      <div class="flex justify-center gap-[14px] mb-[20px]">
-        <a v-for="(item, index) in socialLinks" :key="index" :href="item.link" target="_blank" class="inline-flex items-center justify-center w-[36px] h-[36px] rounded-[10px] bg-[#f8fafb] dark:bg-[#1a1e2e] text-[#64748b] dark:text-[#94a3b8] border border-[#e2e8f0]/50 dark:border-[rgba(255,255,255,0.05)] transition-all duration-300 hover:bg-[#2c7a5a] hover:text-[#fff] hover:border-[#2c7a5a] hover:scale-105 hover:shadow-lg">
-          <Icon :icon="item.icon" :iconSize="16" />
-        </a>
-      </div>
-      <!-- 运行时间 -->
-      <div class="mb-[16px] text-[12.5px] text-[#94a3b8]">
-        <span class="inline-flex items-center gap-[6px] bg-[#f8fafb] dark:bg-[#1a1e2e] px-[16px] py-[6px] rounded-full border border-[#e2e8f0]/40 dark:border-[rgba(255,255,255,0.04)]">
-          <Icon icon="ClockCircleOutlined" :iconSize="13" class="opacity-40" />
-          <span>本站已运行</span>
-          <span class="font-mono text-[#2c7a5a] font-[600] tracking-tight">{{ runningTime }}</span>
+
+      <!-- 底部信息栏 -->
+      <div class="flex flex-wrap justify-center items-center gap-[6px] pt-[16px] border-t border-[#f1f5f9] dark:border-[rgba(255,255,255,0.04)]">
+        <span class="text-[11px] text-[#cbd5e1] dark:text-[#475569]">
+          <Icon icon="CopyrightCircleOutlined" :iconSize="11" class="opacity-50" /> {{ currentYear }} 游履平生
         </span>
-      </div>
-      <!-- 版权信息 -->
-      <div class="flex flex-wrap justify-center items-center gap-[14px] text-[12px] text-[#94a3b8]">
-        <Icon icon="CopyrightCircleOutlined" text="游履平生 2022" :textSize="12" />
-        <span class="hidden sm:inline text-[#e2e8f0] dark:text-[#1e293b]">&#124;</span>
-        <Icon icon="FireOutlined" class="text-[12px]" :iconSize="13">
-          <span class="waline-pageview-count" data-path="/" style="padding-left: 4px"></span>
-        </Icon>
-      </div>
-      <!-- Powered by -->
-      <div class="mt-[16px] text-[11px] text-[#cbd5e1] dark:text-[#334155] tracking-wider">
-        Powered by VuePress & Theme AnyFork
+        <span class="text-[#e2e8f0] dark:text-[#1e293b] text-[10px]">&#183;</span>
+        <span class="inline-flex items-center text-[11px] text-[#cbd5e1] dark:text-[#475569]">
+          <Icon icon="FireOutlined" :iconSize="11" class="opacity-40">
+            <span class="waline-pageview-count" data-path="/" style="padding-left: 3px; font-size: 11px;"></span>
+          </Icon>
+        </span>
+        <span class="text-[#e2e8f0] dark:text-[#1e293b] text-[10px]">&#183;</span>
+        <span class="text-[11px] text-[#cbd5e1] dark:text-[#475569]">Powered by VuePress</span>
       </div>
     </div>
   </footer>
@@ -50,6 +59,8 @@ const themeData = useThemeData() as unknown as ThemeData
 const socialLinks = themeData.value?.socialLinks || []
 useCount()
 
+const currentYear = new Date().getFullYear()
+
 // 网站上线时间
 const startDate = new Date('2022-01-01T00:00:00')
 const runningTime = ref('')
@@ -64,7 +75,7 @@ const updateRunningTime = () => {
   const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))
   const seconds = Math.floor((diff % (1000 * 60)) / 1000)
 
-  runningTime.value = `${days} 天 ${hours} 时 ${minutes} 分 ${seconds} 秒`
+  runningTime.value = `${days}d ${hours}h ${minutes}m ${seconds}s`
 }
 
 onMounted(() => {

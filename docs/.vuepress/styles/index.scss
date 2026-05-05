@@ -274,15 +274,6 @@ div[class*="language-"] {
   color: inherit;
 }
 
-// ─── 分页器 ───────────────────────────
-.pagination {
-  .pagination-list {
-    .page-number, li {
-      border-radius: 10px !important;
-      transition: all 0.25s ease;
-    }
-  }
-}
 
 // ─── 表格样式增强 ─────────────────────
 .page .theme-default-content {
