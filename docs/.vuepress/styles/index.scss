@@ -29,6 +29,11 @@ body {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   z-index: 10000;
   transition: all 0.3s ease;
+  // 覆盖默认主题的 CSS 变量
+  --c-text: #fff;
+  --c-text-accent: #5bd99b;
+  --c-text-lightest: rgba(255, 255, 255, 0.6);
+  --c-border: rgba(255, 255, 255, 0.15);
 }
 
 .dark .navbar {
@@ -44,6 +49,10 @@ body {
     &:hover {
       transform: rotate(360deg);
     }
+  }
+  // 汉堡菜单图标颜色
+  .toggle-sidebar-button .icon span {
+    background-color: #fff;
   }
 }
 
