@@ -1,7 +1,7 @@
 <template>
   <div class="pagination-wrapper w-full flex items-center justify-center flex-wrap py-[16px]" v-if="pageTotal > pageSize">
     <!-- 分页按钮 -->
-    <Paginate v-model="pageNumber" :page-count="pageCount" :prev-text="prevText" :next-text="nextText" :container-class="'pagination'" :page-class="'page-item'" :page-range="3" :margin-pages="2" :hide-prev-next="false"> </Paginate>
+    <Paginate v-model="currentPageNumber" :page-count="pageCount" :prev-text="prevText" :next-text="nextText" :container-class="'pagination'" :page-class="'page-item'" :page-range="3" :margin-pages="2" :hide-prev-next="false"> </Paginate>
     <!-- 辅助信息 -->
     <div class="pagination-meta flex items-center gap-[12px] ml-0 sm:ml-[24px] mt-[12px] sm:mt-0 text-[12px]">
       <!-- 总数 -->
@@ -10,7 +10,7 @@
       <!-- 每页条数 -->
       <span class="inline-flex items-center gap-[4px] text-[#94a3b8]">
         <span>每页</span>
-        <select v-model="pageSize" class="pagination-select bg-[#f8fafb] dark:bg-[#1a1e2e] border border-[#e2e8f0] dark:border-[rgba(255,255,255,0.08)] rounded-[6px] px-[6px] py-[2px] text-[12px] text-[#475569] dark:text-[#94a3b8] outline-none cursor-pointer focus:border-[#2c7a5a] transition-colors">
+        <select v-model="currentPageSize" class="pagination-select bg-[#f8fafb] dark:bg-[#1a1e2e] border border-[#e2e8f0] dark:border-[rgba(255,255,255,0.08)] rounded-[6px] px-[6px] py-[2px] text-[12px] text-[#475569] dark:text-[#94a3b8] outline-none cursor-pointer focus:border-[#2c7a5a] transition-colors">
           <option :value="10">10</option>
           <option :value="15">15</option>
           <option :value="20">20</option>
@@ -33,38 +33,60 @@ import { computed, ref, watch } from 'vue'
 import Paginate from 'vuejs-paginate-next'
 import { isMobile } from '../../utils'
 
-const props = defineProps<{
-  pageTotal: number
-}>()
+const props = withDefaults(
+  defineProps<{
+    pageTotal: number
+    pageSize?: number
+    pageNumber?: number
+  }>(),
+  { pageSize: 10, pageNumber: 1 }
+)
 
-const pageNumber = ref(1)
-const pageSize = ref(10)
 const emit = defineEmits<{
   (e: 'click', value: { page: number; pageSize: number }): void
 }>()
 
-const prevText = computed(() => isMobile.value ? '‹' : '‹ 上一页')
-const nextText = computed(() => isMobile.value ? '›' : '下一页 ›')
+const currentPageNumber = ref(props.pageNumber)
+const currentPageSize = ref(props.pageSize)
 
-const clickEvent = (pageNumber: number, pageSize: number) => {
-  emit('click', { page: pageNumber, pageSize: pageSize })
-}
-const pageCount = computed(() => Math.ceil(props.pageTotal / pageSize.value))
+watch(
+  () => props.pageNumber,
+  (v) => {
+    if (v !== currentPageNumber.value) currentPageNumber.value = v
+  }
+)
+watch(
+  () => props.pageSize,
+  (v) => {
+    if (v !== currentPageSize.value) currentPageSize.value = v
+  }
+)
+
+const prevText = computed(() => (isMobile.value ? '‹' : '‹ 上一页'))
+const nextText = computed(() => (isMobile.value ? '›' : '下一页 ›'))
+
+const pageCount = computed(() => Math.ceil(props.pageTotal / currentPageSize.value))
+
 const jumpPageNumber = ref<undefined | string>(undefined)
+
 watch(jumpPageNumber, (newVal) => {
   if (newVal) {
     const num = parseInt(newVal)
     if (num > 0 && num <= pageCount.value) {
-      clickEvent(num, pageSize.value)
+      currentPageNumber.value = num
+      emit('click', { page: num, pageSize: currentPageSize.value })
     }
   }
 })
-watch(pageNumber, (newVal) => {
-  newVal + '' != jumpPageNumber.value ? (jumpPageNumber.value = undefined) : ''
-  newVal ? clickEvent(newVal, pageSize.value) : ''
+
+watch(currentPageNumber, (newVal) => {
+  if (newVal + '' !== jumpPageNumber.value) jumpPageNumber.value = undefined
+  emit('click', { page: newVal, pageSize: currentPageSize.value })
 })
-watch(pageSize, (newVal) => {
-  clickEvent(1, newVal)
+
+watch(currentPageSize, (newVal) => {
+  currentPageNumber.value = 1
+  emit('click', { page: 1, pageSize: newVal })
 })
 </script>
 

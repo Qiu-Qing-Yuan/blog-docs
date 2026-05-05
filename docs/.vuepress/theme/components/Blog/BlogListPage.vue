@@ -14,7 +14,7 @@
             </RouterLink>
           </div>
           <BlogItem v-for="(item, index) in paginatedData" :page="item.info" :position="index % 2 == 0 ? 'left' : 'right'" :key="index" />
-          <Pagination :pageTotal="pages.pageTotal" :pageSize="pages.pageSize" @click="onPageChange"> </Pagination>
+          <Pagination :pageTotal="pages.pageTotal" :pageSize="pages.pageSize" @click="onPageChange" />
         </div>
       </main>
     </template>
