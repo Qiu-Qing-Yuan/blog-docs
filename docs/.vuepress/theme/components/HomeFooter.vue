@@ -13,9 +13,32 @@
         </div>
 
         <!-- 运行时间 -->
-        <div class="inline-flex items-center gap-[8px] text-[12px] text-[#94a3b8] bg-[#f8fafb] dark:bg-[#1a1e2e] px-[18px] py-[8px] rounded-[12px] border border-[#e2e8f0]/40 dark:border-[rgba(255,255,255,0.04)]">
-          <div class="w-[6px] h-[6px] rounded-full bg-[#2c7a5a] animate-pulse-soft"></div>
-          <span class="font-mono text-[#2c7a5a] font-[600] text-[13px] tracking-tight tabular-nums">{{ runningTime }}</span>
+        <div class="running-time-wrapper">
+          <div class="flex items-center gap-[6px]">
+            <div class="w-[5px] h-[5px] rounded-full bg-[#2c7a5a] animate-pulse-soft"></div>
+            <span class="text-[11px] text-[#94a3b8] tracking-widest uppercase">已运行</span>
+          </div>
+          <div class="flex items-center gap-[4px] mt-[10px]">
+            <div class="time-block">
+              <span class="time-num">{{ timeData.days }}</span>
+              <span class="time-label">天</span>
+            </div>
+            <span class="time-sep">:</span>
+            <div class="time-block">
+              <span class="time-num">{{ timeData.hours }}</span>
+              <span class="time-label">时</span>
+            </div>
+            <span class="time-sep">:</span>
+            <div class="time-block">
+              <span class="time-num">{{ timeData.minutes }}</span>
+              <span class="time-label">分</span>
+            </div>
+            <span class="time-sep">:</span>
+            <div class="time-block">
+              <span class="time-num">{{ timeData.seconds }}</span>
+              <span class="time-label">秒</span>
+            </div>
+          </div>
         </div>
 
         <!-- 社交链接 -->
@@ -44,7 +67,7 @@
   </footer>
 </template>
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, reactive, onMounted, onUnmounted } from 'vue'
 import { useCount } from '../composables'
 import { useThemeData } from '@vuepress/plugin-theme-data/lib/client'
 
@@ -61,19 +84,19 @@ const currentYear = new Date().getFullYear()
 
 // 网站上线时间
 const startDate = new Date('2022-01-01T00:00:00')
-const runningTime = ref('')
+const timeData = reactive({ days: '000', hours: '00', minutes: '00', seconds: '00' })
 let timer: ReturnType<typeof setInterval> | null = null
+
+const pad = (n: number, len = 2) => String(n).padStart(len, '0')
 
 const updateRunningTime = () => {
   const now = new Date()
   const diff = now.getTime() - startDate.getTime()
 
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24))
-  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))
-  const seconds = Math.floor((diff % (1000 * 60)) / 1000)
-
-  runningTime.value = `${days} 天 ${hours} 时 ${minutes} 分 ${seconds} 秒`
+  timeData.days = pad(Math.floor(diff / (1000 * 60 * 60 * 24)), 3)
+  timeData.hours = pad(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)))
+  timeData.minutes = pad(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)))
+  timeData.seconds = pad(Math.floor((diff % (1000 * 60)) / 1000))
 }
 
 onMounted(() => {
@@ -87,3 +110,70 @@ onUnmounted(() => {
   }
 })
 </script>
+
+<style scoped>
+.running-time-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14px 24px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(44, 122, 90, 0.03), rgba(62, 175, 124, 0.02));
+  border: 1px solid rgba(44, 122, 90, 0.08);
+}
+
+.dark .running-time-wrapper {
+  background: linear-gradient(135deg, rgba(78, 202, 138, 0.04), rgba(44, 122, 90, 0.02));
+  border-color: rgba(78, 202, 138, 0.08);
+}
+
+.time-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 40px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(44, 122, 90, 0.06);
+}
+
+.dark .time-block {
+  background: rgba(20, 24, 34, 0.6);
+  border-color: rgba(78, 202, 138, 0.06);
+}
+
+.time-num {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 18px;
+  font-weight: 700;
+  color: #2c7a5a;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.dark .time-num {
+  color: #4eca8a;
+}
+
+.time-label {
+  font-size: 10px;
+  color: #94a3b8;
+  margin-top: 4px;
+  letter-spacing: 0.05em;
+}
+
+.time-sep {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(44, 122, 90, 0.3);
+  margin: 0 2px;
+  align-self: flex-start;
+  padding-top: 6px;
+}
+
+.dark .time-sep {
+  color: rgba(78, 202, 138, 0.3);
+}
+</style>
