@@ -89,10 +89,14 @@ p > img {
   background: rgba(24, 24, 24, 0.9);
 }
 
-// 左侧sider激活样式
-.active {
-  background-color: #3eaf7c1a;
-  border-left-color: #3eaf7c;
+// 文章目录（TOC）激活样式
+.sidebar-item.active:not(.sidebar-heading) {
+  font-weight: 600;
+  color: #3eaf7c !important;
+  border-left-color: #3eaf7c !important;
+  background-color: rgba(62, 175, 124, 0.08);
+  border-radius: 0 6px 6px 0;
+  transition: all 0.2s ease;
 }
 
 .home .hero img {
