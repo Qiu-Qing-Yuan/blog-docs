@@ -3,11 +3,14 @@
     <template #page>
       <main class="page">
         <div class="pt-[20px] w-full sm:w-[var(--content-width)] my-0 mx-auto">
-          <Icon :icon="icon" :iconSize="25" :text="title" :textSize="20" class="dark:hover:text-[#fff] ml-[10px]" />
-          <div class="w-full flex flex-wrap my-[10px]">
-            <RouterLink v-for="({ items, path }, name) in blogMap.map" :key="name" :to="path" class="shadow-item flex items-center text-[#666] font-normal px-[8px] h-[35px] mt-[5px] sm:px-[14px] sm:h-[50px] hover:bg-[#3eaf7c] hover:text-[#fff] dark:bg-[#181818] dark:hover:bg-[#3eaf7c] dark:text-[#fff] rounded mx-[5px]">
-              <span class="text-[10px] sm:text-[1rem]">{{ name }}</span>
-              <span class="ml-[10px] w-[1.2rem] h-[1.2rem] leading-[1.2rem] text-center text-[.7rem] text-[#fff]" :style="{ 'background-color': getRandomColor() }"> {{ items.length }}</span>
+          <div class="flex items-center gap-[8px] mb-[16px] ml-[10px]">
+            <Icon :icon="icon" :iconSize="22" />
+            <span class="text-[1.2rem] font-[600] bg-gradient-to-r from-[#3eaf7c] to-[#2d8cf0] bg-clip-text text-transparent">{{ title }}</span>
+          </div>
+          <div class="w-full flex flex-wrap my-[12px] gap-[8px]">
+            <RouterLink v-for="({ items, path }, name) in blogMap.map" :key="name" :to="path" class="flex items-center text-[#666] font-normal px-[14px] h-[36px] bg-[#f8f9fa] hover:bg-[#3eaf7c] hover:text-[#fff] dark:bg-[#2a2a3a] dark:hover:bg-[#3eaf7c] dark:text-[#ddd] rounded-full transition-all duration-200 hover:shadow-md hover:scale-105">
+              <span class="text-[13px]">{{ name }}</span>
+              <span class="ml-[8px] w-[1.2rem] h-[1.2rem] leading-[1.2rem] text-center text-[.7rem] text-[#fff] rounded-full" :style="{ 'background-color': getRandomColor() }"> {{ items.length }}</span>
             </RouterLink>
           </div>
           <BlogItem v-for="(item, index) in paginatedData" :page="item.info" :position="index % 2 == 0 ? 'left' : 'right'" :key="index" />
@@ -56,6 +59,8 @@ watch(
 </script>
 <style scoped>
 .router-link-exact-active {
-  background: #3eaf7c;
+  background: #3eaf7c !important;
+  color: #fff !important;
+  box-shadow: 0 4px 12px rgba(62, 175, 124, 0.3);
 }
 </style>

@@ -5,20 +5,20 @@ module.exports = {
   theme: {
     extend: {
       boxShadow: {
-        //首页blog box阴影
         box: '0 1px 8px 0 rgba(0, 0, 0, 0.1)',
-        /**分类和标签box阴影 */
-        item: '0 1px 8px 0 rgba(0, 0, 0, 0.1)'
+        item: '0 1px 8px 0 rgba(0, 0, 0, 0.1)',
+        card: '0 4px 16px rgba(0, 0, 0, 0.08)',
+        'card-hover': '0 12px 32px rgba(0, 0, 0, 0.15)',
+        'card-light': '0 2px 12px rgba(0, 0, 0, 0.06)',
+        sidebar: '0 4px 24px rgba(0, 0, 0, 0.08)',
       },
       colors: {
-        // 主题色
         primary: '#3eaf7c'
       }
     }
   },
   plugins: [],
   corePlugins: {
-    // 禁用预检样式
     preflight: false
   }
 }

@@ -1,21 +1,23 @@
 <template>
-  <div class="hero w-full relative h-[250px] flex justify-center items-center overflow-hidden" :style="homeBanner.bannerOptions.bgImageStyle">
+  <div class="hero w-full relative h-[300px] sm:h-[400px] flex justify-center items-center overflow-hidden" :style="homeBanner.bannerOptions.bgImageStyle">
     <!--轮播图 -->
     <div id="banner" class="w-full absolute z-0 overflow-hidden">
-      <img v-for="(item, index) in images" :key="item" :src="item" class="absolute w-full h-full object-cover transition-opacity duration-1000" :class="{ 'opacity-100': index === homeBanner.currentIndex.value, 'opacity-0': index !== homeBanner.currentIndex.value }" />
+      <img v-for="(item, index) in images" :key="item" :src="item" class="absolute w-full h-full object-cover transition-opacity duration-1000" :class="{ 'opacity-100': index === homeBanner.currentIndex.value, 'opacity-0': index !== homeBanner.currentIndex.value }" loading="eager" />
     </div>
+    <!--渐变遮罩层 -->
+    <div class="absolute inset-0 z-[5] bg-gradient-to-b from-black/30 via-black/20 to-black/50"></div>
     <!--标题 -->
-    <div class="index z-100 absolute text-[#fff] text-center">
-      <!--主标题，主标题为数组时通过typed.js进行打印，反之正常显示 -->
+    <div class="index z-100 absolute text-[#fff] text-center px-4">
+      <!--主标题 -->
       <div>
-        <h1 v-if="`${homeBanner.bannerOptions.heroText instanceof Array}`" class="typed inline-block text-[1rem] font-[500] sm:text-[2.5rem]"></h1>
-        <h1 v-else class="typed inline-block text-[1rem] font-[500] sm:text-[2.5rem]">vuePress-theme-Anyfork</h1>
+        <h1 v-if="`${homeBanner.bannerOptions.heroText instanceof Array}`" class="typed inline-block text-[1.2rem] font-[600] sm:text-[2.8rem] drop-shadow-lg"></h1>
+        <h1 v-else class="typed inline-block text-[1.2rem] font-[600] sm:text-[2.8rem] drop-shadow-lg">vuePress-theme-Anyfork</h1>
       </div>
       <!--副标题-->
-      <p v-if="homeBanner.bannerOptions.tagline" class="text-[0.8rem] sm:text-[1.6rem] sm:my-5">
+      <p v-if="homeBanner.bannerOptions.tagline" class="text-[0.85rem] sm:text-[1.4rem] sm:my-5 opacity-90 drop-shadow-md">
         {{ homeBanner.bannerOptions.tagline || 'Welcome to your vuePress-theme-AnyFork site' }}
       </p>
-      <!--向下箭头，点击跳到文章列表-->
+      <!--向下箭头 -->
       <a v-if="homeBanner.bannerOptions.showArrow" class="anchor-down" @click="scrollFn"></a>
     </div>
     <!--首页图片气泡-->
@@ -36,9 +38,7 @@ onMounted(() => {
 })
 
 const scrollFn = () => {
-  // 获取窗口高度
   const windowH = document.getElementsByClassName('hero')[0].clientHeight
-  // 滚动条滚动到指定位置
   document.documentElement.scrollTop = windowH
 }
 </script>
@@ -62,7 +62,7 @@ const scrollFn = () => {
 }
 
 .typed-cursor {
-  font-size: 2.3rem;
+  font-size: 2.6rem;
 }
 .anchor-down {
   display: block;
@@ -101,7 +101,7 @@ const scrollFn = () => {
 }
 @media (max-width: 640px) {
   .typed-cursor {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
   .anchor-down {
     display: block;

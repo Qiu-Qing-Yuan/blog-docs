@@ -1,5 +1,12 @@
+// 全局渐变背景（替代GIF，提升加载速度）
 body {
-  background-image: url('/images/bg.gif') !important;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%) !important;
+  min-height: 100vh;
+}
+
+// 暗黑模式背景
+.dark body {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%) !important;
 }
 
 .theme-container {
@@ -8,54 +15,81 @@ body {
   }
 }
 
-//手机隐藏雪花效果
+// 手机隐藏樱花效果
 @media (max-width: 640px) {
   .Sakura {
     display: none;
   }
 }
 
+// 导航栏毛玻璃效果
 .navbar {
-  backdrop-filter: saturate(180%) blur(5px);
-  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: saturate(180%) blur(12px);
+  background: rgba(255, 255, 255, 0.72) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   z-index: 10000;
+  transition: all 0.3s ease;
 }
 
-// logo
+.dark .navbar {
+  background: rgba(26, 26, 46, 0.85) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+// Logo
 .navbar {
   .logo {
     border-radius: 50%;
+    transition: transform 0.3s ease;
+    &:hover {
+      transform: rotate(360deg);
+    }
   }
 }
 
-// markdown中图片居中
+// Markdown图片居中
 .medium-zoom-image {
   display: block;
   margin: 0px auto;
+  border-radius: 8px;
 }
 
-//所有段落下面的图片居中
+// 所有段落下面的图片居中
 p > img {
   display: block;
   margin: 0px auto;
+  border-radius: 8px;
 }
 
-//page页面增加box-shadow
+// Page页面内容区域
 .page .theme-default-content {
-  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.1);
-  padding: 1rem 1.5rem;
-  border-radius: 0.25rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  transition: box-shadow 0.3s ease;
 
-  //markdown中table居中
+  &:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  }
+
+  // Markdown中table居中
   & table {
     display: table;
     margin: 0px auto;
     width: 100%;
     text-align: center;
+    border-radius: 8px;
+    overflow: hidden;
   }
 }
 
-//左侧sider激活样式
+.dark .page .theme-default-content {
+  background: rgba(24, 24, 24, 0.9);
+}
+
+// 左侧sider激活样式
 .active {
   background-color: #3eaf7c1a;
   border-left-color: #3eaf7c;
@@ -77,21 +111,23 @@ h1:focus {
 }
 
 :root {
-  // markdown 宽度900px
   --content-width: 900px !important;
+  --c-text-accent: #3eaf7c;
 }
 
 .navbar {
   .site-name {
-    font-weight: 400;
-    color: #000;
+    font-weight: 600;
+    background: linear-gradient(135deg, #3eaf7c, #2d8cf0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .navbar-dropdown-title {
     .title {
       color: #000;
     }
-
     .down {
       border-top: 6px solid #000;
     }
@@ -102,13 +138,50 @@ h1:focus {
   }
 }
 
-.back-to-top {
-  bottom: 4rem;
+.dark .navbar {
+  .site-name {
+    background: linear-gradient(135deg, #5bd99b, #5b9bd5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .navbar-dropdown-title {
+    .title {
+      color: #fff;
+    }
+    .down {
+      border-top: 6px solid #fff;
+    }
+  }
+
+  .toggle-color-mode-button {
+    color: #fff;
+  }
 }
 
-//复制插件图标颜色
+.back-to-top {
+  bottom: 4rem;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  }
+}
+
+// 复制插件图标颜色
 .copy-code-button {
   background: var(--c-text-accent) !important;
+  border-radius: 6px !important;
+  transition: all 0.3s ease;
+
+  &:hover {
+    opacity: 0.85;
+    transform: scale(1.05);
+  }
 }
 
 #app {
@@ -120,6 +193,45 @@ h1:focus {
 #bgCanvas {
   z-index: auto !important;
   background-color: initial !important;
+}
+
+// 代码块样式优化
+div[class*="language-"] {
+  border-radius: 10px !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+// 滚动条美化
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.25);
+  }
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+}
+
+// 选中文本颜色
+::selection {
+  background: rgba(62, 175, 124, 0.3);
+  color: inherit;
 }
 
 @import 'common';

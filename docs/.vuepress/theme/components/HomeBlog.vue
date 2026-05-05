@@ -1,7 +1,7 @@
 <template>
   <div class="mx-[5px] mt-[10px] flex sm:w-[1120px] sm:mx-auto">
     <div class="w-full sm:flex-1">
-      <BlogItem class="border" v-for="(item, index) in paginatedData" :key="index" :page="item.info" :position="index % 2 == 0 ? 'left' : 'right'" :class="index % 3 == 0 ? 'draw' : index % 3 == 1 ? 'draw meet' : 'center'"></BlogItem>
+      <BlogItem class="border border-[#eee]/50 dark:border-[#333]/50" v-for="(item, index) in paginatedData" :key="index" :page="item.info" :position="index % 2 == 0 ? 'left' : 'right'" :class="index % 3 == 0 ? 'draw' : index % 3 == 1 ? 'draw meet' : 'center'"></BlogItem>
       <Pagination :pageTotal="pages.pageTotal" :pageSize="pages.pageSize" @click="onPageChange"> </Pagination>
     </div>
     <div class="sm:w-[300px] ml-[15px]" v-if="!isMobile">

@@ -123,5 +123,5 @@ export default defineUserConfig({
   }),
   //注册插件
   plugins: plugins,
-  clientConfigFile: path.resolve(__dirname, './client.ts'),
+  clientConfigFile: path.resolve(__dirname, './client.ts').replace(/\\/g, '/'),
 });
