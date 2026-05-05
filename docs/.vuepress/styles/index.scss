@@ -25,15 +25,15 @@ body {
 // 导航栏毛玻璃效果
 .navbar {
   backdrop-filter: saturate(180%) blur(12px);
-  background: rgba(0, 0, 0, 0.65) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   z-index: 10000;
   transition: all 0.3s ease;
   // 覆盖默认主题的 CSS 变量
-  --c-text: #fff;
-  --c-text-accent: #5bd99b;
-  --c-text-lightest: rgba(255, 255, 255, 0.6);
-  --c-border: rgba(255, 255, 255, 0.15);
+  --c-text: #333;
+  --c-text-accent: #3eaf7c;
+  --c-text-lightest: rgba(0, 0, 0, 0.45);
+  --c-border: rgba(0, 0, 0, 0.08);
 }
 
 .dark .navbar {
@@ -135,33 +135,38 @@ h1:focus {
 .navbar {
   .site-name {
     font-weight: 600;
-    color: #fff !important;
-    -webkit-text-fill-color: #fff;
+    color: #333 !important;
+    -webkit-text-fill-color: #333;
     background: none;
   }
 
-  // 菜单链接白色
+  // 菜单链接黑色
   .navbar-items a,
   .navbar-item > a {
-    color: #fff !important;
+    color: #333 !important;
 
     &:hover,
     &.router-link-active {
-      color: #5bd99b !important;
+      color: #3eaf7c !important;
     }
   }
 
   .navbar-dropdown-title {
     .title {
-      color: #fff;
+      color: #333;
     }
     .down {
-      border-top: 6px solid #fff;
+      border-top: 6px solid #333;
     }
   }
 
   .toggle-color-mode-button {
-    color: #fff;
+    color: #333;
+  }
+
+  // 汉堡菜单图标
+  .toggle-sidebar-button .icon span {
+    background-color: #333;
   }
 }
 
