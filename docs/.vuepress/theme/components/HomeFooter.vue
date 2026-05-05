@@ -7,10 +7,16 @@
           <Icon :icon="item.icon" :iconSize="18" />
         </a>
       </div>
+      <!-- 运行时间 -->
+      <div class="mb-[12px] text-[13px] text-[#999]">
+        <span class="inline-flex items-center gap-[6px]">
+          <Icon icon="ClockCircleOutlined" :iconSize="14" />
+          <span>本站已上线运行</span>
+          <span class="font-mono text-[#3eaf7c] font-[600]">{{ runningTime }}</span>
+        </span>
+      </div>
       <!-- 版权信息 -->
       <div class="flex flex-wrap justify-center items-center gap-[16px] text-[13px] text-[#999]">
-        <Icon icon="SafetyCertificateOutlined" link="https://beian.miit.gov.cn/" target="_blank" text="陕ICP备2022010303号-1" :textSize="13" class="hover:text-[#3eaf7c] transition-colors duration-200" />
-        <span class="hidden sm:inline text-[#ddd] dark:text-[#444]">|</span>
         <Icon icon="CopyrightCircleOutlined" text="游履平生 2022" :textSize="13" />
         <span class="hidden sm:inline text-[#ddd] dark:text-[#444]">|</span>
         <Icon icon="FireOutlined" class="text-[13px]">
@@ -25,6 +31,7 @@
   </footer>
 </template>
 <script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue'
 import { useCount } from '../composables'
 import { useThemeData } from '@vuepress/plugin-theme-data/lib/client'
 
@@ -36,4 +43,32 @@ interface ThemeData {
 const themeData = useThemeData() as unknown as ThemeData
 const socialLinks = themeData.value?.socialLinks || []
 useCount()
+
+// 网站上线时间
+const startDate = new Date('2022-01-01T00:00:00')
+const runningTime = ref('')
+let timer: ReturnType<typeof setInterval> | null = null
+
+const updateRunningTime = () => {
+  const now = new Date()
+  const diff = now.getTime() - startDate.getTime()
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24))
+  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))
+  const seconds = Math.floor((diff % (1000 * 60)) / 1000)
+
+  runningTime.value = `${days} 天 ${hours} 时 ${minutes} 分 ${seconds} 秒`
+}
+
+onMounted(() => {
+  updateRunningTime()
+  timer = setInterval(updateRunningTime, 1000)
+})
+
+onUnmounted(() => {
+  if (timer) {
+    clearInterval(timer)
+  }
+})
 </script>
