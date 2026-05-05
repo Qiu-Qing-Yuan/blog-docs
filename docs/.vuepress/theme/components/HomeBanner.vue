@@ -19,9 +19,9 @@
       <p v-if="homeBanner.bannerOptions.tagline" class="hero-tagline">
         {{ homeBanner.bannerOptions.tagline || 'Welcome to your vuePress-theme-AnyFork site' }}
       </p>
-      <!-- 向下箭头 -->
-      <a v-if="homeBanner.bannerOptions.showArrow" class="anchor-down" @click="scrollFn"></a>
     </div>
+    <!-- 向下箭头 -->
+    <a v-if="homeBanner.bannerOptions.showArrow" class="anchor-down" @click="scrollFn"></a>
     <!-- 气泡动效 -->
     <div v-if="homeBanner.bannerOptions.bubbles" id="bubbles" class="absolute w-full h-full z-[10]"></div>
   </div>
@@ -94,12 +94,12 @@ const scrollFn = () => {
 .anchor-down {
   position: absolute;
   left: 50%;
-  bottom: 40px;
+  bottom: 24px;
   transform: translateX(-50%);
   width: 24px;
   height: 24px;
   cursor: pointer;
-  z-index: 10000;
+  z-index: 100;
   animation: float-down 2.5s ease-in-out infinite;
 }
 
@@ -157,7 +157,7 @@ const scrollFn = () => {
   }
 
   .anchor-down {
-    bottom: 28px;
+    bottom: 16px;
     width: 20px;
     height: 20px;
   }
