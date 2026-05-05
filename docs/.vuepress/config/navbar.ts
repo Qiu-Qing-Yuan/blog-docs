@@ -10,7 +10,7 @@ export const navbar: (NavbarItems | NavbarGroup | string)[] = [
         icon: 'HomeOutlined'
     },
     {
-        text: '分类',
+        text: '研究领域',
         link: '/category/',
         icon: 'AppstoreOutlined'
     },
@@ -23,17 +23,5 @@ export const navbar: (NavbarItems | NavbarGroup | string)[] = [
         text: '时间轴',
         link: '/timeline/',
         icon: 'ClockCircleTwotone'
-    },
-    // 控制元素何时被激活,最大深度2
-    {
-        text: 'Java文档',
-        children: [
-            {
-                text: 'Java设计模式',
-                link: '/posts/design-pattern/',
-                //该元素将一直处于激活状态
-                activeMatch: '/posts/design-pattern/',
-            }
-        ],
     },
 ]

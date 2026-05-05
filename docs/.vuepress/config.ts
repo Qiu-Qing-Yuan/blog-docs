@@ -15,8 +15,8 @@ export default defineUserConfig({
   base: "/blog-docs/",
   //站点语言配置
   lang: "zh-CN",
-  title: "技术经验总结",
-  description: "技术经验总结，资料文档汇集网站，游履平生的博客",
+  title: "论文阅读笔记",
+  description: "AI/ML/NLP/CV 方向论文阅读笔记，记录学术前沿与个人思考",
   dest: "dist",
   head: [
     ["link", { rel: "shortcut icon", type: "image/x-icon", href: "/blog-docs/favicon.ico" }],

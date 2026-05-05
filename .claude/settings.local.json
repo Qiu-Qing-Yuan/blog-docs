@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git push *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(rm -rf docs/.vuepress/.temp)",
+      "Bash(npx vuepress *)"
+    ]
+  }
+}

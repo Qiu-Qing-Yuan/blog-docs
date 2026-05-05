@@ -10,11 +10,11 @@
     <div class="w-[85%] flex flex-wrap items-center justify-center my-[16px] mx-auto">
       <div class="text-center flex-[0_0_33%] border-r-[#eee] dark:border-r-[#333] border-r border-solid border-y-0 border-l-0">
         <h3 class="m-0 text-[#3eaf7c] font-[700] text-[1.3rem]">{{ post.items.length }}</h3>
-        <h6 class="m-0 font-normal mt-[6px] text-[12px] text-[#999]">文章</h6>
+        <h6 class="m-0 font-normal mt-[6px] text-[12px] text-[#999]">论文</h6>
       </div>
       <div class="text-center flex-[0_0_33%] border-r-[#eee] dark:border-r-[#333] border-r border-solid border-y-0 border-l-0">
         <h3 class="m-0 text-[#2d8cf0] font-[700] text-[1.3rem]">{{ Object.keys(category.map).length }}</h3>
-        <h6 class="m-0 font-normal mt-[6px] text-[12px] text-[#999]">分类</h6>
+        <h6 class="m-0 font-normal mt-[6px] text-[12px] text-[#999]">领域</h6>
       </div>
       <div class="text-center flex-[0_0_33%]">
         <h3 class="m-0 text-[#e6a23c] font-[700] text-[1.3rem]">{{ Object.keys(tag.map).length }}</h3>
@@ -23,16 +23,16 @@
     </div>
     <!--个人摘要 -->
     <div v-if="frontmatter.summary" class="leading-[28px] border-solid border-l-[4px] border-l-[#3eaf7c] border-y-0 border-r-0 bg-[#f8f9fa] dark:bg-[#2a2a3a] pl-[12px] my-[12px] text-[13px] rounded-r-[6px] py-[8px]">{{ frontmatter.summary }}</div>
-    <!--个人兴趣爱好 -->
+    <!--研究方向 -->
     <div v-if="frontmatter.hobby" class="mt-[12px]">
-      <Icon icon="DribbbleOutlined" text="兴趣爱好" :textSize="14" class="font-[500]"></Icon>
+      <Icon icon="ExperimentOutlined" text="研究方向" :textSize="14" class="font-[500]"></Icon>
       <div class="mt-[8px] flex flex-wrap gap-[6px]">
         <span v-for="(item, index) in frontmatter.hobby" :key="index" :style="{ backgroundColor: useRandomColor() }" class="px-[10px] py-[4px] rounded-full inline-block text-[12px] text-[#fff] transition-transform duration-200 hover:scale-105">{{ item }}</span>
       </div>
     </div>
-    <!--其他链接-->
+    <!--学术资源-->
     <div v-if="themeData.socialLinks" class="mt-[16px]">
-      <Icon icon="FolderOpenOutlined" text="博客地址" :textSize="14" class="font-[500]"></Icon>
+      <Icon icon="FolderOpenOutlined" text="学术资源" :textSize="14" class="font-[500]"></Icon>
       <div class="pt-[10px] flex justify-center gap-[12px]">
         <span v-for="(item, index) in themeData.socialLinks" :key="index">
           <client-only>
@@ -42,10 +42,10 @@
       </div>
     </div>
     <hr class="my-[16px] border-[#eee] dark:border-[#333]" />
-    <!--分类 -->
+    <!--研究领域 -->
     <div class="w-full flex my-[12px] flex-wrap">
       <div class="w-full mb-[8px]">
-        <Icon icon="AppstoreTwotone" text="分类列表" :textSize="14" class="font-[500] dark:hover:text-[#fff]" />
+        <Icon icon="AppstoreTwotone" text="研究领域" :textSize="14" class="font-[500] dark:hover:text-[#fff]" />
       </div>
       <RouterLink
         v-for="({ items, path }, name) in category.map"
@@ -67,10 +67,10 @@
         <span class="ml-[5px] w-[1rem] h-[1rem] leading-[1rem] text-center text-[9px] text-[#fff] rounded-full" :style="{ 'background-color': useRandomColor() }"> {{ items.length }}</span>
       </RouterLink>
     </div>
-    <!--友情链接-->
+    <!--学术工具-->
     <div class="w-full flex my-[12px] flex-wrap">
       <div class="w-full mb-[8px]">
-        <Icon icon="LinkOutlined" text="友情链接" :textSize="14" class="font-[500] dark:hover:text-[#fff]" />
+        <Icon icon="LinkOutlined" text="学术工具" :textSize="14" class="font-[500] dark:hover:text-[#fff]" />
       </div>
       <span class="shadow-item mt-[8px] bg-[#f8f9fa] dark:bg-[#2a2a3a] rounded-[8px] transition-all duration-200 hover:scale-105 hover:shadow-md" v-for="(item, index) in themeData.friendLink" :key="index">
         <a :href="item.link" target="_blank" class="flex items-center justify-between text-[#3eaf7c] py-[8px] px-[14px] text-[13px]">
