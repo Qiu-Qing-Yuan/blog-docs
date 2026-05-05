@@ -124,17 +124,28 @@ h1:focus {
     background-clip: text;
   }
 
+  // 菜单链接白色
+  .navbar-links .navbar-link,
+  .navbar-links .repo-link,
+  a.nav-link {
+    color: #fff !important;
+
+    &:hover {
+      color: #5bd99b !important;
+    }
+  }
+
   .navbar-dropdown-title {
     .title {
-      color: #000;
+      color: #fff;
     }
     .down {
-      border-top: 6px solid #000;
+      border-top: 6px solid #fff;
     }
   }
 
   .toggle-color-mode-button {
-    color: #000;
+    color: #fff;
   }
 }
 
