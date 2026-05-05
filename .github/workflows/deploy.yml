@@ -9,23 +9,23 @@ jobs:
     steps:
       # 构建Node环境
       - name: Build Node.js Env
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
-          node-version: '16'
+          node-version: '18'
       # 检出main分支代码
       - name: Checkout Code
-        uses: actions/checkout@v2.3.1
+        uses: actions/checkout@v4
         with:
           persist-credentials: false
       # 安装依赖
       - name: Install dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
       # 项目打包
       - name: Build Project
         run: npm run build
       # github 部署分支gh-pages 到github pages
       - name: Deploy dist on gh-pages
-        uses: JamesIves/github-pages-deploy-action@4.2.0
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           BRANCH: gh-pages
           FOLDER: dist
