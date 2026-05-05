@@ -83,7 +83,7 @@ useCount()
 const currentYear = new Date().getFullYear()
 
 // 网站上线时间
-const startDate = new Date('2022-01-01T00:00:00')
+const startDate = new Date()
 const timeData = reactive({ days: '000', hours: '00', minutes: '00', seconds: '00' })
 let timer: ReturnType<typeof setInterval> | null = null
 
