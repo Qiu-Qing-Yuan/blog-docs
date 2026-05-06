@@ -1,9 +1,9 @@
 ---
 title: PM2项目部署流程和常用命令
 date: 2022-04-07 16:31:16
-tags:
+tag:
   - pm2
-categories:
+category:
   - Node
   - 运维
 image: https://cdn.staticaly.com/gh/AnyFork/blog-images/main/markdown/202207200951285.jpg
