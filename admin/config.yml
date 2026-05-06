@@ -2,7 +2,7 @@ backend:
   name: github
   repo: Qiu-Qing-Yuan/blog-docs
   branch: main
-  base_url: https://github.com
+  base_url: https://decap-oauth.qiuqingyuan1127.workers.dev
   auth_type: pkce
   app_id: Ov23li50nI4Ab79NEAhs
 
