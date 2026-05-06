@@ -2,8 +2,8 @@
 title: Attention Is All You Need 论文阅读笔记
 date: 2024-12-15 10:00:00
 paper:
-  title: "Attention Is All You Need"
-  authors: "Vaswani, Shazeer, Parmar et al."
+  title: Attention Is All You Need
+  authors: Vaswani, Shazeer, Parmar et al.
   venue: NeurIPS
   year: 2017
   pdf: https://arxiv.org/abs/1706.03762
@@ -31,7 +31,7 @@ image: https://cdn.jsdelivr.net/gh/AnyFork/blog-images/markdown/transformer.png
 | 论文标题 | Attention Is All You Need |
 | 作者 | Ashish Vaswani, Noam Shazeer, Niki Parmar et al. |
 | 发表 | NeurIPS 2017 |
-| 引用数 | 100,000+ (截至 2024) |
+| 引用数 | 100,000+ (截至 2025) |
 
 ## 二、核心贡献
 
