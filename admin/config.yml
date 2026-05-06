@@ -29,8 +29,9 @@ collections:
     path: "{{slug}}"
     create: true
     summary: "{{name}} — {{description}}"
+    description: "管理文章分类。删除前请确保没有文章使用该分类，否则构建会失败。"
     fields:
-      - { label: "分类名称", name: "name", widget: "string", pattern: [".{1,}", "分类名不能为空"] }
+      - { label: "分类名称", name: "name", widget: "string", pattern: [".{1,}", "分类名不能为空"], hint: "必须与文章 frontmatter 中的 category 字段一致" }
       - { label: "分类描述", name: "description", widget: "string" }
       - { label: "图标", name: "icon", widget: "string", required: false, hint: "Ant Design 图标名称，如 RobotOutlined" }
       - { label: "颜色", name: "color", widget: "color", enableAlpha: false, default: "#1a5c3a" }
@@ -44,8 +45,9 @@ collections:
     path: "{{slug}}"
     create: true
     summary: "{{name}} — {{description}}"
+    description: "管理文章标签。删除前请确保没有文章使用该标签，否则构建会失败。"
     fields:
-      - { label: "标签名称", name: "name", widget: "string", pattern: [".{1,}", "标签名不能为空"] }
+      - { label: "标签名称", name: "name", widget: "string", pattern: [".{1,}", "标签名不能为空"], hint: "必须与文章 frontmatter 中的 tag 字段一致" }
       - { label: "标签描述", name: "description", widget: "string" }
       - { label: "颜色", name: "color", widget: "color", enableAlpha: false, default: "#1a5c3a" }
       - { label: "说明", name: "body", widget: "markdown", required: false }

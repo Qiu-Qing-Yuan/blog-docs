@@ -52,6 +52,62 @@
         },
       },
     })
+
+    // ── 分类/标签删除保护 ──
+    // 拦截删除操作，检查是否仍有文章引用该分类/标签
+    const CATEGORY_PATH = 'docs/posts/_categories/'
+    const TAG_PATH = 'docs/posts/_tags/'
+    const ARTICLE_DIRS = ['docs/posts/ai/', 'docs/posts/devops/', 'docs/posts/linux/',
+      'docs/posts/other/', 'docs/posts/design-pattern/', 'docs/posts/mysql/',
+      'docs/posts/node/', 'docs/posts/nuxt/']
+
+    function isDeleting(entry) {
+      return entry && entry.get('isDeleting') === true
+    }
+
+    async function hasArticlesReferencing(type, name) {
+      const entries = await Promise.all(
+        ARTICLE_DIRS.map(dir =>
+          CMS.backend.entriesByFolder(dir).catch(() => [])
+        )
+      )
+      const allArticles = entries.flat()
+      return allArticles.some(article => {
+        const fm = article.data || {}
+        if (type === 'category') {
+          const cats = fm.category || []
+          return Array.isArray(cats) ? cats.includes(name) : cats === name
+        } else {
+          const tags = fm.tag || []
+          return Array.isArray(tags) ? tags.includes(name) : tags === name
+        }
+      })
+    }
+
+    CMS.registerEventListener({
+      name: 'preSave',
+      handler: async ({ entry }) => {
+        const path = entry.get('path') || ''
+        if (path.startsWith(CATEGORY_PATH)) {
+          const name = entry.getIn(['data', 'name'])
+          if (name && isDeleting(entry)) {
+            const inUse = await hasArticlesReferencing('category', name)
+            if (inUse) {
+              throw new Error(`无法删除分类「${name}」：仍有文章使用此分类。请先修改相关文章的分类后再删除。`)
+            }
+          }
+        }
+        if (path.startsWith(TAG_PATH)) {
+          const name = entry.getIn(['data', 'name'])
+          if (name && isDeleting(entry)) {
+            const inUse = await hasArticlesReferencing('tag', name)
+            if (inUse) {
+              throw new Error(`无法删除标签「${name}」：仍有文章使用此标签。请先修改相关文章的标签后再删除。`)
+            }
+          }
+        }
+      }
+    })
   </script>
 </body>
 </html>
