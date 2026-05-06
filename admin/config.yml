@@ -1,0 +1,118 @@
+backend:
+  name: github
+  repo: Qiu-Qing-Yuan/blog-docs
+  branch: main
+  base_url: https://github.com
+  auth_type: pkce
+
+# 本地开发时使用（无需 GitHub 认证）
+local_backend: true
+
+# 站点基础路径
+site_url: https://qiu-qing-yuan.github.io/blog-docs/
+display_url: https://qiu-qing-yuan.github.io/blog-docs/
+
+# 媒体文件配置
+media_folder: "docs/.vuepress/public/images/uploads"
+public_folder: "/blog-docs/images/uploads"
+
+# 搜索
+search: true
+
+# 国际化
+locale: 'zh-hans'
+
+collections:
+  # ── 论文笔记 ──
+  - name: "paper"
+    label: "论文笔记"
+    folder: "docs/posts/ai"
+    path: "{{slug}}"
+    create: true
+    nested:
+      depth: 2
+    summary: "{{title}} — {{year}}"
+    fields:
+      - { label: "标题", name: "title", widget: "string", pattern: [".{2,}", "标题至少2个字符"] }
+      - { label: "发布日期", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: "HH:mm:ss", format: "YYYY-MM-DD HH:mm:ss" }
+      - label: "论文信息"
+        name: "paper"
+        widget: "object"
+        collapsed: false
+        fields:
+          - { label: "论文标题", name: "title", widget: "string" }
+          - { label: "作者", name: "authors", widget: "string", hint: "多作者用逗号分隔" }
+          - { label: "会议/期刊", name: "venue", widget: "string", hint: "如 NeurIPS, ICML, ACL, CVPR" }
+          - { label: "年份", name: "year", widget: "number", value_type: "int", min: 1990, max: 2030 }
+          - { label: "PDF 链接", name: "pdf", widget: "string", required: false, hint: "arXiv 或其他 PDF 链接" }
+          - { label: "代码链接", name: "code", widget: "string", required: false, hint: "GitHub 仓库链接" }
+      - { label: "难度 (1-5)", name: "difficulty", widget: "number", min: 1, max: 5, default: 3, hint: "1=入门, 5=前沿" }
+      - { label: "推荐度 (1-5)", name: "rating", widget: "number", min: 1, max: 5, default: 5, hint: "1=一般, 5=必读" }
+      - { label: "分类", name: "category", widget: "list", default: ["AI"], hint: "如 AI, NLP, CV, ML" }
+      - { label: "标签", name: "tag", widget: "list", hint: "如 Transformer, Attention, 深度学习" }
+      - { label: "封面图", name: "image", widget: "image", required: false, media_library: { config: { multiple: false } } }
+      - { label: "置顶优先级", name: "sticky", widget: "number", required: false, value_type: "int", min: 0, max: 10, hint: "0=不置顶" }
+      - { label: "正文", name: "body", widget: "markdown", buttons: ["bold", "italic", "code", "link", "heading-two", "heading-three", "quote", "bulleted-list", "numbered-list"] }
+
+  # ── 普通文章 ──
+  - name: "devops"
+    label: "运维笔记"
+    folder: "docs/posts/devops"
+    path: "{{slug}}"
+    create: true
+    nested:
+      depth: 2
+    summary: "{{title}}"
+    fields:
+      - { label: "标题", name: "title", widget: "string" }
+      - { label: "发布日期", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: "HH:mm:ss", format: "YYYY-MM-DD HH:mm:ss" }
+      - { label: "分类", name: "category", widget: "list", default: ["运维"] }
+      - { label: "标签", name: "tag", widget: "list" }
+      - { label: "封面图", name: "image", widget: "image", required: false }
+      - { label: "置顶优先级", name: "sticky", widget: "number", required: false, value_type: "int", min: 0, max: 10 }
+      - { label: "正文", name: "body", widget: "markdown" }
+
+  - name: "linux"
+    label: "Linux"
+    folder: "docs/posts/linux"
+    path: "{{slug}}"
+    create: true
+    summary: "{{title}}"
+    fields:
+      - { label: "标题", name: "title", widget: "string" }
+      - { label: "发布日期", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss" }
+      - { label: "分类", name: "category", widget: "list", default: ["linux"] }
+      - { label: "标签", name: "tag", widget: "list" }
+      - { label: "封面图", name: "image", widget: "image", required: false }
+      - { label: "正文", name: "body", widget: "markdown" }
+
+  - name: "other"
+    label: "其他文章"
+    folder: "docs/posts/other"
+    path: "{{slug}}"
+    create: true
+    summary: "{{title}}"
+    fields:
+      - { label: "标题", name: "title", widget: "string" }
+      - { label: "发布日期", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss" }
+      - { label: "分类", name: "category", widget: "list", default: ["其他"] }
+      - { label: "标签", name: "tag", widget: "list" }
+      - { label: "封面图", name: "image", widget: "image", required: false }
+      - { label: "置顶优先级", name: "sticky", widget: "number", required: false, value_type: "int", min: 0, max: 10 }
+      - { label: "正文", name: "body", widget: "markdown" }
+
+  # ── 首页配置 ──
+  - name: "settings"
+    label: "站点设置"
+    files:
+      - name: "homepage"
+        label: "首页配置"
+        file: "docs/README.md"
+        fields:
+          - { label: "英雄文案", name: "heroText", widget: "list", hint: "打字机效果文案列表" }
+          - { label: "副标题", name: "tagline", widget: "string" }
+          - { label: "个人简介", name: "summary", widget: "string" }
+          - { label: "研究方向", name: "hobby", widget: "list" }
+          - { label: "背景图片", name: "bgImage", widget: "list" }
+          - { label: "显示气泡", name: "bubbles", widget: "boolean", default: true }
+          - { label: "显示箭头", name: "showArrow", widget: "boolean", default: true }
