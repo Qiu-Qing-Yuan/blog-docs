@@ -4,6 +4,7 @@ backend:
   branch: main
   base_url: https://github.com
   auth_type: pkce
+  app_id: Ov23li50nI4Ab79NEAhs
 
 # 本地开发时使用（无需 GitHub 认证）
 local_backend: true
