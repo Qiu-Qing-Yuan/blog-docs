@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "vuepress dev docs",
     "build": "vuepress build docs",
-    "debug": "vuepress build docs --debug"
+    "debug": "vuepress build docs --debug",
+    "new": "node scripts/new-post.mjs",
+    "new:paper": "node scripts/new-post.mjs --paper"
   },
   "keywords": [],
   "author": "",

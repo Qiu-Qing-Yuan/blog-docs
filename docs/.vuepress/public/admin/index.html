@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>博客管理后台</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    // 自定义中文界面
+    CMS.registerLocale('zh', {
+      app: {
+        header: { logout: '退出', content: '内容' },
+      },
+      collection: {
+        sidebar: { collections: '内容集合', searchAll: '搜索全部' },
+      },
+    })
+    CMS.registerLocale('zh-hans', CMS.getLocale('zh'))
+  </script>
+</body>
+</html>
