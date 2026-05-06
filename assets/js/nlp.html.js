@@ -1,0 +1,1 @@
+import{_ as e,o as t,c as _,a as c}from"./anyfork.js";const n={},o=c("p",null,"\u81EA\u7136\u8BED\u8A00\u5904\u7406\u76F8\u5173\u8BBA\u6587\u7B14\u8BB0",-1),s=[o];function a(l,r){return t(),_("div",null,s)}var f=e(n,[["render",a],["__file","nlp.html.vue"]]);export{f as default};
