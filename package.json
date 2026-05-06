@@ -4,10 +4,11 @@
   "description": "基于vuepress2.X开发的博客系统",
   "scripts": {
     "dev": "vuepress dev docs",
-    "build": "vuepress build docs",
+    "build": "node scripts/validate-taxonomy.mjs && vuepress build docs",
     "debug": "vuepress build docs --debug",
     "new": "node scripts/new-post.mjs",
-    "new:paper": "node scripts/new-post.mjs --paper"
+    "new:paper": "node scripts/new-post.mjs --paper",
+    "validate": "node scripts/validate-taxonomy.mjs"
   },
   "keywords": [],
   "author": "",
