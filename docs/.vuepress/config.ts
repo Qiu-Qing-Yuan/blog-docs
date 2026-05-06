@@ -4,12 +4,19 @@ import { viteBundler } from "@vuepress/bundler-vite";
 import { navbar, plugins, sidebar, firendLink } from './config/index'
 import { AnyForkThemeOptions } from "./theme/types/theme";
 import path from 'path'
+import fs from 'fs'
+import yaml from 'js-yaml'
 //打包文件大小分析插件
 import { visualizer } from 'rollup-plugin-visualizer';
 //打包压缩插件
 import viteCompression from 'vite-plugin-compression';
 import tailwindcss from 'tailwindcss';
 import autoprefixer from 'autoprefixer';
+
+// 读取个人信息配置
+const profilePath = path.resolve(__dirname, '../profile.yml')
+const profile = fs.existsSync(profilePath) ? yaml.load(fs.readFileSync(profilePath, 'utf8')) as Record<string, any> : {}
+
 export default defineUserConfig({
   //站点根路径,默认配置/
   base: "/blog-docs/",
@@ -28,8 +35,8 @@ export default defineUserConfig({
   ],
   theme: AnyForkTheme({
     logo: "/images/logo.png",
-    author: "游履平生",
-    authorAvatar: "/images/logo.png",
+    author: profile.author || "游履平生",
+    authorAvatar: profile.authorAvatar || "/images/logo.png",
     //仓库地址
     repo: 'https://github.com/Qiu-Qing-Yuan/blog-docs',
     //如果你的文档不在仓库的根部
@@ -49,7 +56,7 @@ export default defineUserConfig({
     //贡献者列表 标签的文字
     contributorsText: '贡献者',
     //信息栏展示社交信息
-    socialLinks: [
+    socialLinks: profile.socialLinks || [
       { icon: 'GithubOutlined', link: 'https://qiu-qing-yuan.github.io/blog-docs/' },
       { icon: 'GoogleCircleFilled', link: 'https://qiu-qing-yuan.gitee.io/blog-docs/' },
       { icon: 'CloudOutlined', link: 'https://github.com/Qiu-Qing-Yuan' }

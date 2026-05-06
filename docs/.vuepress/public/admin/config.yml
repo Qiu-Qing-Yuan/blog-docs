@@ -22,6 +22,34 @@ search: true
 locale: 'zh-hans'
 
 collections:
+  # ── 分类管理 ──
+  - name: "categories"
+    label: "分类管理"
+    folder: "docs/posts/_categories"
+    path: "{{slug}}"
+    create: true
+    summary: "{{name}} — {{description}}"
+    fields:
+      - { label: "分类名称", name: "name", widget: "string", pattern: [".{1,}", "分类名不能为空"] }
+      - { label: "分类描述", name: "description", widget: "string" }
+      - { label: "图标", name: "icon", widget: "string", required: false, hint: "Ant Design 图标名称，如 RobotOutlined" }
+      - { label: "颜色", name: "color", widget: "color", enableAlpha: false, default: "#1a5c3a" }
+      - { label: "排序", name: "order", widget: "number", value_type: "int", min: 0, max: 100, default: 0 }
+      - { label: "说明", name: "body", widget: "markdown", required: false }
+
+  # ── 标签管理 ──
+  - name: "tags"
+    label: "标签管理"
+    folder: "docs/posts/_tags"
+    path: "{{slug}}"
+    create: true
+    summary: "{{name}} — {{description}}"
+    fields:
+      - { label: "标签名称", name: "name", widget: "string", pattern: [".{1,}", "标签名不能为空"] }
+      - { label: "标签描述", name: "description", widget: "string" }
+      - { label: "颜色", name: "color", widget: "color", enableAlpha: false, default: "#1a5c3a" }
+      - { label: "说明", name: "body", widget: "markdown", required: false }
+
   # ── 论文笔记 ──
   - name: "paper"
     label: "论文笔记"
@@ -175,3 +203,20 @@ collections:
           - { label: "背景图片", name: "bgImage", widget: "list" }
           - { label: "显示气泡", name: "bubbles", widget: "boolean", default: true }
           - { label: "显示箭头", name: "showArrow", widget: "boolean", default: true }
+
+      - name: "profile"
+        label: "个人信息"
+        file: "docs/profile.yml"
+        fields:
+          - { label: "昵称", name: "author", widget: "string" }
+          - { label: "头像", name: "authorAvatar", widget: "image", media_library: { config: { multiple: false } } }
+          - { label: "座右铭", name: "motto", widget: "string", required: false }
+          - label: "社交链接"
+            name: "socialLinks"
+            widget: "list"
+            allow_add: true
+            fields:
+              - { label: "名称", name: "name", widget: "string" }
+              - { label: "图标", name: "icon", widget: "string", hint: "Ant Design 图标名称，如 GithubOutlined" }
+              - { label: "链接", name: "link", widget: "string" }
+              - { label: "颜色", name: "color", widget: "color", required: false }

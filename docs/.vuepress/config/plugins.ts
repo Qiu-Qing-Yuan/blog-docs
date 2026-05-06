@@ -85,7 +85,7 @@ export const plugins = [
     //博客插件,https://vuepress-theme-hope.github.io/v2/blog/zh/guide.html
     blogPlugin({
         // 页面过滤器，此函数用于鉴别页面是否作为文章。
-        filter: ({ filePathRelative }) => filePathRelative ? filePathRelative?.startsWith("posts/") : false,
+        filter: ({ filePathRelative }) => filePathRelative ? filePathRelative?.startsWith("posts/") && !filePathRelative?.startsWith("posts/_") : false,
         // 获取文章信息的函数。
         getInfo: (page) => ({
             ...page
