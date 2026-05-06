@@ -30,7 +30,7 @@ collections:
     create: true
     nested:
       depth: 2
-    summary: "{{title}} — {{year}}"
+    summary: "{{title}}"
     fields:
       - { label: "标题", name: "title", widget: "string", pattern: [".{2,}", "标题至少2个字符"] }
       - { label: "发布日期", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: "HH:mm:ss", format: "YYYY-MM-DD HH:mm:ss" }
@@ -95,6 +95,66 @@ collections:
       - { label: "标题", name: "title", widget: "string" }
       - { label: "发布日期", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss" }
       - { label: "分类", name: "category", widget: "list", default: ["其他"] }
+      - { label: "标签", name: "tag", widget: "list" }
+      - { label: "封面图", name: "image", widget: "image", required: false }
+      - { label: "置顶优先级", name: "sticky", widget: "number", required: false, value_type: "int", min: 0, max: 10 }
+      - { label: "正文", name: "body", widget: "markdown" }
+
+  - name: "design-pattern"
+    label: "设计模式"
+    folder: "docs/posts/design-pattern"
+    path: "{{slug}}"
+    create: true
+    summary: "{{title}}"
+    fields:
+      - { label: "标题", name: "title", widget: "string" }
+      - { label: "发布日期", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss" }
+      - { label: "分类", name: "category", widget: "list", default: ["设计模式"] }
+      - { label: "标签", name: "tag", widget: "list" }
+      - { label: "封面图", name: "image", widget: "image", required: false }
+      - { label: "置顶优先级", name: "sticky", widget: "number", required: false, value_type: "int", min: 0, max: 10 }
+      - { label: "正文", name: "body", widget: "markdown" }
+
+  - name: "mysql"
+    label: "MySQL"
+    folder: "docs/posts/mysql"
+    path: "{{slug}}"
+    create: true
+    summary: "{{title}}"
+    fields:
+      - { label: "标题", name: "title", widget: "string" }
+      - { label: "发布日期", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss" }
+      - { label: "分类", name: "category", widget: "list", default: ["MySQL"] }
+      - { label: "标签", name: "tag", widget: "list" }
+      - { label: "封面图", name: "image", widget: "image", required: false }
+      - { label: "置顶优先级", name: "sticky", widget: "number", required: false, value_type: "int", min: 0, max: 10 }
+      - { label: "正文", name: "body", widget: "markdown" }
+
+  - name: "node"
+    label: "Node.js"
+    folder: "docs/posts/node"
+    path: "{{slug}}"
+    create: true
+    summary: "{{title}}"
+    fields:
+      - { label: "标题", name: "title", widget: "string" }
+      - { label: "发布日期", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss" }
+      - { label: "分类", name: "category", widget: "list", default: ["Node.js"] }
+      - { label: "标签", name: "tag", widget: "list" }
+      - { label: "封面图", name: "image", widget: "image", required: false }
+      - { label: "置顶优先级", name: "sticky", widget: "number", required: false, value_type: "int", min: 0, max: 10 }
+      - { label: "正文", name: "body", widget: "markdown" }
+
+  - name: "nuxt"
+    label: "Nuxt"
+    folder: "docs/posts/nuxt"
+    path: "{{slug}}"
+    create: true
+    summary: "{{title}}"
+    fields:
+      - { label: "标题", name: "title", widget: "string" }
+      - { label: "发布日期", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss" }
+      - { label: "分类", name: "category", widget: "list", default: ["Nuxt"] }
       - { label: "标签", name: "tag", widget: "list" }
       - { label: "封面图", name: "image", widget: "image", required: false }
       - { label: "置顶优先级", name: "sticky", widget: "number", required: false, value_type: "int", min: 0, max: 10 }

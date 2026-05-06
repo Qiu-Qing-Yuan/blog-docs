@@ -5,7 +5,8 @@
       "Bash(git add *)",
       "Bash(git commit -m ' *)",
       "Bash(rm -rf docs/.vuepress/.temp)",
-      "Bash(npx vuepress *)"
+      "Bash(npx vuepress *)",
+      "Bash(node scripts/new-post.mjs --help)"
     ]
   }
 }

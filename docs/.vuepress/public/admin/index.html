@@ -14,16 +14,44 @@
 <body>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   <script>
-    // 自定义中文界面
-    CMS.registerLocale('zh', {
+    CMS.registerLocale('zh-hans', {
       app: {
-        header: { logout: '退出', content: '内容' },
+        header: { content: '内容', search: '搜索', logout: '退出' },
+        appError: { config: '配置错误' },
+        notFoundPage: { document: '页面未找到' },
       },
       collection: {
-        sidebar: { collections: '内容集合', searchAll: '搜索全部' },
+        sidebar: { collections: '内容集合', searchAll: '搜索全部', searchResults: '搜索结果' },
+        entries: { loadingEntries: '加载中…', cachingEntries: '缓存中…', longerLoading: '首次加载可能较慢' },
+        editor: {
+          editorControl: { field: { optional: '可选' } },
+          editorControlPane: {
+            widget: { required: '必填', regexPattern: '格式不匹配', processing: '处理中…' },
+          },
+          editor: {
+            onFailToPersist: '保存失败：',
+            onFailToPublish: '发布失败：',
+            saving: '保存中…',
+            save: '保存',
+            deleting: '删除中…',
+            publish: '发布',
+            unpublishedDraft: '未发布草稿',
+            published: '已发布',
+            unpublishedChanges: '未发布更改',
+          },
+        },
+      },
+      ui: {
+        default: { goBackToSite: '返回站点' },
+        errorBoundary: {
+          title: '错误',
+          details: '发生错误，请',
+          reportIt: '报告问题',
+          detailsHeading: '详细信息',
+          recoveredEntry: { entry: '恢复的内容', recover: '恢复' },
+        },
       },
     })
-    CMS.registerLocale('zh-hans', CMS.getLocale('zh'))
   </script>
 </body>
 </html>
