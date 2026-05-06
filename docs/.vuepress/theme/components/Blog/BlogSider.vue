@@ -46,6 +46,9 @@
       </div>
     </div>
 
+    <!-- 访问统计 -->
+    <SiteStats />
+
     <!-- 分隔线 -->
     <div class="my-[18px] flex items-center gap-[10px]">
       <div class="flex-1 h-px bg-gradient-to-r from-transparent via-[var(--border-subtle)] to-transparent"></div>
@@ -96,6 +99,7 @@
 import { useThemeData } from '@vuepress/plugin-theme-data/lib/client'
 import { usePageFrontmatter, withBase } from '@vuepress/client'
 import { useBlogCategory, useBlogType } from 'vuepress-plugin-blog2/lib/client'
+import SiteStats from './SiteStats.vue'
 interface ThemeData {
   author?: string;
   authorAvatar?: string;
