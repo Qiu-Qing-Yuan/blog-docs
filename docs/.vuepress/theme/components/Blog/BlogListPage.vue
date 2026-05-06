@@ -4,11 +4,11 @@
       <main class="page">
         <div class="pt-[20px] w-full sm:w-[var(--content-width)] my-0 mx-auto">
           <div class="flex items-center gap-[8px] mb-[16px] ml-[10px]">
-            <Icon :icon="icon" :iconSize="22" class="text-[#2c7a5a]" />
-            <span class="text-[1.2rem] font-[700] tracking-tight text-[#1e293b] dark:text-[#e2e8f0]">{{ title }}</span>
+            <Icon :icon="icon" :iconSize="22" class="text-[#1a5c3a] dark:text-[#4eca8a]" />
+            <span class="text-[1.2rem] font-serif font-[700] tracking-tight text-[#1a1a2e] dark:text-[#e2e0da]">{{ title }}</span>
           </div>
           <div class="w-full flex flex-wrap my-[12px] gap-[6px]">
-            <RouterLink v-for="({ items, path }, name, idx) in blogMap.map" :key="name" :to="path" class="flex items-center text-[#64748b] dark:text-[#94a3b8] font-normal px-[14px] h-[34px] bg-[#f8fafb] hover:bg-[#2c7a5a] hover:text-[#fff] dark:bg-[#1a1e2e] dark:hover:bg-[#2c7a5a] rounded-full transition-all duration-250 hover:shadow-md border border-[#e2e8f0]/40 dark:border-[rgba(255,255,255,0.04)] hover:border-[#2c7a5a]/20">
+            <RouterLink v-for="({ items, path }, name, idx) in blogMap.map" :key="name" :to="path" class="flex items-center text-[#5a5a72] dark:text-[#9494a8] font-normal px-[14px] h-[34px] bg-[var(--surface-muted)] hover:bg-[#1a5c3a] hover:text-[#fff] dark:hover:bg-[#1a5c3a] rounded-full transition-all duration-250 hover:shadow-md border border-[var(--border-subtle)] hover:border-[#1a5c3a]/20">
               <span class="text-[13px]">{{ name }}</span>
               <span class="ml-[8px] min-w-[1.2rem] h-[1.2rem] leading-[1.2rem] text-center text-[10px] text-[#fff] rounded-full px-[4px] font-[600]" :style="{ background: badgeGradients[idx % badgeGradients.length] }"> {{ items.length }}</span>
             </RouterLink>
@@ -40,16 +40,16 @@ const route = useRoute()
 const router = useRouter()
 
 const badgeGradients = [
-  'linear-gradient(135deg, #f093fb, #f5576c)',
-  'linear-gradient(135deg, #4facfe, #00f2fe)',
-  'linear-gradient(135deg, #43e97b, #38f9d7)',
-  'linear-gradient(135deg, #fa709a, #fee140)',
-  'linear-gradient(135deg, #a18cd1, #fbc2eb)',
-  'linear-gradient(135deg, #fccb90, #d57eeb)',
-  'linear-gradient(135deg, #e0c3fc, #8ec5fc)',
-  'linear-gradient(135deg, #f9d423, #ff4e50)',
-  'linear-gradient(135deg, #667eea, #764ba2)',
-  'linear-gradient(135deg, #89f7fe, #66a6ff)',
+  'linear-gradient(135deg, #c0392b, #e74c3c)',
+  'linear-gradient(135deg, #2980b9, #3498db)',
+  'linear-gradient(135deg, #1a5c3a, #2ecc71)',
+  'linear-gradient(135deg, #d4a017, #f0c040)',
+  'linear-gradient(135deg, #8e44ad, #9b59b6)',
+  'linear-gradient(135deg, #e67e22, #f39c12)',
+  'linear-gradient(135deg, #16a085, #1abc9c)',
+  'linear-gradient(135deg, #2c3e50, #34495e)',
+  'linear-gradient(135deg, #c0392b, #d4a017)',
+  'linear-gradient(135deg, #2980b9, #16a085)',
 ]
 
 const { pages, paginatedData, onPageChange } = usePagination({
@@ -70,9 +70,9 @@ watch(
 </script>
 <style scoped>
 .router-link-exact-active {
-  background: linear-gradient(135deg, #2c7a5a, #3eaf7c) !important;
+  background: linear-gradient(135deg, #1a5c3a, #2ecc71) !important;
   color: #fff !important;
   border-color: transparent !important;
-  box-shadow: 0 2px 12px rgba(44, 122, 90, 0.25);
+  box-shadow: 0 2px 12px rgba(26, 92, 58, 0.25);
 }
 </style>

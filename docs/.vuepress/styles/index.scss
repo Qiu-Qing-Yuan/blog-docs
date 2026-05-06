@@ -1,24 +1,46 @@
 // ═══════════════════════════════════════
-// Global Styles — Academic Minimalist
+// Global Styles — Scholarly Ink
 // ═══════════════════════════════════════
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
 
 :root {
   --content-width: 920px !important;
-  --c-text-accent: #2c7a5a;
-  --font-sans: 'Inter', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  --font-serif: 'Noto Serif SC', 'Source Han Serif SC', 'STSong', serif;
+  --c-text-accent: #1a5c3a;
+  --font-sans: 'Source Sans 3', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-serif: 'Playfair Display', 'Noto Serif SC', 'Source Han Serif SC', serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --surface: #faf9f7;
+  --surface-elevated: #ffffff;
+  --surface-muted: #f3f1ed;
+  --text-primary: #1a1a2e;
+  --text-secondary: #5a5a72;
+  --text-muted: #9494a8;
+  --border-subtle: rgba(0, 0, 0, 0.06);
+  --accent-warm: #c9963b;
 }
 
 body {
-  background: linear-gradient(160deg, #f8fafb 0%, #eef2f7 50%, #e8edf4 100%) !important;
+  background: var(--surface) !important;
   min-height: 100vh;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: var(--text-primary);
+  font-size: 15px;
+  line-height: 1.7;
 }
 
 .dark body {
-  background: linear-gradient(160deg, #0f1117 0%, #141822 50%, #0d1525 100%) !important;
+  --surface: #0e1019;
+  --surface-elevated: #161822;
+  --surface-muted: #1a1e2e;
+  --text-primary: #e2e0da;
+  --text-secondary: #9494a8;
+  --text-muted: #5a5a72;
+  --border-subtle: rgba(255, 255, 255, 0.05);
+  --c-text-accent: #4eca8a;
+  background: var(--surface) !important;
 }
 
 .theme-container {
@@ -29,16 +51,16 @@ body {
 
 // ─── 导航栏 ───────────────────────────
 .navbar {
-  backdrop-filter: saturate(200%) blur(16px);
-  background: rgba(255, 255, 255, 0.78) !important;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  backdrop-filter: saturate(180%) blur(20px);
+  background: rgba(250, 249, 247, 0.85) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
   z-index: 10000;
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   --c-text: #1a1a2e;
-  --c-text-accent: #2c7a5a;
+  --c-text-accent: #1a5c3a;
   --c-text-lightest: rgba(0, 0, 0, 0.4);
   --c-border: rgba(0, 0, 0, 0.06);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+  box-shadow: none;
 
   .logo {
     border-radius: 10px;
@@ -49,6 +71,7 @@ body {
   }
 
   .site-name {
+    font-family: var(--font-serif);
     font-weight: 700;
     letter-spacing: -0.02em;
     color: #1a1a2e !important;
@@ -64,7 +87,7 @@ body {
     transition: color 0.25s ease;
     &:hover,
     &.router-link-active {
-      color: #2c7a5a !important;
+      color: #1a5c3a !important;
     }
   }
 
@@ -83,13 +106,13 @@ body {
 }
 
 .dark .navbar {
-  background: rgba(15, 17, 23, 0.78) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(14, 16, 25, 0.85) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   --c-text: rgba(255, 255, 255, 0.88);
   --c-text-accent: #4eca8a;
   --c-text-lightest: rgba(255, 255, 255, 0.4);
   --c-border: rgba(255, 255, 255, 0.06);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04);
+  box-shadow: none;
 
   .site-name {
     color: #4eca8a !important;
@@ -152,17 +175,24 @@ p > img {
 
 // ─── Markdown 内容区域 ─────────────────
 .page .theme-default-content {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 20px rgba(0, 0, 0, 0.06);
-  padding: 2.2rem 2.8rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 20px rgba(0, 0, 0, 0.05);
+  padding: 2.4rem 3rem;
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(12px);
+  background: var(--surface-elevated);
   transition: box-shadow 0.35s ease;
-  line-height: 1.8;
+  line-height: 1.85;
   font-size: 15px;
+  font-family: var(--font-sans);
+  border: 1px solid var(--border-subtle);
 
   &:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06), 0 12px 40px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05), 0 12px 40px rgba(0, 0, 0, 0.07);
+  }
+
+  // 标题使用衬线字体
+  & h1, & h2, & h3, & h4 {
+    font-family: var(--font-serif);
+    letter-spacing: -0.01em;
   }
 
   // 表格
@@ -173,46 +203,49 @@ p > img {
     text-align: center;
     border-radius: 10px;
     overflow: hidden;
+    border: 1px solid var(--border-subtle);
   }
   & table thead tr {
-    background: rgba(44, 122, 90, 0.04);
+    background: rgba(26, 92, 58, 0.04);
   }
   & table tr:hover {
-    background: rgba(44, 122, 90, 0.03);
+    background: rgba(26, 92, 58, 0.02);
   }
   & th {
     font-weight: 600;
     font-size: 13px;
     letter-spacing: 0.02em;
-    color: #475569;
+    color: var(--text-secondary);
   }
   & td {
     font-size: 14px;
-    color: #64748b;
+    color: var(--text-secondary);
   }
 
   // 引用块
   & blockquote {
-    border-left: 3px solid #2c7a5a;
-    background: rgba(44, 122, 90, 0.03);
+    border-left: 3px solid #1a5c3a;
+    background: rgba(26, 92, 58, 0.03);
     border-radius: 0 8px 8px 0;
-    color: #64748b;
+    color: var(--text-secondary);
     font-style: normal;
+    padding: 12px 16px;
   }
 
   // 行内代码
   & code {
-    background: rgba(44, 122, 90, 0.06);
-    color: #2c7a5a;
+    background: rgba(26, 92, 58, 0.06);
+    color: #1a5c3a;
     border-radius: 4px;
-    padding: 1px 5px;
+    padding: 1px 6px;
     font-size: 0.88em;
+    font-family: var(--font-mono);
   }
 
   // 标题锚点
   & .header-anchor {
-    color: #2c7a5a;
-    opacity: 0.4;
+    color: #1a5c3a;
+    opacity: 0.3;
     transition: opacity 0.2s;
     &:hover {
       opacity: 1;
@@ -221,12 +254,12 @@ p > img {
 }
 
 .dark .page .theme-default-content {
-  background: rgba(20, 24, 34, 0.92);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 1px 3px rgba(255, 255, 255, 0.02), 0 4px 20px rgba(255, 255, 255, 0.03);
+  background: var(--surface-elevated);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 4px 20px rgba(0, 0, 0, 0.3);
+  border-color: var(--border-subtle);
 
   &:hover {
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.03), 0 12px 40px rgba(255, 255, 255, 0.04);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25), 0 12px 40px rgba(0, 0, 0, 0.35);
   }
 
   & th { color: #94a3b8; }
@@ -234,6 +267,7 @@ p > img {
   & blockquote {
     color: #94a3b8;
     border-left-color: #4eca8a;
+    background: rgba(78, 202, 138, 0.04);
   }
   & code {
     background: rgba(78, 202, 138, 0.08);
@@ -243,14 +277,14 @@ p > img {
   & table { border-color: rgba(255, 255, 255, 0.06); }
   & th, & td { border-color: rgba(255, 255, 255, 0.06); }
   & table thead tr { background: rgba(78, 202, 138, 0.04); }
-  & table tr:hover { background: rgba(78, 202, 138, 0.03); }
+  & table tr:hover { background: rgba(78, 202, 138, 0.02); }
 }
 
 // ─── 目录 (TOC) 激活样式 ──────────────
 .sidebar-item.active:not(.sidebar-heading) {
   font-weight: 600;
-  color: #2c7a5a;
-  border-left-color: #2c7a5a;
+  color: #1a5c3a;
+  border-left-color: #1a5c3a;
   background-color: transparent;
 }
 
@@ -280,17 +314,19 @@ h1:focus {
 .back-to-top {
   bottom: 3.5rem;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--border-subtle);
+  background: var(--surface-elevated) !important;
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
   }
 }
 
 // ─── 代码复制按钮 ─────────────────────
 .copy-code-button {
-  background: #2c7a5a !important;
+  background: #1a5c3a !important;
   border-radius: 8px !important;
   transition: all 0.25s ease;
   &:hover {
@@ -308,7 +344,8 @@ h1:focus {
 // ─── 代码块 ───────────────────────────
 div[class*="language-"] {
   border-radius: 12px !important;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-subtle);
 }
 
 // ─── 滚动条 ───────────────────────────
@@ -322,24 +359,29 @@ div[class*="language-"] {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.12);
+  background: rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   &:hover {
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.18);
   }
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
   &:hover {
-    background: rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.15);
   }
 }
 
 // ─── 选中文本 ─────────────────────────
 ::selection {
-  background: rgba(44, 122, 90, 0.2);
+  background: rgba(26, 92, 58, 0.18);
   color: inherit;
+}
+
+// ─── 全局链接样式 ─────────────────────
+a {
+  transition: color 0.2s ease;
 }
 
 @import 'common';

@@ -2,21 +2,21 @@
   <footer class="footer-wrapper mt-[48px]">
     <div class="max-w-[900px] mx-auto px-[20px]">
       <!-- 顶部渐变分隔 -->
-      <div class="h-px bg-gradient-to-r from-transparent via-[#e2e8f0] to-transparent dark:via-[rgba(255,255,255,0.06)] mb-[24px]"></div>
+      <div class="h-px bg-gradient-to-r from-transparent via-[var(--border-subtle)] to-transparent mb-[24px]"></div>
 
       <!-- 主体内容 -->
       <div class="flex flex-col items-center gap-[20px] py-[16px]">
         <!-- 站点信息 -->
         <div class="flex flex-col items-center gap-[6px]">
-          <span class="text-[14px] font-[700] tracking-tight text-[#1e293b] dark:text-[#e2e8f0]">论文阅读笔记</span>
-          <span class="text-[12px] text-[#94a3b8]">AI/ML/NLP/CV 方向论文阅读与思考</span>
+          <span class="text-[15px] font-serif font-[700] tracking-tight text-[#1a1a2e] dark:text-[#e2e0da]">论文阅读笔记</span>
+          <span class="text-[12px] text-[#9494a8] tracking-wider">AI / ML / NLP / CV</span>
         </div>
 
         <!-- 运行时间 -->
         <div class="running-time-wrapper">
           <div class="flex items-center gap-[6px]">
-            <div class="w-[5px] h-[5px] rounded-full bg-[#2c7a5a] animate-pulse-soft"></div>
-            <span class="text-[11px] text-[#94a3b8] tracking-widest uppercase">已运行</span>
+            <div class="w-[5px] h-[5px] rounded-full bg-[#1a5c3a] dark:bg-[#4eca8a] animate-pulse-soft"></div>
+            <span class="text-[11px] text-[#9494a8] tracking-widest uppercase font-sans">已运行</span>
           </div>
           <div class="flex items-center gap-[4px] mt-[10px]">
             <div class="time-block">
@@ -43,25 +43,25 @@
 
         <!-- 社交链接 -->
         <div class="flex items-center gap-[10px]">
-          <a v-for="(item, index) in socialLinks" :key="index" :href="item.link" target="_blank" class="inline-flex items-center justify-center w-[32px] h-[32px] rounded-[8px] text-[#94a3b8] dark:text-[#64748b] transition-all duration-300 hover:text-[#2c7a5a] dark:hover:text-[#4eca8a] hover:bg-[#f0faf6] dark:hover:bg-[rgba(78,202,138,0.06)]">
+          <a v-for="(item, index) in socialLinks" :key="index" :href="item.link" target="_blank" class="inline-flex items-center justify-center w-[32px] h-[32px] rounded-[8px] text-[#9494a8] dark:text-[#5a5a72] transition-all duration-300 hover:text-[#1a5c3a] dark:hover:text-[#4eca8a] hover:bg-[rgba(26,92,58,0.06)] dark:hover:bg-[rgba(78,202,138,0.06)]">
             <Icon :icon="item.icon" :iconSize="16" />
           </a>
         </div>
       </div>
 
       <!-- 底部信息栏 -->
-      <div class="flex flex-wrap justify-center items-center gap-[6px] pt-[16px] border-t border-[#f1f5f9] dark:border-[rgba(255,255,255,0.04)]">
-        <span class="text-[11px] text-[#cbd5e1] dark:text-[#475569]">
-          <Icon icon="CopyrightCircleOutlined" :iconSize="11" class="opacity-50" /> {{ currentYear }} 游履平生
+      <div class="flex flex-wrap justify-center items-center gap-[6px] pt-[16px] border-t border-[var(--border-subtle)]">
+        <span class="text-[11px] text-[#b0b0c0] dark:text-[#475569]">
+          <Icon icon="CopyrightCircleOutlined" :iconSize="11" class="opacity-40" /> {{ currentYear }} 游履平生
         </span>
-        <span class="text-[#e2e8f0] dark:text-[#1e293b] text-[10px]">&#183;</span>
-        <span class="inline-flex items-center text-[11px] text-[#cbd5e1] dark:text-[#475569]">
-          <Icon icon="FireOutlined" :iconSize="11" class="opacity-40">
+        <span class="text-[#d0d0dd] dark:text-[#2a2e3e] text-[10px]">&#183;</span>
+        <span class="inline-flex items-center text-[11px] text-[#b0b0c0] dark:text-[#475569]">
+          <Icon icon="FireOutlined" :iconSize="11" class="opacity-30">
             <span class="waline-pageview-count" data-path="/" style="padding-left: 3px; font-size: 11px;"></span>
           </Icon>
         </span>
-        <span class="text-[#e2e8f0] dark:text-[#1e293b] text-[10px]">&#183;</span>
-        <span class="text-[11px] text-[#cbd5e1] dark:text-[#475569]">Powered by VuePress</span>
+        <span class="text-[#d0d0dd] dark:text-[#2a2e3e] text-[10px]">&#183;</span>
+        <span class="text-[11px] text-[#b0b0c0] dark:text-[#475569]">Powered by VuePress</span>
       </div>
     </div>
   </footer>
@@ -121,38 +121,38 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 14px 24px;
+  padding: 14px 28px;
   border-radius: 14px;
-  background: linear-gradient(135deg, rgba(44, 122, 90, 0.03), rgba(62, 175, 124, 0.02));
-  border: 1px solid rgba(44, 122, 90, 0.08);
+  background: rgba(26, 92, 58, 0.025);
+  border: 1px solid rgba(26, 92, 58, 0.06);
 }
 
 .dark .running-time-wrapper {
-  background: linear-gradient(135deg, rgba(78, 202, 138, 0.04), rgba(44, 122, 90, 0.02));
-  border-color: rgba(78, 202, 138, 0.08);
+  background: rgba(78, 202, 138, 0.03);
+  border-color: rgba(78, 202, 138, 0.06);
 }
 
 .time-block {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 40px;
-  padding: 6px 8px;
+  min-width: 42px;
+  padding: 6px 10px;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(44, 122, 90, 0.06);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(26, 92, 58, 0.05);
 }
 
 .dark .time-block {
-  background: rgba(20, 24, 34, 0.6);
-  border-color: rgba(78, 202, 138, 0.06);
+  background: rgba(20, 24, 34, 0.5);
+  border-color: rgba(78, 202, 138, 0.05);
 }
 
 .time-num {
   font-family: 'JetBrains Mono', 'Fira Code', monospace;
   font-size: 18px;
   font-weight: 700;
-  color: #2c7a5a;
+  color: #1a5c3a;
   line-height: 1;
   letter-spacing: -0.02em;
 }
@@ -162,8 +162,9 @@ onUnmounted(() => {
 }
 
 .time-label {
+  font-family: 'Source Sans 3', sans-serif;
   font-size: 10px;
-  color: #94a3b8;
+  color: #9494a8;
   margin-top: 4px;
   letter-spacing: 0.05em;
 }
@@ -172,13 +173,13 @@ onUnmounted(() => {
   font-family: 'JetBrains Mono', monospace;
   font-size: 16px;
   font-weight: 600;
-  color: rgba(44, 122, 90, 0.3);
+  color: rgba(26, 92, 58, 0.25);
   margin: 0 2px;
   align-self: flex-start;
   padding-top: 6px;
 }
 
 .dark .time-sep {
-  color: rgba(78, 202, 138, 0.3);
+  color: rgba(78, 202, 138, 0.25);
 }
 </style>
