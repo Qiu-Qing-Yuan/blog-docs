@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>访问统计 - 博客管理后台</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f5; color: #1a1a2e; min-height: 100vh; }
+    .header { background: #fff; border-bottom: 1px solid #e8e8e8; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .header h1 { font-size: 18px; font-weight: 600; }
+    .header a { color: #1a5c3a; text-decoration: none; font-size: 14px; }
+    .container { max-width: 1200px; margin: 24px auto; padding: 0 24px; }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px; }
+    .stat-card { background: #fff; border-radius: 12px; padding: 20px; border: 1px solid #e8e8e8; }
+    .stat-card .label { font-size: 13px; color: #666; margin-bottom: 8px; }
+    .stat-card .value { font-size: 28px; font-weight: 700; font-family: 'SF Mono', Monaco, monospace; }
+    .stat-card .value.green { color: #1a5c3a; }
+    .stat-card .value.blue { color: #2d8cf0; }
+    .stat-card .value.orange { color: #c9963b; }
+    .stat-card .value.purple { color: #722ed1; }
+    .section { background: #fff; border-radius: 12px; border: 1px solid #e8e8e8; margin-bottom: 24px; }
+    .section-header { padding: 16px 20px; border-bottom: 1px solid #e8e8e8; display: flex; align-items: center; justify-content: space-between; }
+    .section-header h2 { font-size: 15px; font-weight: 600; }
+    .section-header .badge { background: #1a5c3a; color: #fff; padding: 2px 10px; border-radius: 10px; font-size: 12px; font-weight: 600; }
+    table { width: 100%; border-collapse: collapse; }
+    th { text-align: left; padding: 12px 16px; font-size: 12px; color: #999; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #e8e8e8; background: #fafafa; }
+    td { padding: 12px 16px; font-size: 13px; border-bottom: 1px solid #f0f0f0; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover { background: #f9f9f9; }
+    .ip { font-family: 'SF Mono', Monaco, monospace; font-size: 12px; color: #722ed1; background: #f9f0ff; padding: 2px 8px; border-radius: 4px; }
+    .ua { font-size: 11px; color: #999; max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .time { font-size: 12px; color: #666; font-family: 'SF Mono', Monaco, monospace; }
+    .page-path { font-size: 12px; color: #1a5c3a; font-family: 'SF Mono', Monaco, monospace; }
+    .views { font-weight: 700; color: #2d8cf0; font-family: 'SF Mono', Monaco, monospace; }
+    .loading { text-align: center; padding: 40px; color: #999; }
+    .loading .spinner { display: inline-block; width: 24px; height: 24px; border: 3px solid #e8e8e8; border-top-color: #1a5c3a; border-radius: 50%; animation: spin 0.8s linear infinite; margin-right: 8px; vertical-align: middle; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .refresh-btn { background: #1a5c3a; color: #fff; border: none; padding: 8px 16px; border-radius: 8px; font-size: 13px; cursor: pointer; font-weight: 500; }
+    .refresh-btn:hover { background: #156b35; }
+    .refresh-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .login-hint { background: #fff7e6; border: 1px solid #ffe0b2; border-radius: 8px; padding: 12px 16px; margin-bottom: 16px; font-size: 13px; color: #ad6800; }
+    .login-hint a { color: #1a5c3a; }
+    .empty { text-align: center; padding: 32px; color: #999; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>📊 访问统计</h1>
+    <div>
+      <a href="/blog-docs/admin/">← 返回管理后台</a>
+    </div>
+  </div>
+  <div class="container">
+    <div class="login-hint">
+      💡 详细访客信息（IP、浏览器等）需要先登录 Waline 管理后台。
+      <a href="https://waline.anyfork.top/ui" target="_blank">点击登录 Waline</a>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="label">📝 文章总数</div>
+        <div class="value green" id="totalArticles">-</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">👁️ 总访问量</div>
+        <div class="value blue" id="totalViews">-</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">📂 分类数量</div>
+        <div class="value orange" id="totalCategories">-</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">🏷️ 标签数量</div>
+        <div class="value purple" id="totalTags">-</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <h2>📈 文章访问排行</h2>
+        <button class="refresh-btn" onclick="loadPageviews()" id="refreshBtn">刷新数据</button>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:50px">#</th>
+            <th>页面路径</th>
+            <th style="width:100px">访问量</th>
+          </tr>
+        </thead>
+        <tbody id="pageviewTable">
+          <tr><td colspan="3" class="loading"><span class="spinner"></span>加载中...</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <h2>💬 最近评论</h2>
+        <span class="badge" id="commentCount">0</span>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>昵称</th>
+            <th>评论内容</th>
+            <th>IP 地址</th>
+            <th>浏览器</th>
+            <th>时间</th>
+          </tr>
+        </thead>
+        <tbody id="commentTable">
+          <tr><td colspan="5" class="loading"><span class="spinner"></span>加载中...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    const WALINE_SERVER = 'https://waline.anyfork.top/'
+    const BASE_PATH = '/blog-docs/'
+
+    // 文章路径列表（会在运行时动态获取）
+    const ARTICLE_PATHS = []
+
+    // 检查 Waline 登录状态
+    function getWalineToken() {
+      return localStorage.getItem('WALINE_TOKEN') || ''
+    }
+
+    // 获取文章列表
+    async function loadArticles() {
+      try {
+        // 从 sitemap 获取所有文章路径
+        const res = await fetch(BASE_PATH + 'sitemap.xml')
+        const text = await res.text()
+        const parser = new DOMParser()
+        const xml = parser.parseFromString(text, 'text/xml')
+        const urls = xml.querySelectorAll('url > loc')
+        urls.forEach(url => {
+          const path = url.textContent.replace(/^https?:\/\/[^/]+/, '')
+          if (path.includes('/posts/') && path !== BASE_PATH) {
+            ARTICLE_PATHS.push(path)
+          }
+        })
+        document.getElementById('totalArticles').textContent = ARTICLE_PATHS.length
+      } catch (e) {
+        console.error('Failed to load articles:', e)
+        document.getElementById('totalArticles').textContent = '?'
+      }
+    }
+
+    // 获取页面访问量
+    async function loadPageviews() {
+      const btn = document.getElementById('refreshBtn')
+      btn.disabled = true
+      btn.textContent = '加载中...'
+
+      const results = []
+      let totalViews = 0
+
+      // 批量获取每个页面的访问量
+      const batchSize = 5
+      for (let i = 0; i < ARTICLE_PATHS.length; i += batchSize) {
+        const batch = ARTICLE_PATHS.slice(i, i + batchSize)
+        const promises = batch.map(async (path) => {
+          try {
+            const res = await fetch(`${WALINE_SERVER}api/comment?type=count&url=${encodeURIComponent(path)}`)
+            const data = await res.json()
+            const count = Array.isArray(data.data) ? data.data[0] : (data.data || 0)
+            return { path, views: count }
+          } catch {
+            return { path, views: 0 }
+          }
+        })
+        const batchResults = await Promise.all(promises)
+        results.push(...batchResults)
+        totalViews += batchResults.reduce((sum, r) => sum + r.views, 0)
+      }
+
+      // 排序
+      results.sort((a, b) => b.views - a.views)
+      document.getElementById('totalViews').textContent = totalViews.toLocaleString()
+
+      // 渲染表格
+      const tbody = document.getElementById('pageviewTable')
+      if (results.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="3" class="empty">暂无数据</td></tr>'
+      } else {
+        tbody.innerHTML = results.map((r, i) => `
+          <tr>
+            <td style="font-weight:600;color:${i < 3 ? '#1a5c3a' : '#999'}">${i + 1}</td>
+            <td class="page-path">${r.path}</td>
+            <td class="views">${r.views.toLocaleString()}</td>
+          </tr>
+        `).join('')
+      }
+
+      btn.disabled = false
+      btn.textContent = '刷新数据'
+    }
+
+    // 获取评论列表（需要登录 Waline）
+    async function loadComments() {
+      const token = getWalineToken()
+      if (!token) {
+        document.getElementById('commentTable').innerHTML =
+          '<tr><td colspan="5" class="empty">请先 <a href="https://waline.anyfork.top/ui" target="_blank">登录 Waline 管理后台</a> 后刷新页面查看评论详情</td></tr>'
+        return
+      }
+
+      try {
+        const res = await fetch(`${WALINE_SERVER}api/comment?type=list&pageSize=50`, {
+          headers: { 'Authorization': `Bearer ${token}` }
+        })
+        if (!res.ok) throw new Error('Unauthorized')
+        const data = await res.json()
+        const comments = data.data || []
+        document.getElementById('commentCount').textContent = comments.length
+
+        const tbody = document.getElementById('commentTable')
+        if (comments.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="5" class="empty">暂无评论</td></tr>'
+        } else {
+          tbody.innerHTML = comments.map(c => {
+            const time = new Date((c.insertedAt || c.created) * 1000)
+            const timeStr = time.toLocaleString('zh-CN', { month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' })
+            const content = (c.comment || '').replace(/<[^>]+>/g, '').slice(0, 80)
+            const ip = c.ip || '-'
+            const ua = c.ua || c.userAgent || '-'
+            const nick = c.nick || '匿名'
+            return `
+              <tr>
+                <td style="font-weight:500">${nick}</td>
+                <td>${content}</td>
+                <td><span class="ip">${ip}</span></td>
+                <td><span class="ua" title="${ua}">${ua}</span></td>
+                <td class="time">${timeStr}</td>
+              </tr>
+            `
+          }).join('')
+        }
+      } catch (e) {
+        document.getElementById('commentTable').innerHTML =
+          '<tr><td colspan="5" class="empty">登录已过期，请 <a href="https://waline.anyfork.top/ui" target="_blank">重新登录</a></td></tr>'
+      }
+    }
+
+    // 加载分类和标签数量
+    async function loadTaxonomyCounts() {
+      try {
+        const [catRes, tagRes] = await Promise.all([
+          fetch(BASE_PATH + 'category/'),
+          fetch(BASE_PATH + 'tag/')
+        ])
+        const catText = await catRes.text()
+        const tagText = await tagRes.text()
+        const catCount = (catText.match(/class="badge"/g) || []).length || '-'
+        const tagCount = (tagText.match(/class="badge"/g) || []).length || '-'
+        document.getElementById('totalCategories').textContent = catCount
+        document.getElementById('totalTags').textContent = tagCount
+      } catch {
+        document.getElementById('totalCategories').textContent = '-'
+        document.getElementById('totalTags').textContent = '-'
+      }
+    }
+
+    // 初始化
+    async function init() {
+      await loadArticles()
+      await loadTaxonomyCounts()
+      await loadPageviews()
+      await loadComments()
+    }
+    init()
+  </script>
+</body>
+</html>
