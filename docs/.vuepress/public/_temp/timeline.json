@@ -1,6 +1,60 @@
 {
   "site": [
     {
+      "hash": "432c51d",
+      "date": "2026-05-07",
+      "time": "17:24",
+      "icon": "🎨",
+      "title": "切换 Waline 服务端到 blog-storage-six",
+      "description": "fix: 切换 Waline 服务端到 blog-storage-six",
+      "files": [
+        "OPERATION_GUIDE.md",
+        "config/plugins.ts",
+        "public/admin/stats.html",
+        "theme/composables/useCount.ts"
+      ]
+    },
+    {
+      "hash": "d7bfbf5",
+      "date": "2026-05-07",
+      "time": "16:13",
+      "icon": "🎨",
+      "title": "迁移 Waline 服务端到自有 Vercel 实例",
+      "description": "fix: 迁移 Waline 服务端到自有 Vercel 实例",
+      "files": [
+        "OPERATION_GUIDE.md",
+        "config/plugins.ts",
+        "public/admin/stats.html",
+        "theme/composables/useCount.ts"
+      ]
+    },
+    {
+      "hash": "d10d20b",
+      "date": "2026-05-07",
+      "time": "15:11",
+      "icon": "📝",
+      "title": "重新设计后台访问统计页面（Obsidian Observatory 主题）",
+      "description": "feat: 重新设计后台访问统计页面（Obsidian Observatory 主题）",
+      "files": [
+        "public/admin/stats.html"
+      ]
+    },
+    {
+      "hash": "fc5e41c",
+      "date": "2026-05-07",
+      "time": "14:44",
+      "icon": "🎨",
+      "title": "修复访问统计不显示的根本原因",
+      "description": "fix: 修复访问统计不显示的根本原因",
+      "files": [
+        "public/_temp/timeline.json",
+        "public/admin/stats.html",
+        "theme/components/Blog/ArticleStats.vue",
+        "theme/components/Blog/BlogItemInfo.vue",
+        "theme/components/HomeFooter.vue"
+      ]
+    },
+    {
       "hash": "8781666",
       "date": "2026-05-07",
       "time": "12:37",
@@ -45,36 +99,6 @@
       ]
     },
     {
-      "hash": "e4a2d12",
-      "date": "2026-05-07",
-      "time": "12:19",
-      "icon": "⚙️",
-      "title": "优化分类/标签管理的人性化设计",
-      "description": "feat: 优化分类/标签管理的人性化设计",
-      "files": [
-        "public/admin/config.yml",
-        "public/admin/index.html",
-        "_categories/ai.md",
-        "_categories/docker.md",
-        "_categories/java.md"
-      ]
-    },
-    {
-      "hash": "a6a0b90",
-      "date": "2026-05-06",
-      "time": "23:07",
-      "icon": "⚙️",
-      "title": "分类/标签删除保护机制",
-      "description": "feat: 分类/标签删除保护机制",
-      "files": [
-        "public/admin/config.yml",
-        "public/admin/index.html",
-        "\"_categories/\\347\\233\\227\\351\\223\\276.md\"",
-        "_tags/Algolia.md",
-        "_tags/Github Pages.md"
-      ]
-    },
-    {
       "hash": "0e8fa56",
       "date": "2026-05-06",
       "time": "22:57",
@@ -86,21 +110,6 @@
         "theme/components/Blog/SiteStats.vue",
         "theme/composables/useStats.ts",
         "stats.html"
-      ]
-    },
-    {
-      "hash": "cec03a5",
-      "date": "2026-05-06",
-      "time": "22:48",
-      "icon": "⚙️",
-      "title": "添加分类管理、标签管理和个人信息管理",
-      "description": "feat: 添加分类管理、标签管理和个人信息管理",
-      "files": [
-        "config.ts",
-        "config/plugins.ts",
-        "public/admin/config.yml",
-        "_categories/ai.md",
-        "_categories/docker.md"
       ]
     },
     {
@@ -588,17 +597,6 @@
   ],
   "post": [
     {
-      "hash": "95e8dc2",
-      "date": "2026-05-07",
-      "time": "12:21",
-      "icon": "📝",
-      "title": "Delete 分类管理 “java”",
-      "description": "Delete 分类管理 “java”",
-      "files": [
-        "_categories/java.md"
-      ]
-    },
-    {
       "hash": "577a070",
       "date": "2026-05-06",
       "time": "21:08",
@@ -630,6 +628,77 @@
       "files": [
         "node/pm2.md",
         "nuxt/deploy.md"
+      ]
+    }
+  ],
+  "taxonomy": [
+    {
+      "hash": "95e8dc2",
+      "date": "2026-05-07",
+      "time": "12:21",
+      "icon": "📂",
+      "title": "Delete 分类管理 “java”",
+      "description": "Delete 分类管理 “java”",
+      "files": [
+        "_categories/java.md"
+      ]
+    },
+    {
+      "hash": "e4a2d12",
+      "date": "2026-05-07",
+      "time": "12:19",
+      "icon": "📂",
+      "title": "优化分类/标签管理的人性化设计",
+      "description": "feat: 优化分类/标签管理的人性化设计",
+      "files": [
+        "public/admin/config.yml",
+        "public/admin/index.html",
+        "_categories/ai.md",
+        "_categories/docker.md",
+        "_categories/java.md"
+      ]
+    },
+    {
+      "hash": "a6a0b90",
+      "date": "2026-05-06",
+      "time": "23:07",
+      "icon": "📂",
+      "title": "分类/标签删除保护机制",
+      "description": "feat: 分类/标签删除保护机制",
+      "files": [
+        "public/admin/config.yml",
+        "public/admin/index.html",
+        "\"_categories/\\347\\233\\227\\351\\223\\276.md\"",
+        "_tags/Algolia.md",
+        "_tags/Github Pages.md"
+      ]
+    },
+    {
+      "hash": "cec03a5",
+      "date": "2026-05-06",
+      "time": "22:48",
+      "icon": "📂",
+      "title": "添加分类管理、标签管理和个人信息管理",
+      "description": "feat: 添加分类管理、标签管理和个人信息管理",
+      "files": [
+        "config.ts",
+        "config/plugins.ts",
+        "public/admin/config.yml",
+        "_categories/ai.md",
+        "_categories/docker.md"
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "hash": "710377c",
+      "date": "2026-05-07",
+      "time": "16:54",
+      "icon": "⚙️",
+      "title": "Update 站点设置 “homepage”",
+      "description": "Update 站点设置 “homepage”",
+      "files": [
+        "docs/README.md"
       ]
     }
   ]

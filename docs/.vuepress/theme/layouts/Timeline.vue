@@ -13,30 +13,20 @@
 
           <!-- Tab 切换 -->
           <div class="flex justify-center mb-[36px]">
-            <div class="inline-flex bg-[var(--surface-muted)] rounded-[12px] p-[4px] border border-[var(--border-subtle)]">
+            <div class="inline-flex flex-wrap justify-center bg-[var(--surface-muted)] rounded-[12px] p-[4px] border border-[var(--border-subtle)] gap-[2px]">
               <button
-                @click="activeTab = 'site'"
+                v-for="tab in tabs"
+                :key="tab.key"
+                @click="activeTab = tab.key"
                 :class="[
-                  'px-[24px] py-[8px] rounded-[10px] text-[13px] font-[600] transition-all duration-300',
-                  activeTab === 'site'
-                    ? 'bg-[#1a5c3a] text-white shadow-md'
-                    : 'text-[#5a5a72] dark:text-[#9494a8] hover:text-[#1a5c3a]'
+                  'px-[18px] py-[8px] rounded-[10px] text-[13px] font-[600] transition-all duration-300 whitespace-nowrap',
+                  activeTab === tab.key
+                    ? `text-white shadow-md ${tab.activeClass}`
+                    : 'text-[#5a5a72] dark:text-[#9494a8] hover:opacity-80'
                 ]"
               >
-                🛠️ 网站更新
-                <span v-if="data.site.length" class="ml-[6px] text-[11px] opacity-70">({{ data.site.length }})</span>
-              </button>
-              <button
-                @click="activeTab = 'post'"
-                :class="[
-                  'px-[24px] py-[8px] rounded-[10px] text-[13px] font-[600] transition-all duration-300',
-                  activeTab === 'post'
-                    ? 'bg-[#2d8cf0] text-white shadow-md'
-                    : 'text-[#5a5a72] dark:text-[#9494a8] hover:text-[#2d8cf0]'
-                ]"
-              >
-                📄 文章更新
-                <span v-if="data.post.length" class="ml-[6px] text-[11px] opacity-70">({{ data.post.length }})</span>
+                {{ tab.icon }} {{ tab.label }}
+                <span v-if="data[tab.key].length" class="ml-[4px] text-[11px] opacity-70">({{ data[tab.key].length }})</span>
               </button>
             </div>
           </div>
@@ -51,9 +41,7 @@
           <div v-else-if="currentTimeline.length" class="relative">
             <!-- 连接线 -->
             <div class="absolute left-[18px] top-0 bottom-0 w-[2px] bg-gradient-to-b"
-              :class="activeTab === 'site'
-                ? 'from-[#1a5c3a] via-[#1a5c3a]/30 to-transparent'
-                : 'from-[#2d8cf0] via-[#2d8cf0]/30 to-transparent'"
+              :class="activeColor.line"
             ></div>
 
             <!-- 年份分组 -->
@@ -61,10 +49,10 @@
               <!-- 年份标签 -->
               <div class="relative flex items-center mb-[20px] pl-[44px]">
                 <div class="absolute left-[10px] w-[18px] h-[18px] rounded-full border-[3px] border-white dark:border-[#161822] shadow-md z-10"
-                  :class="activeTab === 'site' ? 'bg-[#1a5c3a]' : 'bg-[#2d8cf0]'"
+                  :class="activeColor.dot"
                 ></div>
                 <span class="text-[1.3rem] font-[700] font-serif tracking-tight"
-                  :class="activeTab === 'site' ? 'text-[#1a5c3a] dark:text-[#4eca8a]' : 'text-[#2d8cf0]'"
+                  :class="activeColor.text"
                 >
                   {{ group.year }}
                 </span>
@@ -77,7 +65,7 @@
               >
                 <!-- 圆点 -->
                 <div class="absolute left-[14px] top-[14px] w-[10px] h-[10px] rounded-full border-[2px] bg-white dark:bg-[#161822] z-10 transition-all duration-300 group-hover:scale-125"
-                  :class="activeTab === 'site' ? 'border-[#1a5c3a] group-hover:bg-[#1a5c3a]' : 'border-[#2d8cf0] group-hover:bg-[#2d8cf0]'"
+                  :class="[activeColor.border, activeColor.hoverBg]"
                 ></div>
 
                 <!-- 卡片 -->
@@ -117,8 +105,8 @@
 
           <!-- 空状态 -->
           <div v-else class="text-center py-[60px]">
-            <p class="text-[48px] mb-[12px]">{{ activeTab === 'site' ? '🛠️' : '📄' }}</p>
-            <p class="text-[14px] text-[#9494a8]">暂无{{ activeTab === 'site' ? '网站' : '文章' }}更新记录</p>
+            <p class="text-[48px] mb-[12px]">{{ activeTabInfo.icon }}</p>
+            <p class="text-[14px] text-[#9494a8]">暂无{{ activeTabInfo.emptyText }}更新记录</p>
           </div>
         </div>
       </main>
@@ -128,7 +116,59 @@
 
 <script setup lang="ts">
 import ParentLayout from '@vuepress/theme-default/lib/client/layouts/Layout.vue'
-import { useTimeline } from '../composables/useTimeline'
+import { useTimeline, type TimelineTab } from '../composables/useTimeline'
+import { computed } from 'vue'
 
 const { data, loading, activeTab, currentTimeline } = useTimeline()
+
+const tabs: { key: TimelineTab; icon: string; label: string; activeClass: string }[] = [
+  { key: 'site', icon: '🛠️', label: '网站更新', activeClass: 'bg-[#1a5c3a]' },
+  { key: 'post', icon: '📄', label: '文章更新', activeClass: 'bg-[#2d8cf0]' },
+  { key: 'taxonomy', icon: '🏷️', label: '分类标签', activeClass: 'bg-[#c9963b]' },
+  { key: 'settings', icon: '⚙️', label: '站点设置', activeClass: 'bg-[#a371f7]' },
+]
+
+const colorMap: Record<TimelineTab, { line: string; dot: string; text: string; border: string; hoverBg: string }> = {
+  site: {
+    line: 'from-[#1a5c3a] via-[#1a5c3a]/30 to-transparent',
+    dot: 'bg-[#1a5c3a]',
+    text: 'text-[#1a5c3a] dark:text-[#4eca8a]',
+    border: 'border-[#1a5c3a]',
+    hoverBg: 'group-hover:bg-[#1a5c3a]',
+  },
+  post: {
+    line: 'from-[#2d8cf0] via-[#2d8cf0]/30 to-transparent',
+    dot: 'bg-[#2d8cf0]',
+    text: 'text-[#2d8cf0]',
+    border: 'border-[#2d8cf0]',
+    hoverBg: 'group-hover:bg-[#2d8cf0]',
+  },
+  taxonomy: {
+    line: 'from-[#c9963b] via-[#c9963b]/30 to-transparent',
+    dot: 'bg-[#c9963b]',
+    text: 'text-[#c9963b]',
+    border: 'border-[#c9963b]',
+    hoverBg: 'group-hover:bg-[#c9963b]',
+  },
+  settings: {
+    line: 'from-[#a371f7] via-[#a371f7]/30 to-transparent',
+    dot: 'bg-[#a371f7]',
+    text: 'text-[#a371f7]',
+    border: 'border-[#a371f7]',
+    hoverBg: 'group-hover:bg-[#a371f7]',
+  },
+}
+
+const emptyTextMap: Record<TimelineTab, string> = {
+  site: '网站',
+  post: '文章',
+  taxonomy: '分类标签',
+  settings: '站点设置',
+}
+
+const activeColor = computed(() => colorMap[activeTab.value])
+const activeTabInfo = computed(() => ({
+  icon: tabs.find(t => t.key === activeTab.value)?.icon || '📌',
+  emptyText: emptyTextMap[activeTab.value],
+}))
 </script>
