@@ -1,0 +1,607 @@
+{
+  "site": [
+    {
+      "hash": "a7d907c",
+      "date": "2026-05-07",
+      "time": "12:26",
+      "icon": "🎨",
+      "title": "完善访问统计功能",
+      "description": "feat: 完善访问统计功能",
+      "files": [
+        "public/admin/index.html",
+        "public/admin/stats.html",
+        "theme/components/Blog/SiteStats.vue",
+        "theme/composables/useStats.ts",
+        "stats.html"
+      ]
+    },
+    {
+      "hash": "e4a2d12",
+      "date": "2026-05-07",
+      "time": "12:19",
+      "icon": "⚙️",
+      "title": "优化分类/标签管理的人性化设计",
+      "description": "feat: 优化分类/标签管理的人性化设计",
+      "files": [
+        "public/admin/config.yml",
+        "public/admin/index.html",
+        "_categories/ai.md",
+        "_categories/docker.md",
+        "_categories/java.md"
+      ]
+    },
+    {
+      "hash": "a6a0b90",
+      "date": "2026-05-06",
+      "time": "23:07",
+      "icon": "⚙️",
+      "title": "分类/标签删除保护机制",
+      "description": "feat: 分类/标签删除保护机制",
+      "files": [
+        "public/admin/config.yml",
+        "public/admin/index.html",
+        "\"_categories/\\347\\233\\227\\351\\223\\276.md\"",
+        "_tags/Algolia.md",
+        "_tags/Github Pages.md"
+      ]
+    },
+    {
+      "hash": "0e8fa56",
+      "date": "2026-05-06",
+      "time": "22:57",
+      "icon": "🎨",
+      "title": "添加访问统计功能",
+      "description": "feat: 添加访问统计功能",
+      "files": [
+        "theme/components/Blog/BlogSider.vue",
+        "theme/components/Blog/SiteStats.vue",
+        "theme/composables/useStats.ts",
+        "stats.html"
+      ]
+    },
+    {
+      "hash": "cec03a5",
+      "date": "2026-05-06",
+      "time": "22:48",
+      "icon": "⚙️",
+      "title": "添加分类管理、标签管理和个人信息管理",
+      "description": "feat: 添加分类管理、标签管理和个人信息管理",
+      "files": [
+        "config.ts",
+        "config/plugins.ts",
+        "public/admin/config.yml",
+        "_categories/ai.md",
+        "_categories/docker.md"
+      ]
+    },
+    {
+      "hash": "b87c995",
+      "date": "2026-05-06",
+      "time": "22:31",
+      "icon": "🛠️",
+      "title": "Upload “docs/.vuepress/public/images/uploads/signaturegen-1771128498817.png”",
+      "description": "Upload “docs/.vuepress/public/images/uploads/signaturegen-1771128498817.png”",
+      "files": [
+        "public/images/uploads/signaturegen-1771128498817.png"
+      ]
+    },
+    {
+      "hash": "6f38ecb",
+      "date": "2026-05-06",
+      "time": "21:13",
+      "icon": "⚙️",
+      "title": "优化 Decap CMS 配置并清理废弃文件",
+      "description": "chore: 优化 Decap CMS 配置并清理废弃文件",
+      "files": [
+        ".claude/settings.local.json",
+        "public/admin/config.yml",
+        "public/admin/index.html",
+        "oauth-proxy/api/auth.js",
+        "oauth-proxy/api/callback.js"
+      ]
+    },
+    {
+      "hash": "873c4eb",
+      "date": "2026-05-06",
+      "time": "20:50",
+      "icon": "⚙️",
+      "title": "移除 PKCE 配置，使用标准 OAuth 代理模式",
+      "description": "fix: 移除 PKCE 配置，使用标准 OAuth 代理模式",
+      "files": [
+        "public/admin/config.yml"
+      ]
+    },
+    {
+      "hash": "9110d0e",
+      "date": "2026-05-06",
+      "time": "20:42",
+      "icon": "⚙️",
+      "title": "更新 Decap CMS OAuth 代理地址为 Cloudflare Worker",
+      "description": "fix: 更新 Decap CMS OAuth 代理地址为 Cloudflare Worker",
+      "files": [
+        "public/admin/config.yml"
+      ]
+    },
+    {
+      "hash": "b816707",
+      "date": "2026-05-06",
+      "time": "20:05",
+      "icon": "⚙️",
+      "title": "配置 Decap CMS GitHub OAuth PKCE 认证",
+      "description": "chore: 配置 Decap CMS GitHub OAuth PKCE 认证",
+      "files": [
+        "public/admin/config.yml"
+      ]
+    },
+    {
+      "hash": "21c2922",
+      "date": "2026-05-06",
+      "time": "19:52",
+      "icon": "⚙️",
+      "title": "添加博客管理工具 — CLI 命令行 + Decap CMS 后台",
+      "description": "feat: 添加博客管理工具 — CLI 命令行 + Decap CMS 后台",
+      "files": [
+        "public/admin/config.yml",
+        "public/admin/index.html",
+        "package.json",
+        "scripts/new-post.mjs",
+        "scripts/templates/paper.md"
+      ]
+    },
+    {
+      "hash": "a79eb57",
+      "date": "2026-05-06",
+      "time": "16:10",
+      "icon": "🎨",
+      "title": "Scholarly Ink 设计系统 — 全站界面美化",
+      "description": "feat: Scholarly Ink 设计系统 — 全站界面美化",
+      "files": [
+        "styles/index.scss",
+        "theme/components/Blog/BlogItem.vue",
+        "theme/components/Blog/BlogItemInfo.vue",
+        "theme/components/Blog/BlogListPage.vue",
+        "theme/components/Blog/BlogSider.vue"
+      ]
+    },
+    {
+      "hash": "dd12b7a",
+      "date": "2026-05-05",
+      "time": "22:39",
+      "icon": "🎨",
+      "title": "丰富标签/领域颜色，修复运行时间刷新重置",
+      "description": "feat: 丰富标签/领域颜色，修复运行时间刷新重置",
+      "files": [
+        "theme/components/Blog/BlogListPage.vue",
+        "theme/components/Blog/BlogSider.vue",
+        "theme/components/HomeFooter.vue"
+      ]
+    },
+    {
+      "hash": "17007f0",
+      "date": "2026-05-05",
+      "time": "22:29",
+      "icon": "🎨",
+      "title": "修复文章卡片图片溢出问题",
+      "description": "fix: 修复文章卡片图片溢出问题",
+      "files": [
+        "theme/components/Blog/BlogItem.vue"
+      ]
+    },
+    {
+      "hash": "3e01d82",
+      "date": "2026-05-05",
+      "time": "22:22",
+      "icon": "🎨",
+      "title": "修复暗色模式和样式冲突等多处问题",
+      "description": "fix: 修复暗色模式和样式冲突等多处问题",
+      "files": [
+        "styles/common.css",
+        "styles/index.scss",
+        "theme/components/Blog/BlogItem.vue"
+      ]
+    },
+    {
+      "hash": "0b70223",
+      "date": "2026-05-05",
+      "time": "21:47",
+      "icon": "🎨",
+      "title": "向下箭头移到大屏底部，避免与文字重叠",
+      "description": "fix: 向下箭头移到大屏底部，避免与文字重叠",
+      "files": [
+        "theme/components/HomeBanner.vue"
+      ]
+    },
+    {
+      "hash": "b40fc59",
+      "date": "2026-05-05",
+      "time": "21:39",
+      "icon": "🎨",
+      "title": "重置运行时间计时器从当前时间开始",
+      "description": "chore: 重置运行时间计时器从当前时间开始",
+      "files": [
+        "theme/components/HomeFooter.vue"
+      ]
+    },
+    {
+      "hash": "2804076",
+      "date": "2026-05-05",
+      "time": "21:35",
+      "icon": "🎨",
+      "title": "优化首页英雄区域为高端简约风格",
+      "description": "feat: 优化首页英雄区域为高端简约风格",
+      "files": [
+        "theme/components/HomeBanner.vue"
+      ]
+    },
+    {
+      "hash": "4f1d573",
+      "date": "2026-05-05",
+      "time": "21:23",
+      "icon": "🎨",
+      "title": "升级页脚运行时间为数字翻牌器风格",
+      "description": "feat: 升级页脚运行时间为数字翻牌器风格",
+      "files": [
+        "theme/components/HomeFooter.vue"
+      ]
+    },
+    {
+      "hash": "c8471d8",
+      "date": "2026-05-05",
+      "time": "21:12",
+      "icon": "🎨",
+      "title": "修复\"每页\"文字竖排和时间显示格式",
+      "description": "fix: 修复\"每页\"文字竖排和时间显示格式",
+      "files": [
+        "theme/components/HomeFooter.vue",
+        "theme/components/global/Pagination.vue"
+      ]
+    },
+    {
+      "hash": "7b9b440",
+      "date": "2026-05-05",
+      "time": "21:04",
+      "icon": "🎨",
+      "title": "修复分页器和页脚布局错位问题",
+      "description": "fix: 修复分页器和页脚布局错位问题",
+      "files": [
+        "theme/components/HomeFooter.vue",
+        "theme/components/global/Pagination.vue"
+      ]
+    },
+    {
+      "hash": "7e050fa",
+      "date": "2026-05-05",
+      "time": "20:33",
+      "icon": "🎨",
+      "title": "修复 Pagination 组件与父组件状态不同步的问题",
+      "description": "fix: 修复 Pagination 组件与父组件状态不同步的问题",
+      "files": [
+        "theme/components/Blog/BlogListPage.vue",
+        "theme/components/global/Pagination.vue"
+      ]
+    },
+    {
+      "hash": "adc8654",
+      "date": "2026-05-05",
+      "time": "20:12",
+      "icon": "🎨",
+      "title": "修复代码问题，统一设计语言",
+      "description": "fix: 修复代码问题，统一设计语言",
+      "files": [
+        "styles/index.scss",
+        "theme/components/Blog/BlogListPage.vue",
+        "theme/components/global/Pagination.vue"
+      ]
+    },
+    {
+      "hash": "a093a82",
+      "date": "2026-05-05",
+      "time": "19:58",
+      "icon": "🎨",
+      "title": "重做分页器和页脚，提升高级感",
+      "description": "style: 重做分页器和页脚，提升高级感",
+      "files": [
+        "styles/index.scss",
+        "theme/components/HomeFooter.vue",
+        "theme/components/global/Pagination.vue"
+      ]
+    },
+    {
+      "hash": "b665c77",
+      "date": "2026-05-05",
+      "time": "19:50",
+      "icon": "🎨",
+      "title": "精细化 UI 提升高级感",
+      "description": "style: 精细化 UI 提升高级感",
+      "files": [
+        "styles/index.scss",
+        "theme/components/Blog/BlogItem.vue",
+        "theme/components/Blog/BlogItemInfo.vue",
+        "theme/components/Blog/BlogSider.vue",
+        "theme/components/HomeFooter.vue"
+      ]
+    },
+    {
+      "hash": "d5f813c",
+      "date": "2026-05-05",
+      "time": "18:53",
+      "icon": "🎨",
+      "title": "整体风格优化为学术简约高端风",
+      "description": "style: 整体风格优化为学术简约高端风",
+      "files": [
+        "styles/common.css",
+        "styles/index.scss",
+        "theme/components/Blog/BlogItem.vue",
+        "theme/components/Blog/BlogItemInfo.vue",
+        "theme/components/Blog/BlogSider.vue"
+      ]
+    },
+    {
+      "hash": "09b8be5",
+      "date": "2026-05-05",
+      "time": "18:23",
+      "icon": "🎨",
+      "title": "改造为论文阅读笔记网站",
+      "description": "feat: 改造为论文阅读笔记网站",
+      "files": [
+        ".claude/settings.json",
+        ".claude/settings.local.json",
+        "config.ts",
+        "config/firendLink.ts",
+        "config/navbar.ts"
+      ]
+    },
+    {
+      "hash": "418f79c",
+      "date": "2026-05-05",
+      "time": "18:06",
+      "icon": "🎨",
+      "title": "亮色模式顶栏浅色背景+黑色菜单文字",
+      "description": "fix: 亮色模式顶栏浅色背景+黑色菜单文字",
+      "files": [
+        "styles/index.scss"
+      ]
+    },
+    {
+      "hash": "13ef1c7",
+      "date": "2026-05-05",
+      "time": "17:55",
+      "icon": "🎨",
+      "title": "亮色模式导航栏改为浅色背景+黑色文字",
+      "description": "fix: 亮色模式导航栏改为浅色背景+黑色文字",
+      "files": [
+        "styles/index.scss"
+      ]
+    },
+    {
+      "hash": "e085313",
+      "date": "2026-05-05",
+      "time": "17:41",
+      "icon": "🎨",
+      "title": "通过覆盖 CSS 变量彻底修复导航栏颜色遮盖",
+      "description": "fix: 通过覆盖 CSS 变量彻底修复导航栏颜色遮盖",
+      "files": [
+        "styles/index.scss"
+      ]
+    },
+    {
+      "hash": "1ba404e",
+      "date": "2026-05-05",
+      "time": "17:24",
+      "icon": "🎨",
+      "title": "修复导航栏菜单文字不可见，使用正确的 CSS 选择器",
+      "description": "fix: 修复导航栏菜单文字不可见，使用正确的 CSS 选择器",
+      "files": [
+        "styles/index.scss"
+      ]
+    },
+    {
+      "hash": "dc0ad96",
+      "date": "2026-05-05",
+      "time": "17:12",
+      "icon": "🎨",
+      "title": "修复顶部导航栏白色背景遮盖菜单文字问题",
+      "description": "fix: 修复顶部导航栏白色背景遮盖菜单文字问题",
+      "files": [
+        "styles/index.scss"
+      ]
+    },
+    {
+      "hash": "1b87843",
+      "date": "2026-05-05",
+      "time": "17:00",
+      "icon": "🎨",
+      "title": "修复 TOC 目录激活项颜色遮盖问题",
+      "description": "fix: 修复 TOC 目录激活项颜色遮盖问题",
+      "files": [
+        "styles/index.scss"
+      ]
+    },
+    {
+      "hash": "1a0e307",
+      "date": "2026-05-05",
+      "time": "16:57",
+      "icon": "🎨",
+      "title": "修复文章目录（TOC）点击跳转时激活状态显示异常",
+      "description": "fix: 修复文章目录（TOC）点击跳转时激活状态显示异常",
+      "files": [
+        "styles/index.scss"
+      ]
+    },
+    {
+      "hash": "a50888d",
+      "date": "2026-05-05",
+      "time": "16:48",
+      "icon": "🎨",
+      "title": "导航栏菜单文字统一调整为白色",
+      "description": "fix: 导航栏菜单文字统一调整为白色",
+      "files": [
+        "styles/index.scss"
+      ]
+    },
+    {
+      "hash": "baa286e",
+      "date": "2026-05-05",
+      "time": "16:28",
+      "icon": "🎨",
+      "title": "修复暗黑模式下导航栏菜单文字不可见问题",
+      "description": "fix: 修复暗黑模式下导航栏菜单文字不可见问题",
+      "files": [
+        "styles/index.scss"
+      ]
+    },
+    {
+      "hash": "b43e7e8",
+      "date": "2026-05-05",
+      "time": "16:19",
+      "icon": "🎨",
+      "title": "页脚添加网站运行时间动态计时器",
+      "description": "feat: 页脚添加网站运行时间动态计时器",
+      "files": [
+        "theme/components/HomeFooter.vue"
+      ]
+    },
+    {
+      "hash": "ec086ec",
+      "date": "2026-05-05",
+      "time": "16:07",
+      "icon": "🚀",
+      "title": "修复 Gitee 镜像 SSH 认证失败问题",
+      "description": "fix: 修复 Gitee 镜像 SSH 认证失败问题",
+      "files": [
+        ".github/workflows/deploy.yml"
+      ]
+    },
+    {
+      "hash": "726daad",
+      "date": "2026-05-05",
+      "time": "16:03",
+      "icon": "🎨",
+      "title": "全面优化 UI 设计，提升视觉效果和用户体验",
+      "description": "feat: 全面优化 UI 设计，提升视觉效果和用户体验",
+      "files": [
+        "config.ts",
+        "styles/index.scss",
+        "theme/components/Blog/BlogItem.vue",
+        "theme/components/Blog/BlogListPage.vue",
+        "theme/components/Blog/BlogSider.vue"
+      ]
+    },
+    {
+      "hash": "3dc6534",
+      "date": "2026-05-05",
+      "time": "15:32",
+      "icon": "🛠️",
+      "title": "添加 overrides 强制锁定 @vuepress/* 传递依赖版本",
+      "description": "fix: 添加 overrides 强制锁定 @vuepress/* 传递依赖版本",
+      "files": [
+        "package.json"
+      ]
+    },
+    {
+      "hash": "e5ca184",
+      "date": "2026-05-05",
+      "time": "15:27",
+      "icon": "🛠️",
+      "title": "锁定所有 vuepress 插件到精确版本，彻底解决 ESM 兼容问题",
+      "description": "fix: 锁定所有 vuepress 插件到精确版本，彻底解决 ESM 兼容问题",
+      "files": [
+        "package.json"
+      ]
+    },
+    {
+      "hash": "e973e9c",
+      "date": "2026-05-05",
+      "time": "15:23",
+      "icon": "🛠️",
+      "title": "锁定 @vuepress/plugin-* 到精确的 beta.49 版本",
+      "description": "fix: 锁定 @vuepress/plugin-* 到精确的 beta.49 版本",
+      "files": [
+        "package.json"
+      ]
+    },
+    {
+      "hash": "7084215",
+      "date": "2026-05-05",
+      "time": "15:20",
+      "icon": "🎨",
+      "title": "替换 @vuepress/utils 为 Node.js 内置 path 模块",
+      "description": "fix: 替换 @vuepress/utils 为 Node.js 内置 path 模块",
+      "files": [
+        "config.ts",
+        "config/plugins.ts",
+        "theme/index.ts"
+      ]
+    },
+    {
+      "hash": "8a2f2ac",
+      "date": "2026-05-05",
+      "time": "15:17",
+      "icon": "🛠️",
+      "title": "回退 vuepress 版本到 beta.49，保留其他依赖升级",
+      "description": "fix: 回退 vuepress 版本到 beta.49，保留其他依赖升级",
+      "files": [
+        "package.json"
+      ]
+    },
+    {
+      "hash": "82c3098",
+      "date": "2026-05-05",
+      "time": "15:08",
+      "icon": "🚀",
+      "title": "修复依赖版本冲突和 CI 配置",
+      "description": "fix: 修复依赖版本冲突和 CI 配置",
+      "files": [
+        ".github/workflows/deploy.yml",
+        "package.json"
+      ]
+    }
+  ],
+  "post": [
+    {
+      "hash": "95e8dc2",
+      "date": "2026-05-07",
+      "time": "12:21",
+      "icon": "📝",
+      "title": "Delete 分类管理 “java”",
+      "description": "Delete 分类管理 “java”",
+      "files": [
+        "_categories/java.md"
+      ]
+    },
+    {
+      "hash": "577a070",
+      "date": "2026-05-06",
+      "time": "21:08",
+      "icon": "📄",
+      "title": "Update 论文笔记 “nlp/attention-is-all-you-need”",
+      "description": "Update 论文笔记 “nlp/attention-is-all-you-need”",
+      "files": [
+        "ai/nlp/attention-is-all-you-need.md"
+      ]
+    },
+    {
+      "hash": "69dffd7",
+      "date": "2026-05-06",
+      "time": "20:00",
+      "icon": "💚",
+      "title": "修复 pm2.md frontmatter 字段名不一致 (categories→category, tags→tag)",
+      "description": "fix: 修复 pm2.md frontmatter 字段名不一致 (categories→category, tags→tag)",
+      "files": [
+        "node/pm2.md"
+      ]
+    },
+    {
+      "hash": "178de25",
+      "date": "2026-05-05",
+      "time": "15:37",
+      "icon": "💚",
+      "title": "修复 markdown 中的 URL 格式错误 https:# -> https://",
+      "description": "fix: 修复 markdown 中的 URL 格式错误 https:# -> https://",
+      "files": [
+        "node/pm2.md",
+        "nuxt/deploy.md"
+      ]
+    }
+  ]
+}
