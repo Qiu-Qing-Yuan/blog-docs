@@ -1,1 +1,1 @@
-import{_ as e,o as n,c as t,a as _}from"./anyfork.js";const c={},o=_("p",null,"Nginx \u670D\u52A1\u5668\u914D\u7F6E\u7B14\u8BB0",-1),s=[o];function a(r,l){return n(),t("div",null,s)}var d=e(c,[["render",a],["__file","nginx.html.vue"]]);export{d as default};
+import{_ as e,o as n,c}from"./anyfork.js";const r={};function t(_,o){return n(),c("div")}var s=e(r,[["render",t],["__file","nginx.html.vue"]]);export{s as default};

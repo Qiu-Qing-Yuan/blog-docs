@@ -1,1 +1,1 @@
-import{_ as e,o as a,c as t,a as _}from"./anyfork.js";const c={},o=_("p",null,"Java \u7F16\u7A0B\u8BED\u8A00\u7B14\u8BB0",-1),s=[o];function n(r,l){return a(),t("div",null,s)}var f=e(c,[["render",n],["__file","java.html.vue"]]);export{f as default};
+import{_ as e,o as a,c}from"./anyfork.js";const r={};function t(_,o){return a(),c("div")}var s=e(r,[["render",t],["__file","java.html.vue"]]);export{s as default};

@@ -1,1 +1,1 @@
-import{_ as e,o as _,c as t,a as c}from"./anyfork.js";const o={},s=c("p",null,"\u56FE\u7247\u9632\u76D7\u94FE\u6280\u672F\u7B14\u8BB0",-1),a=[s];function n(r,l){return _(),t("div",null,a)}var f=e(o,[["render",n],["__file","\u76D7\u94FE.html.vue"]]);export{f as default};
+import{_ as e,o as _,c}from"./anyfork.js";const r={};function t(o,a){return _(),c("div")}var s=e(r,[["render",t],["__file","\u76D7\u94FE.html.vue"]]);export{s as default};

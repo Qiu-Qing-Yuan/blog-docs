@@ -5,10 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>博客管理后台</title>
   <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    /* 分类/标签预览卡片 */
+    .taxonomy-preview { padding: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    .taxonomy-card { display: flex; align-items: center; gap: 16px; padding: 16px 20px; border-radius: 12px; border: 1px solid #e8e8e8; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .taxonomy-card .icon-circle { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; color: #fff; flex-shrink: 0; }
+    .taxonomy-card .info { flex: 1; }
+    .taxonomy-card .info h3 { margin: 0 0 4px; font-size: 16px; font-weight: 600; color: #1a1a2e; }
+    .taxonomy-card .info p { margin: 0; font-size: 13px; color: #666; }
+    .taxonomy-card .order-badge { padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; color: #fff; }
+    /* CMS 列表样式优化 */
+    .nc-listItem-card { border-radius: 8px !important; }
   </style>
 </head>
 <body>
@@ -51,6 +58,51 @@
           recoveredEntry: { entry: '恢复的内容', recover: '恢复' },
         },
       },
+    })
+
+    // ── 预览模板 ──
+    const iconMap = {
+      'RobotOutlined': '🤖', 'TranslationOutlined': '📝', 'CloudServerOutlined': '☁️',
+      'CoffeeOutlined': '☕', 'LinuxOutlined': '🐧', 'GlobalOutlined': '🌐',
+      'CodeOutlined': '💻', 'ApiOutlined': '🔌', 'DatabaseOutlined': '🗄️',
+      'SettingOutlined': '⚙️', 'LinkOutlined': '🔗', 'EllipsisOutlined': '📦',
+      'RocketOutlined': '🚀', 'BarChartOutlined': '📊', 'ExperimentOutlined': '🔬',
+      'ReadOutlined': '📚', 'BgColorsOutlined': '🎨', 'SafetyOutlined': '🛡️'
+    }
+
+    CMS.registerPreviewTemplate('categories', ({ entry }) => {
+      const name = entry.getIn(['data', 'name']) || ''
+      const desc = entry.getIn(['data', 'description']) || ''
+      const icon = entry.getIn(['data', 'appearance', 'icon']) || ''
+      const color = entry.getIn(['data', 'appearance', 'color']) || '#1a5c3a'
+      const order = entry.getIn(['data', 'order']) || 0
+      const emoji = iconMap[icon] || '📁'
+      return h('div', { className: 'taxonomy-preview' },
+        h('div', { className: 'taxonomy-card' },
+          h('div', { className: 'icon-circle', style: { background: color } }, emoji),
+          h('div', { className: 'info' },
+            h('h3', null, name),
+            h('p', null, desc)
+          ),
+          h('span', { className: 'order-badge', style: { background: color } }, `#${order}`)
+        )
+      )
+    })
+
+    CMS.registerPreviewTemplate('tags', ({ entry }) => {
+      const name = entry.getIn(['data', 'name']) || ''
+      const desc = entry.getIn(['data', 'description']) || ''
+      const color = entry.getIn(['data', 'color']) || '#1a5c3a'
+      return h('div', { className: 'taxonomy-preview' },
+        h('div', { className: 'taxonomy-card' },
+          h('div', { className: 'icon-circle', style: { background: color } }, '🏷️'),
+          h('div', { className: 'info' },
+            h('h3', null, name),
+            h('p', null, desc)
+          ),
+          h('span', { className: 'order-badge', style: { background: color } }, name)
+        )
+      )
     })
 
     // ── 分类/标签删除保护 ──
