@@ -4,7 +4,7 @@ export const useCount = (updateFlag: boolean = true): void => {
     onMounted(() => {
         setTimeout(() => {
             pageviewCount({
-                serverURL: 'https://blog-storage-ro4de7x4r-qiu-qing-yuans-projects.vercel.app/',
+                serverURL: 'https://blog-storage-six.vercel.app/',
                 update: updateFlag
             });
         }, 500);
