@@ -326,7 +326,7 @@
     <div class="login-hint" id="loginHint">
       <span style="font-size:16px">⚡</span>
       <span>详细访客信息（IP、浏览器等）需要先
-        <a href="https://waline.anyfork.top/ui" target="_blank">登录 Waline 管理后台</a>
+        <a href="https://blog-storage-ro4de7x4r-qiu-qing-yuans-projects.vercel.app/ui" target="_blank">登录 Waline 管理后台</a>
         ，登录后刷新此页面。
       </span>
     </div>
@@ -417,7 +417,7 @@
   </div>
 
   <script>
-    const WALINE_SERVER = 'https://waline.anyfork.top/'
+    const WALINE_SERVER = 'https://blog-storage-ro4de7x4r-qiu-qing-yuans-projects.vercel.app/'
     const BASE_PATH = '/blog-docs/'
     const ARTICLE_PATHS = []
 
@@ -480,7 +480,7 @@
       const token = getWalineToken()
       const tbody = document.getElementById('commentTable')
       if (!token) {
-        tbody.innerHTML = '<tr><td colspan="6" class="empty-cell">请先 <a href="https://waline.anyfork.top/ui" target="_blank">登录 Waline</a> 后刷新查看</td></tr>'
+        tbody.innerHTML = '<tr><td colspan="6" class="empty-cell">请先 <a href="https://blog-storage-ro4de7x4r-qiu-qing-yuans-projects.vercel.app/ui" target="_blank">登录 Waline</a> 后刷新查看</td></tr>'
         return
       }
       try {
@@ -511,7 +511,7 @@
           }).join('')
         }
       } catch {
-        tbody.innerHTML = '<tr><td colspan="6" class="empty-cell">登录已过期，请 <a href="https://waline.anyfork.top/ui" target="_blank">重新登录</a></td></tr>'
+        tbody.innerHTML = '<tr><td colspan="6" class="empty-cell">登录已过期，请 <a href="https://blog-storage-ro4de7x4r-qiu-qing-yuans-projects.vercel.app/ui" target="_blank">重新登录</a></td></tr>'
       }
     }
 
