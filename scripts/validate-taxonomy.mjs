@@ -14,10 +14,12 @@ function extractFrontmatter(content) {
   const fm = {}
   let currentKey = null
   let inList = false
+  let indent = 0
 
   for (const line of match[1].split(/\r?\n/)) {
     const listMatch = line.match(/^  - (.+)/)
     const keyMatch = line.match(/^(\w+):\s*(.*)/)
+    const nestedMatch = line.match(/^(\w+):$/)
     if (listMatch && currentKey && inList) {
       fm[currentKey].push(listMatch[1].replace(/^["']|["']$/g, ''))
     } else if (keyMatch) {
