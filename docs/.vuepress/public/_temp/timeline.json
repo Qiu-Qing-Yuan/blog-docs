@@ -1,6 +1,21 @@
 {
   "site": [
     {
+      "hash": "65cacd4",
+      "date": "2026-05-07",
+      "time": "18:50",
+      "icon": "🎨",
+      "title": "统一管理后台 + 时间轴增强为 4 分类",
+      "description": "feat: 统一管理后台 + 时间轴增强为 4 分类",
+      "files": [
+        "public/_temp/timeline.json",
+        "public/admin/index.html",
+        "theme/composables/useTimeline.ts",
+        "theme/layouts/Timeline.vue",
+        "scripts/generate-timeline.mjs"
+      ]
+    },
+    {
       "hash": "432c51d",
       "date": "2026-05-07",
       "time": "17:24",
@@ -632,6 +647,17 @@
     }
   ],
   "taxonomy": [
+    {
+      "hash": "515886e",
+      "date": "2026-05-07",
+      "time": "18:16",
+      "icon": "📂",
+      "title": "Delete 分类管理 “docker”",
+      "description": "Delete 分类管理 “docker”",
+      "files": [
+        "_categories/docker.md"
+      ]
+    },
     {
       "hash": "95e8dc2",
       "date": "2026-05-07",
