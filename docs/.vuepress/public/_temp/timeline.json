@@ -1,6 +1,21 @@
 {
   "site": [
     {
+      "hash": "d8a233d",
+      "date": "2026-05-07",
+      "time": "12:35",
+      "icon": "🎨",
+      "title": "添加动态时间轴功能",
+      "description": "feat: 添加动态时间轴功能",
+      "files": [
+        "public/_temp/timeline.json",
+        "theme/composables/useTimeline.ts",
+        "theme/layouts/Timeline.vue",
+        "docs/timeline/README.md",
+        "package.json"
+      ]
+    },
+    {
       "hash": "a7d907c",
       "date": "2026-05-07",
       "time": "12:26",
