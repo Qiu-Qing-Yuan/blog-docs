@@ -706,7 +706,7 @@ socialLinks: [
 ```typescript
 commentPlugin({
     provider: 'Waline',
-    serverURL: 'https://waline.anyfork.top/',  // Waline 服务端地址
+    serverURL: 'https://blog-storage-ro4de7x4r-qiu-qing-yuans-projects.vercel.app/',  // Waline 服务端地址
     pageview: true  // 是否开启访问量统计
 })
 ```

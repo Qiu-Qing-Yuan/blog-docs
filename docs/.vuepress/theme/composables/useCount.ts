@@ -4,7 +4,7 @@ export const useCount = (updateFlag: boolean = true): void => {
     onMounted(() => {
         setTimeout(() => {
             pageviewCount({
-                serverURL: 'https://waline.anyfork.top/',
+                serverURL: 'https://blog-storage-ro4de7x4r-qiu-qing-yuans-projects.vercel.app/',
                 update: updateFlag
             });
         }, 500);

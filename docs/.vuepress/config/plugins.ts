@@ -162,7 +162,7 @@ export const plugins = [
     //Waline评论插件,https://vuepress-theme-hope.github.io/v2/comment/zh/config/giscus.html
     commentPlugin({
         provider: 'Waline',
-        serverURL: 'https://waline.anyfork.top/',
+        serverURL: 'https://blog-storage-ro4de7x4r-qiu-qing-yuans-projects.vercel.app/',
         //是否开启访问量
         pageview: true
     }),
