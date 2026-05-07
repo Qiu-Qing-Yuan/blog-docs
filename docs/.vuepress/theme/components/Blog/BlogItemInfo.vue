@@ -41,7 +41,7 @@
     <!-- 浏览量 -->
     <span class="inline-flex items-center text-[12px] text-[#9494a8]">
       <Icon icon="FireOutlined" :iconSize="isMobile ? 11 : 13" class="opacity-40">
-        <span class="waline-pageview-count" :data-path="page.path" :style="isMobile ? { fontSize: '10px' } : { 'padding-left': '4px' }"></span>
+        <span class="waline-pageview-count" :data-path="pagePath" :style="isMobile ? { fontSize: '10px' } : { 'padding-left': '4px' }"></span>
       </Icon>
     </span>
   </div>
@@ -51,6 +51,7 @@ import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
 import timezone from 'dayjs/plugin/timezone'
 import { computed } from 'vue'
+import { withBase } from '@vuepress/client'
 import { isMobile } from '../../utils'
 dayjs.extend(utc)
 dayjs.extend(timezone)
@@ -68,6 +69,7 @@ const props = defineProps<{
   page: Record<string, any>
 }>()
 
+const pagePath = computed(() => withBase(props.page.path))
 const paper = computed<PaperInfo>(() => props.page.frontmatter.paper || {})
 const venueText = computed(() => {
   const p = paper.value

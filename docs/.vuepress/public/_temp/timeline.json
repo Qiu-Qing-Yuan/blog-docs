@@ -1,6 +1,20 @@
 {
   "site": [
     {
+      "hash": "8781666",
+      "date": "2026-05-07",
+      "time": "12:37",
+      "icon": "🎨",
+      "title": "文章底部添加访问统计信息",
+      "description": "feat: 文章底部添加访问统计信息",
+      "files": [
+        "public/_temp/timeline.json",
+        "theme/components/Blog/ArticleStats.vue",
+        "theme/layouts/Layout.vue",
+        "stats.html"
+      ]
+    },
+    {
       "hash": "d8a233d",
       "date": "2026-05-07",
       "time": "12:35",

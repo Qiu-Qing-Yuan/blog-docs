@@ -28,9 +28,7 @@ import BlogItemInfo from '../components/Blog/BlogItemInfo.vue'
 import ArticleStats from '../components/Blog/ArticleStats.vue'
 import { usePageData } from '@vuepress/client'
 import { useDarkMode } from '@vuepress/theme-default/lib/client/composables'
-import { useCount } from '../composables'
 import { isMobile } from '../utils'
 const page = usePageData()
 const isDark = useDarkMode()
-useCount()
 </script>

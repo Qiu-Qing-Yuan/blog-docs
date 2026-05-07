@@ -12,7 +12,7 @@
         <div class="bg-white dark:bg-[#1a1d2e] rounded-[10px] p-[14px] text-center border border-[var(--border-subtle)]">
           <div class="text-[20px] font-[700] text-[#1a5c3a] dark:text-[#4eca8a] font-mono tabular-nums flex items-center justify-center gap-[4px]">
             <Icon icon="EyeOutlined" :iconSize="14" class="opacity-50" />
-            <span class="waline-pageview-count" :data-path="page.path">0</span>
+            <span class="waline-pageview-count" :data-path="pagePath">0</span>
           </div>
           <div class="text-[11px] text-[#9494a8] mt-[4px] uppercase tracking-wider">浏览量</div>
         </div>
@@ -55,6 +55,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { withBase } from '@vuepress/client'
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
 import timezone from 'dayjs/plugin/timezone'
@@ -65,6 +66,8 @@ dayjs.extend(timezone)
 const props = defineProps<{
   page: Record<string, any>
 }>()
+
+const pagePath = computed(() => withBase(props.page.path))
 
 // 字数统计（从页面内容提取）
 const wordCount = computed(() => {

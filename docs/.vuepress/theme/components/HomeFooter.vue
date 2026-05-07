@@ -57,7 +57,7 @@
         <span class="text-[#d0d0dd] dark:text-[#2a2e3e] text-[10px]">&#183;</span>
         <span class="inline-flex items-center text-[11px] text-[#b0b0c0] dark:text-[#475569]">
           <Icon icon="FireOutlined" :iconSize="11" class="opacity-30">
-            <span class="waline-pageview-count" data-path="/" style="padding-left: 3px; font-size: 11px;"></span>
+            <span class="waline-pageview-count" data-path="/blog-docs/" style="padding-left: 3px; font-size: 11px;"></span>
           </Icon>
         </span>
         <span class="text-[#d0d0dd] dark:text-[#2a2e3e] text-[10px]">&#183;</span>

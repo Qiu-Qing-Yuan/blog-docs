@@ -29,7 +29,7 @@
     tr:last-child td { border-bottom: none; }
     tr:hover { background: #f9f9f9; }
     .ip { font-family: 'SF Mono', Monaco, monospace; font-size: 12px; color: #722ed1; background: #f9f0ff; padding: 2px 8px; border-radius: 4px; }
-    .ua { font-size: 11px; color: #999; max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .ua { font-size: 11px; color: #999; max-width: 250px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .time { font-size: 12px; color: #666; font-family: 'SF Mono', Monaco, monospace; }
     .page-path { font-size: 12px; color: #1a5c3a; font-family: 'SF Mono', Monaco, monospace; }
     .views { font-weight: 700; color: #2d8cf0; font-family: 'SF Mono', Monaco, monospace; }
@@ -42,19 +42,22 @@
     .login-hint { background: #fff7e6; border: 1px solid #ffe0b2; border-radius: 8px; padding: 12px 16px; margin-bottom: 16px; font-size: 13px; color: #ad6800; }
     .login-hint a { color: #1a5c3a; }
     .empty { text-align: center; padding: 32px; color: #999; font-size: 13px; }
+    .nick { font-weight: 500; color: #333; }
+    .content-preview { max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #555; }
   </style>
 </head>
 <body>
   <div class="header">
     <h1>📊 访问统计</h1>
-    <div>
+    <div style="display:flex;gap:12px;align-items:center;">
+      <button class="refresh-btn" onclick="init()">🔄 刷新全部</button>
       <a href="/blog-docs/admin/">← 返回管理后台</a>
     </div>
   </div>
   <div class="container">
-    <div class="login-hint">
+    <div class="login-hint" id="loginHint">
       💡 详细访客信息（IP、浏览器等）需要先登录 Waline 管理后台。
-      <a href="https://waline.anyfork.top/ui" target="_blank">点击登录 Waline</a>
+      <a href="https://waline.anyfork.top/ui" target="_blank">点击登录 Waline</a>，登录后刷新此页面。
     </div>
 
     <div class="stats-grid">
@@ -67,19 +70,19 @@
         <div class="value blue" id="totalViews">-</div>
       </div>
       <div class="stat-card">
-        <div class="label">📂 分类数量</div>
-        <div class="value orange" id="totalCategories">-</div>
+        <div class="label">💬 总评论数</div>
+        <div class="value orange" id="totalComments">-</div>
       </div>
       <div class="stat-card">
-        <div class="label">🏷️ 标签数量</div>
-        <div class="value purple" id="totalTags">-</div>
+        <div class="label">📂 分类 / 标签</div>
+        <div class="value purple" id="totalTaxonomy">-</div>
       </div>
     </div>
 
     <div class="section">
       <div class="section-header">
         <h2>📈 文章访问排行</h2>
-        <button class="refresh-btn" onclick="loadPageviews()" id="refreshBtn">刷新数据</button>
+        <button class="refresh-btn" onclick="loadPageviews()" id="pvBtn">刷新访问量</button>
       </div>
       <table>
         <thead>
@@ -106,12 +109,13 @@
             <th>昵称</th>
             <th>评论内容</th>
             <th>IP 地址</th>
-            <th>浏览器</th>
+            <th>浏览器 / 系统</th>
+            <th>评论页面</th>
             <th>时间</th>
           </tr>
         </thead>
         <tbody id="commentTable">
-          <tr><td colspan="5" class="loading"><span class="spinner"></span>加载中...</td></tr>
+          <tr><td colspan="6" class="loading"><span class="spinner"></span>加载中...</td></tr>
         </tbody>
       </table>
     </div>
@@ -120,19 +124,14 @@
   <script>
     const WALINE_SERVER = 'https://waline.anyfork.top/'
     const BASE_PATH = '/blog-docs/'
-
-    // 文章路径列表（会在运行时动态获取）
     const ARTICLE_PATHS = []
 
-    // 检查 Waline 登录状态
     function getWalineToken() {
       return localStorage.getItem('WALINE_TOKEN') || ''
     }
 
-    // 获取文章列表
     async function loadArticles() {
       try {
-        // 从 sitemap 获取所有文章路径
         const res = await fetch(BASE_PATH + 'sitemap.xml')
         const text = await res.text()
         const parser = new DOMParser()
@@ -151,24 +150,22 @@
       }
     }
 
-    // 获取页面访问量
     async function loadPageviews() {
-      const btn = document.getElementById('refreshBtn')
+      const btn = document.getElementById('pvBtn')
       btn.disabled = true
       btn.textContent = '加载中...'
 
       const results = []
       let totalViews = 0
 
-      // 批量获取每个页面的访问量
       const batchSize = 5
       for (let i = 0; i < ARTICLE_PATHS.length; i += batchSize) {
         const batch = ARTICLE_PATHS.slice(i, i + batchSize)
         const promises = batch.map(async (path) => {
           try {
-            const res = await fetch(`${WALINE_SERVER}api/comment?type=count&url=${encodeURIComponent(path)}`)
+            const res = await fetch(`${WALINE_SERVER}article?path=${encodeURIComponent(path)}&lang=zh-CN`)
             const data = await res.json()
-            const count = Array.isArray(data.data) ? data.data[0] : (data.data || 0)
+            const count = typeof data === 'number' ? data : (data?.data?.[0] || data?.count || 0)
             return { path, views: count }
           } catch {
             return { path, views: 0 }
@@ -179,11 +176,9 @@
         totalViews += batchResults.reduce((sum, r) => sum + r.views, 0)
       }
 
-      // 排序
       results.sort((a, b) => b.views - a.views)
       document.getElementById('totalViews').textContent = totalViews.toLocaleString()
 
-      // 渲染表格
       const tbody = document.getElementById('pageviewTable')
       if (results.length === 0) {
         tbody.innerHTML = '<tr><td colspan="3" class="empty">暂无数据</td></tr>'
@@ -198,15 +193,15 @@
       }
 
       btn.disabled = false
-      btn.textContent = '刷新数据'
+      btn.textContent = '刷新访问量'
     }
 
-    // 获取评论列表（需要登录 Waline）
     async function loadComments() {
       const token = getWalineToken()
+      const tbody = document.getElementById('commentTable')
+
       if (!token) {
-        document.getElementById('commentTable').innerHTML =
-          '<tr><td colspan="5" class="empty">请先 <a href="https://waline.anyfork.top/ui" target="_blank">登录 Waline 管理后台</a> 后刷新页面查看评论详情</td></tr>'
+        tbody.innerHTML = '<tr><td colspan="6" class="empty">请先 <a href="https://waline.anyfork.top/ui" target="_blank">登录 Waline 管理后台</a> 后刷新页面查看评论详情</td></tr>'
         return
       }
 
@@ -218,60 +213,67 @@
         const data = await res.json()
         const comments = data.data || []
         document.getElementById('commentCount').textContent = comments.length
+        document.getElementById('loginHint').style.display = 'none'
 
-        const tbody = document.getElementById('commentTable')
         if (comments.length === 0) {
-          tbody.innerHTML = '<tr><td colspan="5" class="empty">暂无评论</td></tr>'
+          tbody.innerHTML = '<tr><td colspan="6" class="empty">暂无评论</td></tr>'
         } else {
           tbody.innerHTML = comments.map(c => {
-            const time = new Date((c.insertedAt || c.created) * 1000)
-            const timeStr = time.toLocaleString('zh-CN', { month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' })
+            const ts = c.insertedAt || c.created
+            const time = typeof ts === 'number' ? new Date(ts * 1000) : new Date(ts)
+            const timeStr = isNaN(time) ? '-' : time.toLocaleString('zh-CN', { month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' })
             const content = (c.comment || '').replace(/<[^>]+>/g, '').slice(0, 80)
             const ip = c.ip || '-'
             const ua = c.ua || c.userAgent || '-'
             const nick = c.nick || '匿名'
+            const url = c.url || '-'
             return `
               <tr>
-                <td style="font-weight:500">${nick}</td>
-                <td>${content}</td>
+                <td class="nick">${nick}</td>
+                <td class="content-preview" title="${content}">${content}</td>
                 <td><span class="ip">${ip}</span></td>
                 <td><span class="ua" title="${ua}">${ua}</span></td>
+                <td class="page-path">${url}</td>
                 <td class="time">${timeStr}</td>
               </tr>
             `
           }).join('')
         }
       } catch (e) {
-        document.getElementById('commentTable').innerHTML =
-          '<tr><td colspan="5" class="empty">登录已过期，请 <a href="https://waline.anyfork.top/ui" target="_blank">重新登录</a></td></tr>'
+        tbody.innerHTML = '<tr><td colspan="6" class="empty">登录已过期，请 <a href="https://waline.anyfork.top/ui" target="_blank">重新登录</a> 后刷新</td></tr>'
       }
     }
 
-    // 加载分类和标签数量
-    async function loadTaxonomyCounts() {
+    async function loadTaxonomy() {
       try {
-        const [catRes, tagRes] = await Promise.all([
-          fetch(BASE_PATH + 'category/'),
-          fetch(BASE_PATH + 'tag/')
-        ])
-        const catText = await catRes.text()
-        const tagText = await tagRes.text()
-        const catCount = (catText.match(/class="badge"/g) || []).length || '-'
-        const tagCount = (tagText.match(/class="badge"/g) || []).length || '-'
-        document.getElementById('totalCategories').textContent = catCount
-        document.getElementById('totalTags').textContent = tagCount
+        const res = await fetch(BASE_PATH + 'category/')
+        const text = await res.text()
+        const catCount = (text.match(/<h3[^>]*>[^<]+<\/h3>/g) || []).length || '-'
+        document.getElementById('totalTaxonomy').textContent = catCount
       } catch {
-        document.getElementById('totalCategories').textContent = '-'
-        document.getElementById('totalTags').textContent = '-'
+        document.getElementById('totalTaxonomy').textContent = '-'
       }
     }
 
-    // 初始化
+    async function loadCommentCount() {
+      try {
+        let total = 0
+        for (const path of ARTICLE_PATHS.slice(0, 20)) {
+          try {
+            const res = await fetch(`${WALINE_SERVER}comment?path=${encodeURIComponent(path)}&lang=zh-CN`)
+            const data = await res.json()
+            total += (data?.count || data?.data?.length || 0)
+          } catch {}
+        }
+        document.getElementById('totalComments').textContent = total || '0'
+      } catch {
+        document.getElementById('totalComments').textContent = '-'
+      }
+    }
+
     async function init() {
       await loadArticles()
-      await loadTaxonomyCounts()
-      await loadPageviews()
-      await loadComments()
+      await Promise.all([loadPageviews(), loadComments(), loadTaxonomy(), loadCommentCount()])
     }
     init()
   </script>
