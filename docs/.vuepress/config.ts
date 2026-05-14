@@ -105,9 +105,8 @@ export default defineUserConfig({
         cssCodeSplit: true,
         rollupOptions: {
           output: {
-            //处理gh-pages因hash打包存在旧文件问题。
-            chunkFileNames: 'assets/js/[name].js',
-            entryFileNames: 'assets/js/[name].js',
+            chunkFileNames: 'assets/js/[name]-[hash].js',
+            entryFileNames: 'assets/js/[name]-[hash].js',
             inlineDynamicImports: false,
             manualChunks(id) {
               //vicons额外打包
