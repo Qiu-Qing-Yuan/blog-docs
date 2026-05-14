@@ -2,29 +2,31 @@
   <div class="hero-container" ref="containerRef">
     <!-- ═══════ 第一屏：深色英雄区 ═══════ -->
     <section class="hero-section" ref="heroRef">
-      <!-- 背景几何线框 -->
+      <!-- 3D 线框多面体 -->
       <div class="geo-shapes" ref="geoRef">
-        <svg class="geo-wireframe geo-wireframe-1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="100,10 180,50 180,130 100,170 20,130 20,50" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="0.8"/>
-          <polygon points="100,30 160,60 160,120 100,150 40,120 40,60" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="0.6"/>
-          <line x1="100" y1="10" x2="100" y2="170" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
-          <line x1="20" y1="50" x2="180" y2="130" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
-          <line x1="180" y1="50" x2="20" y2="130" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
-          <polygon points="100,10 180,50 180,130 100,170 20,130 20,50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <svg class="geo-dodeca geo-dodeca-1" viewBox="-60 -60 120 120" xmlns="http://www.w3.org/2000/svg">
+          <g stroke="rgba(255,255,255,0.12)" stroke-width="0.4" fill="none">
+            <line v-for="(edge, i) in dodecaEdges" :key="i"
+              :x1="dodecaVerts[edge[0]][0]" :y1="dodecaVerts[edge[0]][1]"
+              :x2="dodecaVerts[edge[1]][0]" :y2="dodecaVerts[edge[1]][1]" />
+          </g>
+          <g fill="rgba(255,255,255,0.06)">
+            <circle v-for="(v, i) in dodecaVerts" :key="'v'+i" :cx="v[0]" :cy="v[1]" r="0.6" />
+          </g>
         </svg>
-        <svg class="geo-wireframe geo-wireframe-2" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="100,20 170,60 170,140 100,180 30,140 30,60" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="0.7"/>
-          <polygon points="100,40 150,65 150,135 100,160 50,135 50,65" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
-          <line x1="100" y1="20" x2="100" y2="180" stroke="rgba(255,255,255,0.04)" stroke-width="0.4"/>
-          <line x1="30" y1="60" x2="170" y2="140" stroke="rgba(255,255,255,0.04)" stroke-width="0.4"/>
-          <line x1="170" y1="60" x2="30" y2="140" stroke="rgba(255,255,255,0.04)" stroke-width="0.4"/>
+        <svg class="geo-dodeca geo-dodeca-2" viewBox="-60 -60 120 120" xmlns="http://www.w3.org/2000/svg">
+          <g stroke="rgba(255,255,255,0.09)" stroke-width="0.35" fill="none">
+            <line v-for="(edge, i) in dodecaEdges2" :key="i"
+              :x1="dodecaVerts2[edge[0]][0]" :y1="dodecaVerts2[edge[0]][1]"
+              :x2="dodecaVerts2[edge[1]][0]" :y2="dodecaVerts2[edge[1]][1]" />
+          </g>
         </svg>
-        <svg class="geo-wireframe geo-wireframe-3" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="100,15 175,55 175,145 100,185 25,145 25,55" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="0.6"/>
-          <polygon points="100,35 155,60 155,140 100,165 45,140 45,60" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="0.4"/>
-          <line x1="100" y1="15" x2="100" y2="185" stroke="rgba(255,255,255,0.03)" stroke-width="0.3"/>
-          <line x1="25" y1="55" x2="175" y2="145" stroke="rgba(255,255,255,0.03)" stroke-width="0.3"/>
-          <line x1="175" y1="55" x2="25" y2="145" stroke="rgba(255,255,255,0.03)" stroke-width="0.3"/>
+        <svg class="geo-dodeca geo-dodeca-3" viewBox="-60 -60 120 120" xmlns="http://www.w3.org/2000/svg">
+          <g stroke="rgba(255,255,255,0.07)" stroke-width="0.3" fill="none">
+            <line v-for="(edge, i) in dodecaEdges3" :key="i"
+              :x1="dodecaVerts3[edge[0]][0]" :y1="dodecaVerts3[edge[0]][1]"
+              :x2="dodecaVerts3[edge[1]][0]" :y2="dodecaVerts3[edge[1]][1]" />
+          </g>
         </svg>
       </div>
 
@@ -38,11 +40,15 @@
         <div class="hero-actions">
           <a class="hero-btn-primary" :href="primaryBtnLink">
             <span>{{ primaryBtnText }}</span>
-            <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <span class="btn-icon-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
           </a>
           <a class="hero-btn-secondary" :href="secondaryBtnLink">
             <span>{{ secondaryBtnText }}</span>
-            <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <span class="btn-arrow-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
           </a>
         </div>
       </div>
@@ -52,16 +58,16 @@
 
       <!-- 右侧 SCROLL DOWN 圆形指示器 -->
       <div class="scroll-indicator" @click="scrollToNext">
-        <svg class="scroll-circle" viewBox="0 0 100 100">
+        <svg class="scroll-circle" viewBox="0 0 120 120">
           <defs>
-            <path id="scrollTextPath" d="M50,50 m-37,0 a37,37 0 1,1 74,0 a37,37 0 1,1 -74,0"/>
+            <path id="scrollTextPath" d="M60,60 m-45,0 a45,45 0 1,1 90,0 a45,45 0 1,1 -90,0"/>
           </defs>
           <text class="scroll-text">
             <textPath href="#scrollTextPath">· SCROLL DOWN · SCROLL DOWN · SCROLL DOWN</textPath>
           </text>
         </svg>
         <div class="scroll-arrow-down">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
         </div>
       </div>
     </section>
@@ -116,13 +122,85 @@
       </div>
 
       <!-- 右侧 BACK TO TOP -->
-      <div class="side-label side-label-right" @click="scrollToTop">BACK TO TOP</div>
+      <div class="side-label side-label-right" @click="scrollToTop">
+        <span class="back-to-top-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+        </span>
+        <span>BACK TO TOP</span>
+      </div>
     </section>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, computed } from 'vue'
+
+// ─── 3D 正十二面体顶点（正交投影到 2D）───
+// 使用黄金比例 φ 构建正十二面体的 20 个顶点
+const PHI = (1 + Math.sqrt(5)) / 2
+const phi = 1 / PHI
+
+// 正十二面体的 20 个顶点（3 个互相垂直的黄金矩形）
+const rawVerts: [number, number, number][] = [
+  // 黄金矩形 1 (xy 平面)
+  [1, 1, 1], [1, 1, -1], [1, -1, 1], [1, -1, -1],
+  [-1, 1, 1], [-1, 1, -1], [-1, -1, 1], [-1, -1, -1],
+  // 黄金矩形 2 (xz 平面)
+  [0, PHI, phi], [0, PHI, -phi], [0, -PHI, phi], [0, -PHI, -phi],
+  // 黄金矩形 3 (yz 平面)
+  [phi, 0, PHI], [phi, 0, -PHI], [-phi, 0, PHI], [-phi, 0, -PHI],
+  // 额外顶点补全
+  [PHI, phi, 0], [PHI, -phi, 0], [-PHI, phi, 0], [-PHI, -phi, 0],
+]
+
+// 简化的 3D→2D 投影（正交投影，绕 Y 轴旋转 angle 弧度）
+function project(verts: [number, number, number][], angleY: number, angleX: number): [number, number][] {
+  const cosY = Math.cos(angleY), sinY = Math.sin(angleY)
+  const cosX = Math.cos(angleX), sinX = Math.sin(angleX)
+  return verts.map(([x, y, z]) => {
+    // 绕 Y 轴旋转
+    const x1 = x * cosY - z * sinY
+    const z1 = x * sinY + z * cosY
+    // 绕 X 轴旋转
+    const y1 = y * cosX - z1 * sinX
+    const z2 = y * sinX + z1 * cosX
+    // 正交投影（忽略 z2）
+    return [x1 * 22, y1 * 22] as [number, number]
+  })
+}
+
+// 正十二面体的 30 条边
+const dodecaEdgeIndices: [number, number][] = [
+  [0,1],[0,2],[0,4],[0,8],[0,12],[0,16],
+  [1,3],[1,5],[1,9],[1,17],
+  [2,3],[2,6],[2,10],[2,18],
+  [3,7],[3,11],[3,19],
+  [4,5],[4,6],[4,8],[4,14],
+  [5,7],[5,9],[5,15],
+  [6,7],[6,10],[6,14],
+  [7,11],[7,15],
+  [8,9],[8,12],[8,14],
+  [9,13],[9,15],
+  [10,11],[10,12],[10,18],
+  [11,13],[11,19],
+  [12,13],[12,16],
+  [13,17],
+  [14,15],[14,18],
+  [15,19],
+  [16,17],[16,18],
+  [17,19],
+  [18,19],
+]
+
+// 三个不同旋转角度的投影
+const dodecaVerts = computed(() => project(rawVerts, 0.3, 0.2))
+const dodecaEdges = computed(() => dodecaEdgeIndices)
+
+const dodecaVerts2 = computed(() => project(rawVerts, 1.2, 0.5))
+const dodecaEdges2 = computed(() => dodecaEdgeIndices)
+
+const dodecaVerts3 = computed(() => project(rawVerts, 2.5, 0.8))
+const dodecaEdges3 = computed(() => dodecaEdgeIndices)
 
 // ─── 配置 ───
 const heroTitleLine1 = '论文阅读笔记'
@@ -163,27 +241,27 @@ onMounted(() => {
 
   if (!hero || !intro) return
 
-  // ─── 滚动动画 ───
   scrollHandler = () => {
     const scrollY = window.scrollY
     const heroH = hero.offsetHeight
 
-    // 几何形状随滚动旋转
+    // 几何形状随滚动旋转 + 视差
     if (geoShapes) {
-      const shapes = geoShapes.querySelectorAll('.geo-wireframe')
+      const shapes = geoShapes.querySelectorAll('.geo-dodeca')
       shapes.forEach((shape, i) => {
-        const speed = 0.05 + i * 0.03
+        const speed = 0.04 + i * 0.025
         const rotate = scrollY * speed
-        const scale = 1 + Math.sin(scrollY * 0.002) * 0.1
-        ;(shape as HTMLElement).style.transform = `rotate(${rotate}deg) scale(${scale})`
+        const translateY = scrollY * (0.1 + i * 0.05)
+        const scale = 1 + Math.sin(scrollY * 0.001) * 0.08
+        ;(shape as HTMLElement).style.transform = `rotate(${rotate}deg) translateY(${translateY}px) scale(${scale})`
       })
     }
 
     // 英雄区视差 + 淡出
     if (hero) {
       const progress = Math.min(scrollY / heroH, 1)
-      hero.style.opacity = `${1 - progress * 0.6}`
-      hero.style.transform = `translateY(${scrollY * 0.3}px)`
+      hero.style.opacity = `${1 - progress * 0.7}`
+      hero.style.transform = `translateY(${scrollY * 0.35}px)`
     }
 
     // 介绍区元素入场动画
@@ -234,7 +312,7 @@ const scrollToTop = () => {
   width: 100%;
   height: 100vh;
   min-height: 600px;
-  background: #0a0a0a;
+  background: #000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -242,7 +320,7 @@ const scrollToTop = () => {
   transition: opacity 0.1s linear;
 }
 
-/* ─── 几何线框 ─── */
+/* ─── 3D 线框多面体 ─── */
 .geo-shapes {
   position: absolute;
   inset: 0;
@@ -250,34 +328,34 @@ const scrollToTop = () => {
   z-index: 0;
 }
 
-.geo-wireframe {
+.geo-dodeca {
   position: absolute;
   transition: transform 0.05s linear;
   will-change: transform;
 }
 
-.geo-wireframe-1 {
-  width: 320px;
-  height: 320px;
-  top: 5%;
-  left: 5%;
-  opacity: 0.7;
+.geo-dodeca-1 {
+  width: 600px;
+  height: 600px;
+  top: -10%;
+  right: -5%;
+  opacity: 0.8;
 }
 
-.geo-wireframe-2 {
-  width: 400px;
-  height: 400px;
-  top: -5%;
-  right: 5%;
+.geo-dodeca-2 {
+  width: 450px;
+  height: 450px;
+  top: 15%;
+  right: 25%;
   opacity: 0.5;
 }
 
-.geo-wireframe-3 {
-  width: 260px;
-  height: 260px;
-  bottom: 10%;
-  right: 25%;
-  opacity: 0.4;
+.geo-dodeca-3 {
+  width: 300px;
+  height: 300px;
+  bottom: 5%;
+  right: 35%;
+  opacity: 0.35;
 }
 
 /* ─── 主内容 ─── */
@@ -294,91 +372,102 @@ const scrollToTop = () => {
   display: flex;
   flex-direction: column;
   gap: 0;
-  margin: 0 0 24px 0;
+  margin: 0 0 28px 0;
 }
 
 .title-line {
   display: block;
   font-family: 'Playfair Display', 'Noto Serif SC', Georgia, serif;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
 }
 
 .title-bold {
-  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-size: clamp(3.2rem, 7.5vw, 6rem);
   font-weight: 900;
   color: #ffffff;
 }
 
 .title-light {
-  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-size: clamp(3.2rem, 7.5vw, 6rem);
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.45);
 }
 
 .hero-subtitle {
   font-family: 'Source Sans 3', 'Noto Sans SC', sans-serif;
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.5);
-  letter-spacing: 0.02em;
-  margin: 0 0 40px 0;
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.01em;
+  margin: 0 0 44px 0;
   max-width: 480px;
+  line-height: 1.6;
 }
 
 /* ─── 按钮 ─── */
 .hero-actions {
   display: flex;
-  gap: 16px;
+  gap: 20px;
   align-items: center;
 }
 
 .hero-btn-primary {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 14px 32px;
+  gap: 14px;
+  padding: 16px 36px;
   background: #e8920d;
   color: #000;
   border-radius: 100px;
   font-family: 'Source Sans 3', 'Noto Sans SC', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-decoration: none;
   text-transform: uppercase;
-  transition: all 0.3s ease;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
 }
 
 .hero-btn-primary:hover {
   background: #f5a623;
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(232, 146, 13, 0.3);
+  box-shadow: 0 12px 40px rgba(232, 146, 13, 0.35);
 }
 
-.hero-btn-primary .btn-arrow {
-  width: 18px;
-  height: 18px;
-  transition: transform 0.3s ease;
+.btn-icon-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 50%;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.hero-btn-primary:hover .btn-arrow {
-  transform: translateX(4px);
+.btn-icon-circle svg {
+  width: 16px;
+  height: 16px;
+}
+
+.hero-btn-primary:hover .btn-icon-circle {
+  background: rgba(0, 0, 0, 0.25);
+  transform: translateX(3px);
 }
 
 .hero-btn-secondary {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 14px 24px;
+  gap: 10px;
+  padding: 16px 8px;
   background: transparent;
-  color: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 100px;
+  color: rgba(255, 255, 255, 0.65);
+  border: none;
   font-family: 'Source Sans 3', 'Noto Sans SC', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-decoration: none;
   text-transform: uppercase;
   transition: all 0.3s ease;
@@ -387,66 +476,94 @@ const scrollToTop = () => {
 
 .hero-btn-secondary:hover {
   color: #fff;
-  border-color: rgba(255, 255, 255, 0.4);
-  background: rgba(255, 255, 255, 0.05);
 }
 
-.hero-btn-secondary .btn-arrow {
-  width: 16px;
-  height: 16px;
-  transition: transform 0.3s ease;
+.btn-arrow-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transition: all 0.3s ease;
 }
 
-.hero-btn-secondary:hover .btn-arrow {
-  transform: translateX(4px);
+.btn-arrow-icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+.hero-btn-secondary:hover .btn-arrow-icon {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(3px);
 }
 
 /* ─── 左侧 HOME 标签 ─── */
 .side-label {
   position: absolute;
   font-family: 'Source Sans 3', monospace;
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   font-weight: 600;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
   writing-mode: vertical-rl;
   cursor: pointer;
   z-index: 20;
   transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .side-label-left {
-  left: 24px;
+  left: 28px;
   top: 50%;
   transform: translateY(-50%) rotate(180deg);
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.3);
 }
 
 .side-label-left:hover {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .side-label-right {
-  right: 24px;
+  right: 28px;
   top: 50%;
   transform: translateY(-50%);
-  color: rgba(0, 0, 0, 0.3);
+  color: rgba(0, 0, 0, 0.25);
 }
 
 .side-label-right:hover {
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.back-to-top-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 50%;
+  margin-bottom: 8px;
+}
+
+.back-to-top-arrow svg {
+  width: 14px;
+  height: 14px;
 }
 
 /* ─── SCROLL DOWN 圆形指示器 ─── */
 .scroll-indicator {
   position: absolute;
-  bottom: 40px;
-  right: 60px;
-  width: 100px;
-  height: 100px;
+  bottom: 48px;
+  right: 64px;
+  width: 110px;
+  height: 110px;
   cursor: pointer;
   z-index: 20;
-  animation: scroll-rotate 8s linear infinite;
+  animation: scroll-rotate 10s linear infinite;
 }
 
 .scroll-circle {
@@ -456,10 +573,10 @@ const scrollToTop = () => {
 
 .scroll-text {
   font-family: 'Source Sans 3', monospace;
-  font-size: 5.5px;
+  font-size: 5.2px;
   font-weight: 700;
-  letter-spacing: 0.15em;
-  fill: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.18em;
+  fill: rgba(255, 255, 255, 0.45);
   text-transform: uppercase;
 }
 
@@ -468,25 +585,31 @@ const scrollToTop = () => {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 28px;
-  height: 28px;
+  width: 34px;
+  height: 34px;
   background: #e8920d;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #000;
+  animation: scroll-rotate-reverse 10s linear infinite;
 }
 
 .scroll-arrow-down svg {
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
   animation: bounce-down 2s ease-in-out infinite;
 }
 
 @keyframes scroll-rotate {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+@keyframes scroll-rotate-reverse {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(-360deg); }
 }
 
 @keyframes bounce-down {
@@ -516,7 +639,7 @@ const scrollToTop = () => {
   width: 500px;
   height: 500px;
   pointer-events: none;
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
 .intro-geo {
@@ -748,8 +871,8 @@ const scrollToTop = () => {
   }
 
   .scroll-indicator {
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
     bottom: 24px;
     right: 24px;
   }
@@ -759,28 +882,31 @@ const scrollToTop = () => {
   }
 
   .scroll-arrow-down {
-    width: 22px;
-    height: 22px;
+    width: 26px;
+    height: 26px;
   }
 
   .scroll-arrow-down svg {
-    width: 11px;
-    height: 11px;
+    width: 12px;
+    height: 12px;
   }
 
-  .geo-wireframe-1 {
-    width: 180px;
-    height: 180px;
+  .geo-dodeca-1 {
+    width: 280px;
+    height: 280px;
+    right: -15%;
   }
 
-  .geo-wireframe-2 {
-    width: 220px;
-    height: 220px;
+  .geo-dodeca-2 {
+    width: 200px;
+    height: 200px;
+    right: 10%;
   }
 
-  .geo-wireframe-3 {
+  .geo-dodeca-3 {
     width: 150px;
     height: 150px;
+    right: 20%;
   }
 
   .side-label {
