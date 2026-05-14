@@ -1,1 +1,0 @@
-import{_ as e,o as t,c as a,a as n}from"./anyfork-1e9ebd23.js";const _={},c=n("p",null,"Waline \u8BC4\u8BBA\u7CFB\u7EDF\u76F8\u5173\u7B14\u8BB0",-1),o=[c];function l(s,r){return t(),a("div",null,o)}var d=e(_,[["render",l],["__file","waline.html.vue"]]);export{d as default};
