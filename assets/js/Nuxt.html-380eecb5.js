@@ -1,1 +1,0 @@
-import{_ as e,o as t,c as _,a as c}from"./anyfork-4a17bdbb.js";const o={},s=c("p",null,"Nuxt.js \u6846\u67B6\u76F8\u5173\u7B14\u8BB0",-1),a=[s];function n(r,l){return t(),_("div",null,a)}var d=e(o,[["render",n],["__file","Nuxt.html.vue"]]);export{d as default};
