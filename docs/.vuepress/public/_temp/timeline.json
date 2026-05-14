@@ -1,6 +1,48 @@
 {
   "site": [
     {
+      "hash": "f513907",
+      "date": "2026-05-14",
+      "time": "12:06",
+      "icon": "🛠️",
+      "title": "恢复 design-pattern 文章引用的图片",
+      "description": "fix: 恢复 design-pattern 文章引用的图片",
+      "files": [
+        "public/img/Employee.jpg",
+        "public/img/customer_address.png",
+        "public/img/customer_product.png",
+        "public/img/demo.png",
+        "public/img/image-20191229173422328.png"
+      ]
+    },
+    {
+      "hash": "605931f",
+      "date": "2026-05-14",
+      "time": "11:52",
+      "icon": "🎨",
+      "title": "清理项目目录 + 新增首页 Hero 组件",
+      "description": "chore: 清理项目目录 + 新增首页 Hero 组件",
+      "files": [
+        ".claude/settings.json",
+        ".claude/settings.local.json",
+        ".gitignore",
+        "CLAUDE.md",
+        "OPERATION_GUIDE.md"
+      ]
+    },
+    {
+      "hash": "2e0fa4e",
+      "date": "2026-05-07",
+      "time": "20:59",
+      "icon": "🛠️",
+      "title": "更新时间轴数据 + 添加 .vscode 到 gitignore",
+      "description": "chore: 更新时间轴数据 + 添加 .vscode 到 gitignore",
+      "files": [
+        ".gitignore",
+        "public/_temp/timeline.json"
+      ]
+    },
+    {
       "hash": "65cacd4",
       "date": "2026-05-07",
       "time": "18:50",

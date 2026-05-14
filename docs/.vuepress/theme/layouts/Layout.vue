@@ -1,5 +1,12 @@
 <template>
-  <ParentLayout>
+  <!-- 首页：直接渲染 HomeHero + HomeBlog，绕过默认主题的 Home.vue -->
+  <HomeHero v-if="isHome" />
+  <div id="articles" v-if="isHome">
+    <HomeBlog />
+  </div>
+  <HomeFooter v-if="isHome" />
+  <!-- 非首页：正常布局 -->
+  <ParentLayout v-if="!isHome">
     <template #page-top>
       <div class="title sm:w-[var(--content-width)] my-0 mx-auto py-0 px-6 rounded-[16px]">
         <!-- 返回按钮 -->
@@ -24,11 +31,17 @@
 
 <script setup lang="ts">
 import ParentLayout from '@vuepress/theme-default/lib/client/layouts/Layout.vue'
+import HomeHero from '../components/HomeHero.vue'
+import HomeBlog from '../components/HomeBlog.vue'
+import HomeFooter from '@theme/HomeFooter.vue'
 import BlogItemInfo from '../components/Blog/BlogItemInfo.vue'
 import ArticleStats from '../components/Blog/ArticleStats.vue'
-import { usePageData } from '@vuepress/client'
+import { usePageData, usePageFrontmatter } from '@vuepress/client'
 import { useDarkMode } from '@vuepress/theme-default/lib/client/composables'
 import { isMobile } from '../utils'
+import { computed } from 'vue'
 const page = usePageData()
 const isDark = useDarkMode()
+const frontmatter = usePageFrontmatter()
+const isHome = computed(() => frontmatter.value.home === true)
 </script>
