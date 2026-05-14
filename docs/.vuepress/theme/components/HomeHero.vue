@@ -1,7 +1,7 @@
 <template>
-  <div class="hero-container" ref="containerRef">
+  <div class="hero-container">
     <!-- ═══════ 第一屏：深色英雄区 ═══════ -->
-    <section class="hero-section" ref="heroRef">
+    <section class="hero-section">
       <!-- 3D 线框多面体 -->
       <div class="geo-shapes" ref="geoRef">
         <svg class="geo-dodeca geo-dodeca-1" viewBox="-60 -60 120 120" xmlns="http://www.w3.org/2000/svg">
@@ -221,8 +221,6 @@ const aboutDesc = '在这里记录论文阅读笔记、技术探索和项目实�
 const aboutTags = ['论文笔记', '深度学习', '工程实践', '开源项目']
 
 // ─── 引用 ───
-const containerRef = ref<HTMLElement>()
-const heroRef = ref<HTMLElement>()
 const introRef = ref<HTMLElement>()
 const geoRef = ref<HTMLElement>()
 const introLeftRef = ref<HTMLElement>()
@@ -232,36 +230,28 @@ const aboutCardRef = ref<HTMLElement>()
 let scrollHandler: (() => void) | null = null
 
 onMounted(() => {
-  const hero = heroRef.value
   const intro = introRef.value
   const geoShapes = geoRef.value
   const introLeft = introLeftRef.value
   const introRight = introRightRef.value
   const aboutCard = aboutCardRef.value
 
-  if (!hero || !intro) return
+  if (!intro) return
 
   scrollHandler = () => {
     const scrollY = window.scrollY
-    const heroH = hero.offsetHeight
 
-    // 几何形状随滚动旋转 + 视差
+    // 几何形状视差：不同层以不同速度移动，制造深度感
     if (geoShapes) {
       const shapes = geoShapes.querySelectorAll('.geo-dodeca')
       shapes.forEach((shape, i) => {
-        const speed = 0.04 + i * 0.025
-        const rotate = scrollY * speed
-        const translateY = scrollY * (0.1 + i * 0.05)
-        const scale = 1 + Math.sin(scrollY * 0.001) * 0.08
-        ;(shape as HTMLElement).style.transform = `rotate(${rotate}deg) translateY(${translateY}px) scale(${scale})`
+        // 视差：越大的形状移动越慢（更远的层）
+        const parallaxSpeed = 0.15 - i * 0.05
+        const translateY = scrollY * parallaxSpeed
+        // 微旋转
+        const rotate = scrollY * (0.02 + i * 0.01)
+        ;(shape as HTMLElement).style.transform = `translateY(${translateY}px) rotate(${rotate}deg)`
       })
-    }
-
-    // 英雄区视差 + 淡出
-    if (hero) {
-      const progress = Math.min(scrollY / heroH, 1)
-      hero.style.opacity = `${1 - progress * 0.7}`
-      hero.style.transform = `translateY(${scrollY * 0.35}px)`
     }
 
     // 介绍区元素入场动画
@@ -317,7 +307,6 @@ const scrollToTop = () => {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  transition: opacity 0.1s linear;
 }
 
 /* ─── 3D 线框多面体 ─── */
@@ -330,32 +319,40 @@ const scrollToTop = () => {
 
 .geo-dodeca {
   position: absolute;
-  transition: transform 0.05s linear;
   will-change: transform;
 }
 
+/* 最大的多面体：右上角，部分超出屏幕，参考 causallm.org */
 .geo-dodeca-1 {
-  width: 600px;
-  height: 600px;
-  top: -10%;
-  right: -5%;
-  opacity: 0.8;
+  width: 55vw;
+  height: 55vw;
+  max-width: 800px;
+  max-height: 800px;
+  top: -12%;
+  right: -8%;
+  opacity: 0.85;
 }
 
+/* 中等多面体：右侧中部偏上 */
 .geo-dodeca-2 {
-  width: 450px;
-  height: 450px;
-  top: 15%;
-  right: 25%;
-  opacity: 0.5;
+  width: 35vw;
+  height: 35vw;
+  max-width: 500px;
+  max-height: 500px;
+  top: 20%;
+  right: 18%;
+  opacity: 0.45;
 }
 
+/* 小多面体：底部中央偏右 */
 .geo-dodeca-3 {
-  width: 300px;
-  height: 300px;
-  bottom: 5%;
-  right: 35%;
-  opacity: 0.35;
+  width: 22vw;
+  height: 22vw;
+  max-width: 320px;
+  max-height: 320px;
+  bottom: 8%;
+  right: 30%;
+  opacity: 0.3;
 }
 
 /* ─── 主内容 ─── */
@@ -892,21 +889,22 @@ const scrollToTop = () => {
   }
 
   .geo-dodeca-1 {
-    width: 280px;
-    height: 280px;
-    right: -15%;
+    width: 70vw;
+    height: 70vw;
+    top: -15%;
+    right: -20%;
   }
 
   .geo-dodeca-2 {
-    width: 200px;
-    height: 200px;
-    right: 10%;
+    width: 45vw;
+    height: 45vw;
+    right: 5%;
   }
 
   .geo-dodeca-3 {
-    width: 150px;
-    height: 150px;
-    right: 20%;
+    width: 30vw;
+    height: 30vw;
+    right: 15%;
   }
 
   .side-label {

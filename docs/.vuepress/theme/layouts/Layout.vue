@@ -1,4 +1,8 @@
 <template>
+  <!-- 首页加载动画 -->
+  <client-only v-if="isHome && showHomeLoading">
+    <LoadingPage />
+  </client-only>
   <!-- 首页：直接渲染 HomeHero + HomeBlog，绕过默认主题的 Home.vue -->
   <HomeHero v-if="isHome" />
   <div id="articles" v-if="isHome">
@@ -36,12 +40,29 @@ import HomeBlog from '../components/HomeBlog.vue'
 import HomeFooter from '@theme/HomeFooter.vue'
 import BlogItemInfo from '../components/Blog/BlogItemInfo.vue'
 import ArticleStats from '../components/Blog/ArticleStats.vue'
+import LoadingPage from '../components/global/Loading.vue'
 import { usePageData, usePageFrontmatter } from '@vuepress/client'
 import { useDarkMode } from '@vuepress/theme-default/lib/client/composables'
 import { isMobile } from '../utils'
-import { computed } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 const page = usePageData()
 const isDark = useDarkMode()
 const frontmatter = usePageFrontmatter()
 const isHome = computed(() => frontmatter.value.home === true)
+
+// 首次访问加载动画（与原 Home.vue 行为一致）
+const showHomeLoading = ref(true)
+onMounted(() => {
+  if (isHome.value) {
+    const firstLoad = !sessionStorage.getItem('firstLoad')
+    if (firstLoad) {
+      setTimeout(() => {
+        showHomeLoading.value = false
+        sessionStorage.setItem('firstLoad', 'false')
+      }, 1000)
+    } else {
+      showHomeLoading.value = false
+    }
+  }
+})
 </script>
