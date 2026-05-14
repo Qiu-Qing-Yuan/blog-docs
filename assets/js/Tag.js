@@ -1,1 +1,0 @@
-import{B as t}from"./BlogListPage.js";import{_ as e,d as o,o as a,a1 as r}from"./anyfork.js";import"./Layout2.js";import"./app.js";import"./pagesRoutes.js";const p=o({__name:"Tag",setup(s){return(_,i)=>(a(),r(t,{type:"tag",title:"\u6807\u7B7E\u5217\u8868",icon:"AppstoreTwotone",defaultPath:"/tag/"}))}});var g=e(p,[["__file","Tag.vue"]]);export{g as default};

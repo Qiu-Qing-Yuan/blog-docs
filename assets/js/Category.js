@@ -1,1 +1,0 @@
-import{B as t}from"./BlogListPage.js";import{_ as e,d as o,o as r,a1 as a}from"./anyfork.js";import"./Layout2.js";import"./app.js";import"./pagesRoutes.js";const p=o({__name:"Category",setup(s){return(_,c)=>(r(),a(t,{type:"category",title:"\u5206\u7C7B\u5217\u8868",icon:"AppstoreTwotone",defaultPath:"/category/"}))}});var g=e(p,[["__file","Category.vue"]]);export{g as default};
