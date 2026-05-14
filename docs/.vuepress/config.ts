@@ -1,7 +1,7 @@
 import { AnyForkTheme } from "./theme";
 import { defineUserConfig } from "vuepress";
 import { viteBundler } from "@vuepress/bundler-vite";
-import { navbar, plugins, sidebar, firendLink } from './config/index'
+import { navbar, plugins, sidebar, friendLink } from './config/index'
 import { AnyForkThemeOptions } from "./theme/types/theme";
 import path from 'path'
 import fs from 'fs'
@@ -62,7 +62,7 @@ export default defineUserConfig({
       { icon: 'CloudOutlined', link: 'https://github.com/Qiu-Qing-Yuan' }
     ],
     //友情链接
-    friendLink: firendLink,
+    friendLink: friendLink,
     colorMode: "auto",
     //侧边栏深度
     sidebarDepth: 3,

@@ -1,6 +1,52 @@
 {
   "site": [
     {
+      "hash": "08f11bb",
+      "date": "2026-05-14",
+      "time": "15:16",
+      "icon": "🎨",
+      "title": "match causallm.org scroll behavior and wireframe sizing",
+      "description": "fix: match causallm.org scroll behavior and wireframe sizing",
+      "files": [
+        "theme/components/HomeHero.vue",
+        "theme/layouts/Layout.vue"
+      ]
+    },
+    {
+      "hash": "b3c90d8",
+      "date": "2026-05-14",
+      "time": "14:17",
+      "icon": "🎨",
+      "title": "redesign HomeHero to match causallm.org UI",
+      "description": "feat: redesign HomeHero to match causallm.org UI",
+      "files": [
+        "theme/components/HomeHero.vue"
+      ]
+    },
+    {
+      "hash": "6c8066c",
+      "date": "2026-05-14",
+      "time": "14:10",
+      "icon": "⚙️",
+      "title": "add content hash to JS filenames for cache busting",
+      "description": "fix: add content hash to JS filenames for cache busting",
+      "files": [
+        "config.ts"
+      ]
+    },
+    {
+      "hash": "a4dc20d",
+      "date": "2026-05-14",
+      "time": "12:31",
+      "icon": "🎨",
+      "title": "render HomeHero directly in Layout.vue to fix production build",
+      "description": "fix: render HomeHero directly in Layout.vue to fix production build",
+      "files": [
+        "public/_temp/timeline.json",
+        "theme/layouts/Layout.vue"
+      ]
+    },
+    {
       "hash": "f513907",
       "date": "2026-05-14",
       "time": "12:06",

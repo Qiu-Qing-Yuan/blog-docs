@@ -8,7 +8,6 @@ export const AnyForkTheme = (options: AnyForkThemeOptions): Theme => {
     name: 'vuepress-theme-AnyFork',
     extends: defaultTheme(options),
     alias: {
-      '@theme/Home.vue': path.resolve(__dirname, './components/Home.vue'),
       '@theme/NavbarItems.vue': path.resolve(__dirname, './components/NavbarItems.vue'),
       '@theme/HomeFooter.vue': path.resolve(__dirname, './components/HomeFooter.vue'),
     },

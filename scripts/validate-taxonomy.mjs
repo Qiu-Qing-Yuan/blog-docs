@@ -74,6 +74,7 @@ const managedCategories = collectManagedNames(CATEGORIES_DIR)
 for (const cat of usedCategories) {
   if (!managedCategories.has(cat)) {
     console.warn(`⚠ 分类「${cat}」被文章引用但未在 _categories/ 中定义`)
+    errors++
   }
 }
 
@@ -83,6 +84,7 @@ const managedTags = collectManagedNames(TAGS_DIR)
 for (const tag of usedTags) {
   if (!managedTags.has(tag)) {
     console.warn(`⚠ 标签「${tag}」被文章引用但未在 _tags/ 中定义`)
+    errors++
   }
 }
 

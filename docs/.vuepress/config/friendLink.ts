@@ -1,4 +1,4 @@
-export const firendLink = [
+export const friendLink = [
     {
         title: 'arXiv 论文库',
         link: 'https://arxiv.org/'
