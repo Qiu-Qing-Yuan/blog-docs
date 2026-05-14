@@ -9,10 +9,13 @@ VuePress 2.X personal blog/documentation site with a custom local theme (AnyFork
 ## Commands
 
 - `npm run dev` — Dev server on `0.0.0.0:9527`
-- `npm run build` — Build static site to `dist/`
+- `npm run build` — Build static site to `dist/` (runs `generate-timeline.mjs` and `validate-taxonomy.mjs` before VuePress build)
 - `npm run debug` — Build with debug output
+- `npm run new` — Interactive CLI to create a new blog post (generates frontmatter and scaffolding in `docs/posts/`)
+- `npm run new:paper` — Same as `new` but with paper-specific frontmatter (authors, venue, year, PDF, difficulty, rating)
+- `npm run validate` — Check that all categories/tags referenced in articles have corresponding definition files in `docs/posts/_categories/` and `docs/posts/_tags/`
 
-No test, lint, or format scripts are configured. Code style is enforced via `.prettierrc.json` (no semicolons, single quotes, 2-space indent, `printWidth: 300`).
+No test, lint, or format scripts are configured. Code style is enforced via `.prettierrc.json` (no semicolons, single quotes, 2-space indent, `printWidth: 300`, trailing comma: none, endOfLine: lf).
 
 ## Architecture
 
@@ -42,11 +45,16 @@ Reusable Vue 3 Composition API logic:
 - `HomeBlog.vue` — Article list with pagination and sidebar
 - `Icon.vue` — Generic icon component based on @vicons/antd
 
+### Utility Scripts (`scripts/`)
+- `new-post.mjs` — Interactive post scaffolding (used by `npm run new` / `npm run new:paper`)
+- `validate-taxonomy.mjs` — Validates that article categories/tags match defined taxonomy files
+- `generate-timeline.mjs` — Generates `docs/.vuepress/public/_temp/timeline.json` from git history for the Timeline page (4 categories: site, post, taxonomy, settings)
+
 ### Custom Containers (`docs/.vuepress/config/container.ts`)
 `cardList` and `cardImgList` markdown containers parse YAML inside fenced code blocks to render styled card grids.
 
 ### Content (`docs/posts/`)
-Blog posts organized by topic (design-pattern, devops, linux, mysql, node, nuxt, other). The `vuepress-plugin-blog2` classifies pages with `filePathRelative` starting with `posts/` as articles, enabling categories, tags, and timeline views.
+Blog posts organized by topic (ai, design-pattern, devops, linux, mysql, node, nuxt, other). The `vuepress-plugin-blog2` classifies pages with `filePathRelative` starting with `posts/` as articles, enabling categories, tags, and timeline views. Taxonomy definitions live in `docs/posts/_categories/` and `docs/posts/_tags/` — articles must reference categories/tags that have corresponding definition files (enforced by `npm run validate`).
 
 ### Styling
 Tailwind CSS 3.x with preflight disabled (to avoid conflicts with VuePress base styles). Dark mode uses `class` strategy. Custom CSS in `docs/.vuepress/styles/` for animations and containers. Tailwind utility classes used directly in SFC templates.

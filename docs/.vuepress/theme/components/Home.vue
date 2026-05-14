@@ -4,8 +4,10 @@
       <LoadingPage></LoadingPage>
     </client-only>
     <div v-show="!show">
-      <HomeBanner />
-      <HomeBlog />
+      <HomeHero />
+      <div id="articles">
+        <HomeBlog />
+      </div>
       <HomeFooter />
     </div>
   </main>
@@ -13,7 +15,7 @@
 <script setup lang="ts">
 import HomeBlog from './HomeBlog.vue'
 import HomeFooter from '@theme/HomeFooter.vue'
-import HomeBanner from './HomeBanner.vue'
+import HomeHero from './HomeHero.vue'
 import { onMounted, ref } from 'vue'
 const show = ref(true)
 onMounted(() => {
