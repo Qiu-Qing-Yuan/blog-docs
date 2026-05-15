@@ -1,8 +1,7 @@
 ---
 needDefaultImages: true
 heroText:
-  - 操千曲而后晓声，观千剑而后识器。^1000
-  - 博学之，审问之，慎思之，明辨之，笃行之。
+  - 操千曲而后晓声，观千剑而后识器。
 tagline: 沉心潜研，探索 AI/ML/NLP/CV 前沿，记录学术思考与工程实践
 summary: 沉心潜研，探索 AI/ML/NLP/CV 前沿
 bgImage:
