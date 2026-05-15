@@ -85,7 +85,7 @@ category:
   textColor: 'rgb(102 48 72)'
 - name: 山海以南
   link: https://mu-yan.cn/
-  avatar: https://cdn.staticaly.com/gh/Mu-Yan/Mu-Yan.github.io/avatar.jpg
+  avatar: https://cdn.jsdelivr.net/gh/Mu-Yan/Mu-Yan.github.io/avatar.jpg
   desc: 己所不欲勿施于人
   bgColor: rgb(213 136 216);
   textColor: 'rgb(102 48 72)'
@@ -109,7 +109,7 @@ category:
   textColor: 'rgb(102 48 72)'
 - name: 游履平生
   desc: 不积跬步,无以至千里.不积小流,无以成江海
-  avatar: https://cdn.staticaly.com/gh/AnyFork/blog-images/main/markdown/202208241822713.png
+  avatar: https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202208241822713.png
   link: https://anyfork.gitee.io/blog-docs/
   bgColor: rgb(218 88 88 / 62%)
   textColor: rgb(5 41 14 / 75%)

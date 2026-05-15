@@ -6,7 +6,7 @@ tag:
   - 其他
 category:
   - 盗链
-image: https://cdn.staticaly.com/gh/AnyFork/blog-images/main/markdown/202203021637553.jpg
+image: https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202203021637553.jpg
 ---
 
 &emsp;现在很多第三方网站对于自身资源进行了防盗链保护，想要引用他们的资源链接，会直接资源跳转或者 403 禁止访问。此篇文章从 html 角度讲述如何绕开采用 referer 方式实现的软防盗链的方法。

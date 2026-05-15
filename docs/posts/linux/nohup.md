@@ -5,7 +5,7 @@ tag:
   - linux
 category:
   - linux
-image: https://cdn.staticaly.com/gh/AnyFork/blog-images/main/markdown/202207201006898.jpg
+image: https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202207201006898.jpg
 ---
 
 &emsp;nohup 是不挂断的意思( no hang up)。如果你正在运行一个进程，而且你觉得在退出帐户时该进程还不会结束，那么可以使用 nohup 命令。该命令忽略所有挂（SIGHUP）信号，可以在你退出帐户/关闭终端之后继续运行相应的进程。  是指在后台运行，但当用户推出(挂起)的时候，命令自动也跟着退出. nohup 与   结合起来，可以实现不挂断的后台运行。

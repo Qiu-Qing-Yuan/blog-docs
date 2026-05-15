@@ -5,7 +5,7 @@ tag:
   - Nuxt
 category:
   - Nuxt
-image: https://cdn.staticaly.com/gh/AnyFork/blog-images/main/markdown/202204060942130.jpg
+image: https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202204060942130.jpg
 sticky: 5
 ---
 

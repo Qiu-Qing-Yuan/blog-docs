@@ -5,7 +5,7 @@ tag:
   - Gitlab
 category:
   - 运维
-image: https://cdn.staticaly.com/gh/AnyFork/blog-images/main/markdown/202206221855008.png
+image: https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202206221855008.png
 ---
 
 &emsp;GitLab 是由 GitLabInc.开发，使用 MIT 许可证的基于网络的 Git 仓库管理工具，且具有 wiki 和 issue 跟踪功能。使用 Git 作为代码管理工具，并在此基础上搭建起来的 web 服务。
@@ -25,11 +25,11 @@ image: https://cdn.staticaly.com/gh/AnyFork/blog-images/main/markdown/2022062218
 ### 1、发展背景
 
 这四个 Giter 的发展历史各不相同，GitHub 历史最长，在 2008 年上线；GitLab 其次，GitLab 在 2011 年上线 ；接下来是 Gitee，在 2013 年推出；最后是极狐 GitLab，成立于 2021 年 3 月 18 日。四种产品的发展简史如下图所示：
-![](https://cdn.staticaly.com/gh/AnyFork/blog-images/main/markdown/202206222015231.png)
+![](https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202206222015231.png)
 
 ### 2、总结对比图
 
-![](https://cdn.staticaly.com/gh/AnyFork/blog-images/main/markdown/202206222015511.png)
+![](https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202206222015511.png)
 
 ## 三、GitLab 严重漏洞
 

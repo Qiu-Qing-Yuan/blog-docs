@@ -5,7 +5,7 @@ tag:
   - Redis
 category:
   - 运维
-image: https://cdn.staticaly.com/gh/AnyFork/blog-images/main/markdown/202204221600458.jpg
+image: https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202204221600458.jpg
 sticky: 6
 ---
 

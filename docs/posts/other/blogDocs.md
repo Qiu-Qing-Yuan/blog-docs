@@ -7,7 +7,7 @@ tag:
   - 博客
 category:
   - 运维
-image: https://cdn.staticaly.com/gh/AnyFork/blog-images/main/markdown/202208231513291.png
+image: https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202208231513291.png
 sidebar: 'auto'
 sticky: 1
 ---
@@ -378,7 +378,7 @@ npm run docs:dev
   textColor: '#7B2532'
 - name: 游履平生
   desc: 不积跬步,无以至千里.不积小流,无以成江海
-  avatar: https://cdn.staticaly.com/gh/AnyFork/blog-images/main/markdown/202208241822713.png
+  avatar: https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202208241822713.png
   link: https://anyfork.gitee.io/blog-docs/
   bgColor: rgb(218 88 88 / 62%)
   textColor: rgb(5 41 14 / 75%)
@@ -542,7 +542,7 @@ npm run docs:dev
         textColor: '#7B2532'
       - name: 游履平生
         desc: 不积跬步,无以至千里.不积小流,无以成江海
-        avatar: https://cdn.staticaly.com/gh/AnyFork/blog-images/main/markdown/202208241822713.png
+        avatar: https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202208241822713.png
         link: https://anyfork.gitee.io/blog-docs/
         bgColor: rgb(218 88 88 / 62%)
         textColor: rgb(5 41 14 / 75%)

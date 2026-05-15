@@ -6,7 +6,7 @@ tag:
 category:
   - nginx
   - 运维
-image: https://cdn.staticaly.com/gh/AnyFork/blog-images/main/markdown/202207232148622.jpg
+image: https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202207232148622.jpg
 ---
 
 &emsp;日常工作中，当我们需要kill掉Nginx进程时，通过查看Nginx端口绑定的进程，然后去杀死相应进程，发现会有新的进程绑定，使用kill -9杀完了就有新的进程出现，原因是： nginx的进程分为Master进程和Worker进程，Worker进程是Master派生出来的子进程，其数量始终维持在一个数量上，当缺少一个Worker进程是，Master就会派生一个新的子进程。所以你杀worker进程是杀不完的。

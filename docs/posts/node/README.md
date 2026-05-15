@@ -5,7 +5,7 @@ tag:
   - Node
 category:
   - Node
-image: https://cdn.staticaly.com/gh/AnyFork/blog-images/main/markdown/202204071154296.jpg
+image: https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202204071154296.jpg
 sticky: 5
 ---
 

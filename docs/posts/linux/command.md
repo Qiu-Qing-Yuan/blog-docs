@@ -5,7 +5,7 @@ tag:
   - linux
 category:
   - linux
-image: https://cdn.staticaly.com/gh/AnyFork/blog-images/main/markdown/202207241420511.jpg
+image: https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202207241420511.jpg
 ---
 
 &emsp;Linux系统命令比较繁杂，虽然容易上手，但在使用时容易遗忘具体参数的含义，很是让人苦恼，因此本篇文章收集一些常用的Limux命令，以备日后使用过程中进行查阅和复习。

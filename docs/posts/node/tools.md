@@ -5,7 +5,7 @@ tag:
   - Node
 category:
   - Node
-image: https://cdn.staticaly.com/gh/AnyFork/blog-images/main/markdown/202207200955471.jpg
+image: https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202207200955471.jpg
 ---
 
 &emsp;收集一些NodeJs中经常使用到的一些工具类或者方法，方便以后使用时避坑。

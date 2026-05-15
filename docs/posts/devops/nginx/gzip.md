@@ -6,7 +6,7 @@ tag:
 category:
   - nginx
   - 运维
-image: https://cdn.staticaly.com/gh/AnyFork/blog-images/main/markdown/202207201100605.jpg
+image: https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202207201100605.jpg
 ---
 
 &emsp;Nginx Gzip 压缩功能， 可以使网站的 css、js 、xml、html 等静态资源在传输时进行压缩，经过 Gzip 压缩后资源可以变为原来的 30%甚至更小，尽管这样会消耗一定的 cpu 资源，但是会节约大量的出口带宽来提高访问速度

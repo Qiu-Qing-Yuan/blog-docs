@@ -6,7 +6,7 @@ tag:
 category:
   - 运维
   - Nuxt
-image: https://cdn.staticaly.com/gh/AnyFork/blog-images/main/markdown/202207200942246.png
+image: https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202207200942246.png
 ---
 
 &emsp;Nust.js 通过在`nuxt.config.js`文件配置 ssr：true,开启 SSR 支持，ssr：false 关闭 SSR 支持,即支持 SPA（原属性`mode`已过期），可以根据项目实际情况开启 ssr 或关闭 ssr。如果开通 SSR 功能，通过 npm run build 进行打包后，项目部署需要服务端环境支持，如果没有开通 SSR 功能，通过 npm run build 进行打包后，项目部署和普通的 vue 项目部署方式一致。当然 nuxt 可以通过 npm run generate 命令打包成静态页面，支持静态站点部署，但静态站点不支持 SSR。
