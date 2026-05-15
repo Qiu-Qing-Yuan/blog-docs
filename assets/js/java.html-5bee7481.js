@@ -1,0 +1,1 @@
+import{_ as e,o as a,c as t,a as _}from"./anyfork-6162aea8.js";const c={},o=_("p",null,"Java \u7F16\u7A0B\u76F8\u5173\u7B14\u8BB0",-1),s=[o];function n(r,l){return a(),t("div",null,s)}var f=e(c,[["render",n],["__file","java.html.vue"]]);export{f as default};
