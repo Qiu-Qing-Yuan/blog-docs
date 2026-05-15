@@ -1,0 +1,1 @@
+import{_ as e,o as t,c as s,a as _}from"./anyfork-be90733e.js";const a={},c=_("p",null,"GitHub Pages \u6258\u7BA1\u76F8\u5173\u7B14\u8BB0",-1),o=[c];function n(r,l){return t(),s("div",null,o)}var u=e(a,[["render",n],["__file","Github Pages.html.vue"]]);export{u as default};
