@@ -2,6 +2,8 @@
   <div class="hero-container">
     <!-- ═══════ 第一屏：深色英雄区 ═══════ -->
     <section class="hero-section">
+      <!-- 视频背景 -->
+      <video class="hero-video" :src="videoSrc" autoplay muted loop playsinline></video>
       <!-- 3D 线框多面体 -->
       <div class="geo-shapes" ref="geoRef">
         <svg class="geo-dodeca geo-dodeca-1" viewBox="-60 -60 120 120" xmlns="http://www.w3.org/2000/svg">
@@ -134,6 +136,9 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, computed } from 'vue'
+import { withBase } from '@vuepress/client'
+
+const videoSrc = withBase('/videos/kuroha-lineart.mp4')
 
 // ─── 3D 正十二面体顶点（正交投影到 2D）───
 // 使用黄金比例 φ 构建正十二面体的 20 个顶点
@@ -319,6 +324,16 @@ const scrollToTop = () => {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.6;
 }
 
 /* ─── 3D 线框多面体 ─── */
