@@ -8,7 +8,7 @@
       <div class="flex flex-col items-center gap-[20px] py-[16px]">
         <!-- 站点信息 -->
         <div class="flex flex-col items-center gap-[6px]">
-          <span class="text-[15px] font-serif font-[700] tracking-tight text-[#1a1a2e] dark:text-[#e2e0da]">论文阅读笔记</span>
+          <span class="text-[15px] font-serif font-[700] tracking-tight text-[#1a1a2e] dark:text-[#e2e0da]">沉潜</span>
           <span class="text-[12px] text-[#9494a8] tracking-wider">AI / ML / NLP / CV</span>
         </div>
 

@@ -203,9 +203,9 @@ const dodecaVerts3 = computed(() => project(rawVerts, 2.5, 0.8))
 const dodecaEdges3 = computed(() => dodecaEdgeIndices)
 
 // ─── 配置 ───
-const heroTitleLine1 = '论文阅读笔记'
-const heroTitleLine2 = '个人技术博客'
-const heroSubtitle = '探索人工智能前沿，记录学习与思考'
+const heroTitleLine1 = '沉潜'
+const heroTitleLine2 = 'Deep Dive into AI'
+const heroSubtitle = '沉心潜研，探索人工智能前沿，记录学术思考与工程实践'
 const primaryBtnText = '开始探索'
 const primaryBtnLink = '#articles'
 const secondaryBtnText = '了解更多'
@@ -217,7 +217,7 @@ const featureCards = [
 ]
 
 const aboutHighlight = '一个专注于人工智能与软件工程的技术博客'
-const aboutDesc = '在这里记录论文阅读笔记、技术探索和项目实践，分享从理论到落地的完整思考过程。'
+const aboutDesc = '沉心潜研，在这里记录论文精读、技术探索和项目实践，分享从理论到落地的完整思考过程。'
 const aboutTags = ['论文笔记', '深度学习', '工程实践', '开源项目']
 
 // ─── 引用 ───

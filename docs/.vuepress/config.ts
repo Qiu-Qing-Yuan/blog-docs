@@ -22,8 +22,8 @@ export default defineUserConfig({
   base: "/blog-docs/",
   //站点语言配置
   lang: "zh-CN",
-  title: "论文阅读笔记",
-  description: "AI/ML/NLP/CV 方向论文阅读笔记，记录学术前沿与个人思考",
+  title: "沉潜",
+  description: "沉心潜研，探索 AI/ML/NLP/CV 前沿，记录学术思考与工程实践",
   dest: "dist",
   head: [
     ["link", { rel: "shortcut icon", type: "image/x-icon", href: "/blog-docs/favicon.ico" }],
