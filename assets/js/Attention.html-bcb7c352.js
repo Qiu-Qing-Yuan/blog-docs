@@ -1,1 +1,0 @@
-import{_ as e,o as t,c as n,a as o}from"./anyfork-240ea890.js";const _={},c=o("p",null,"\u6CE8\u610F\u529B\u673A\u5236\u76F8\u5173\u7B14\u8BB0",-1),s=[c];function a(r,l){return t(),n("div",null,s)}var d=e(_,[["render",a],["__file","Attention.html.vue"]]);export{d as default};
