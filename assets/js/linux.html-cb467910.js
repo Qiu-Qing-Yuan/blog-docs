@@ -1,0 +1,1 @@
+import{_ as e,o as t,c as n,a as _}from"./anyfork-c98069fb.js";const c={},o=_("p",null,"Linux \u7CFB\u7EDF\u76F8\u5173\u7B14\u8BB0",-1),s=[o];function a(l,r){return t(),n("div",null,s)}var u=e(c,[["render",a],["__file","linux.html.vue"]]);export{u as default};
