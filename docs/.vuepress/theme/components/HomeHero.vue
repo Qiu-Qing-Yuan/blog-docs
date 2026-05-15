@@ -57,7 +57,7 @@
       <div class="side-label side-label-left">HOME</div>
 
       <!-- 右侧 SCROLL DOWN 圆形指示器 -->
-      <div class="scroll-indicator" @click="scrollToNext">
+      <div class="scroll-indicator" ref="scrollIndicatorRef" @click="scrollToNext">
         <svg class="scroll-circle" viewBox="0 0 120 120">
           <defs>
             <path id="scrollTextPath" d="M60,60 m-45,0 a45,45 0 1,1 90,0 a45,45 0 1,1 -90,0"/>
@@ -226,6 +226,7 @@ const geoRef = ref<HTMLElement>()
 const introLeftRef = ref<HTMLElement>()
 const introRightRef = ref<HTMLElement>()
 const aboutCardRef = ref<HTMLElement>()
+const scrollIndicatorRef = ref<HTMLElement>()
 
 let scrollHandler: (() => void) | null = null
 
@@ -235,11 +236,22 @@ onMounted(() => {
   const introLeft = introLeftRef.value
   const introRight = introRightRef.value
   const aboutCard = aboutCardRef.value
+  const scrollIndicator = scrollIndicatorRef.value
 
   if (!intro) return
 
   scrollHandler = () => {
     const scrollY = window.scrollY
+
+    // 滚动驱动圆形指示器旋转
+    if (scrollIndicator) {
+      const rotateDeg = scrollY * 0.5
+      scrollIndicator.style.transform = `rotate(${rotateDeg}deg)`
+      const arrow = scrollIndicator.querySelector('.scroll-arrow-down') as HTMLElement
+      if (arrow) {
+        arrow.style.transform = `translate(-50%, -50%) rotate(${-rotateDeg}deg)`
+      }
+    }
 
     // 几何形状视差：不同层以不同速度移动，制造深度感
     if (geoShapes) {
@@ -560,7 +572,6 @@ const scrollToTop = () => {
   height: 110px;
   cursor: pointer;
   z-index: 20;
-  animation: scroll-rotate 10s linear infinite;
 }
 
 .scroll-circle {
@@ -590,23 +601,12 @@ const scrollToTop = () => {
   align-items: center;
   justify-content: center;
   color: #000;
-  animation: scroll-rotate-reverse 10s linear infinite;
 }
 
 .scroll-arrow-down svg {
   width: 16px;
   height: 16px;
   animation: bounce-down 2s ease-in-out infinite;
-}
-
-@keyframes scroll-rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@keyframes scroll-rotate-reverse {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotate(-360deg); }
 }
 
 @keyframes bounce-down {
