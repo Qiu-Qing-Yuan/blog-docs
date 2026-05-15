@@ -1,1 +1,0 @@
-import{_ as e,o,c as l,a as t}from"./anyfork-be90733e.js";const a={},_=t("p",null,"Algolia \u641C\u7D22\u670D\u52A1\u76F8\u5173\u7B14\u8BB0",-1),c=[_];function s(n,r){return o(),l("div",null,c)}var d=e(a,[["render",s],["__file","Algolia.html.vue"]]);export{d as default};
