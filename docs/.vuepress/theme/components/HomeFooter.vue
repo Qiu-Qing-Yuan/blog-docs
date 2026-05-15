@@ -122,7 +122,7 @@ onUnmounted(() => {
   flex-direction: column;
   align-items: center;
   padding: 14px 28px;
-  border-radius: 14px;
+  border-radius: var(--radius-md, 14px);
   background: rgba(26, 92, 58, 0.025);
   border: 1px solid rgba(26, 92, 58, 0.06);
 }
@@ -138,7 +138,7 @@ onUnmounted(() => {
   align-items: center;
   min-width: 42px;
   padding: 6px 10px;
-  border-radius: 8px;
+  border-radius: var(--radius-sm, 8px);
   background: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(26, 92, 58, 0.05);
 }
@@ -149,7 +149,7 @@ onUnmounted(() => {
 }
 
 .time-num {
-  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-family: var(--font-mono, 'JetBrains Mono', 'Fira Code', monospace);
   font-size: 18px;
   font-weight: 700;
   color: #1a5c3a;
@@ -162,7 +162,7 @@ onUnmounted(() => {
 }
 
 .time-label {
-  font-family: 'Source Sans 3', sans-serif;
+  font-family: var(--font-sans, 'Source Sans 3', sans-serif);
   font-size: 10px;
   color: #9494a8;
   margin-top: 4px;

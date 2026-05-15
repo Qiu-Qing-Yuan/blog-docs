@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-[8px] mt-[16px] flex w-full max-w-[1140px] sm:mx-auto">
+  <div class="mx-[8px] mt-[16px] flex w-full sm:mx-auto" style="max-width: var(--container-main, 1200px);">
     <div class="w-full sm:flex-1 sm:pr-[20px]">
       <BlogItem v-for="(item, index) in paginatedData" :key="index" :page="item.info" :position="index % 2 == 0 ? 'left' : 'right'" class="animate-fade-in" :style="{ animationDelay: `${index * 0.08}s` }"></BlogItem>
       <Pagination :pageTotal="pages.pageTotal" :pageSize="pages.pageSize" @click="onPageChange"> </Pagination>

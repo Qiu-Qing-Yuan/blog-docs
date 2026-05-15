@@ -18,6 +18,31 @@
   --text-muted: #9494a8;
   --border-subtle: rgba(0, 0, 0, 0.06);
   --accent-warm: #c9963b;
+
+  // ── 主色体系 ──
+  --color-primary: #1a5c3a;
+  --color-primary-light: #2ecc71;
+  --color-primary-hover: #157a3a;
+  --color-accent: #2d8cf0;
+  --color-accent-warm: #c9963b;
+  --color-danger: #c0392b;
+
+  // ── 圆角规范 ──
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-pill: 100px;
+
+  // ── 容器宽度 ──
+  --container-main: 1200px;
+  --container-content: 920px;
+
+  // ── 阴影 ──
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 20px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.05), 0 12px 40px rgba(0, 0, 0, 0.07);
+  --shadow-card: 0 2px 20px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover: 0 8px 30px rgba(0, 0, 0, 0.08);
 }
 
 body {

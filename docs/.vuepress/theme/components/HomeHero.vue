@@ -401,7 +401,7 @@ const scrollToTop = () => {
 
 .title-line {
   display: block;
-  font-family: 'Playfair Display', 'Noto Serif SC', Georgia, serif;
+  font-family: var(--font-serif, 'Playfair Display', 'Noto Serif SC', Georgia, serif);
   line-height: 1.08;
   letter-spacing: -0.03em;
 }
@@ -419,7 +419,7 @@ const scrollToTop = () => {
 }
 
 .hero-subtitle {
-  font-family: 'Source Sans 3', 'Noto Sans SC', sans-serif;
+  font-family: var(--font-sans, 'Source Sans 3', 'Noto Sans SC', sans-serif);
   font-size: 1.05rem;
   color: rgba(255, 255, 255, 0.45);
   letter-spacing: 0.01em;
@@ -440,10 +440,10 @@ const scrollToTop = () => {
   align-items: center;
   gap: 14px;
   padding: 16px 36px;
-  background: #e8920d;
-  color: #000;
+  background: #1a5c3a;
+  color: #fff;
   border-radius: 100px;
-  font-family: 'Source Sans 3', 'Noto Sans SC', sans-serif;
+  font-family: var(--font-sans, 'Source Sans 3', 'Noto Sans SC', sans-serif);
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -454,9 +454,9 @@ const scrollToTop = () => {
 }
 
 .hero-btn-primary:hover {
-  background: #f5a623;
+  background: #2ecc71;
   transform: translateY(-2px);
-  box-shadow: 0 12px 40px rgba(232, 146, 13, 0.35);
+  box-shadow: 0 12px 40px rgba(26, 92, 58, 0.35);
 }
 
 .btn-icon-circle {
@@ -488,7 +488,7 @@ const scrollToTop = () => {
   background: transparent;
   color: rgba(255, 255, 255, 0.65);
   border: none;
-  font-family: 'Source Sans 3', 'Noto Sans SC', sans-serif;
+  font-family: var(--font-sans, 'Source Sans 3', 'Noto Sans SC', sans-serif);
   font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -692,7 +692,7 @@ const scrollToTop = () => {
 }
 
 .intro-heading-bold {
-  font-family: 'Playfair Display', 'Noto Serif SC', Georgia, serif;
+  font-family: var(--font-serif, 'Playfair Display', 'Noto Serif SC', Georgia, serif);
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 900;
   color: #111;
@@ -701,7 +701,7 @@ const scrollToTop = () => {
 }
 
 .intro-heading-light {
-  font-family: 'Playfair Display', 'Noto Serif SC', Georgia, serif;
+  font-family: var(--font-serif, 'Playfair Display', 'Noto Serif SC', Georgia, serif);
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 300;
   color: #999;
@@ -715,7 +715,7 @@ const scrollToTop = () => {
 }
 
 .intro-tagline {
-  font-family: 'Source Sans 3', 'Noto Sans SC', sans-serif;
+  font-family: var(--font-sans, 'Source Sans 3', 'Noto Sans SC', sans-serif);
   font-size: 1rem;
   color: #666;
   line-height: 1.6;
@@ -751,7 +751,7 @@ const scrollToTop = () => {
 
 .feature-card {
   background: #fff;
-  border-radius: 16px;
+  border-radius: var(--radius-lg, 16px);
   padding: 28px 24px;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
   border: 1px solid rgba(0, 0, 0, 0.04);
@@ -767,12 +767,12 @@ const scrollToTop = () => {
   font-family: 'Playfair Display', 'Noto Serif SC', serif;
   font-size: 1.1rem;
   font-weight: 700;
-  color: #e8920d;
+  color: #1a5c3a;
   margin: 0 0 8px 0;
 }
 
 .feature-card-desc {
-  font-family: 'Source Sans 3', 'Noto Sans SC', sans-serif;
+  font-family: var(--font-sans, 'Source Sans 3', 'Noto Sans SC', sans-serif);
   font-size: 0.85rem;
   color: #888;
   margin: 0;
@@ -782,7 +782,7 @@ const scrollToTop = () => {
 /* ─── 关于卡片 ─── */
 .about-card {
   background: #fff;
-  border-radius: 20px;
+  border-radius: var(--radius-xl, 20px);
   padding: 32px 28px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
   border: 1px solid rgba(0, 0, 0, 0.04);
@@ -821,16 +821,16 @@ const scrollToTop = () => {
 }
 
 .about-highlight {
-  font-family: 'Source Sans 3', 'Noto Sans SC', sans-serif;
+  font-family: var(--font-sans, 'Source Sans 3', 'Noto Sans SC', sans-serif);
   font-size: 0.95rem;
-  color: #e8920d;
+  color: #1a5c3a;
   font-weight: 600;
   margin: 0 0 8px 0;
   line-height: 1.5;
 }
 
 .about-desc {
-  font-family: 'Source Sans 3', 'Noto Sans SC', sans-serif;
+  font-family: var(--font-sans, 'Source Sans 3', 'Noto Sans SC', sans-serif);
   font-size: 0.85rem;
   color: #888;
   margin: 0 0 20px 0;
@@ -848,7 +848,7 @@ const scrollToTop = () => {
   padding: 6px 16px;
   background: #f5f5f5;
   border-radius: 100px;
-  font-family: 'Source Sans 3', 'Noto Sans SC', sans-serif;
+  font-family: var(--font-sans, 'Source Sans 3', 'Noto Sans SC', sans-serif);
   font-size: 0.78rem;
   color: #555;
   font-weight: 500;
@@ -856,7 +856,7 @@ const scrollToTop = () => {
 }
 
 .about-tag:hover {
-  background: #e8920d;
+  background: #1a5c3a;
   color: #fff;
 }
 
