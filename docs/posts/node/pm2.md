@@ -6,7 +6,7 @@ tag:
 category:
   - Node
   - 运维
-image: https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202207200951285.jpg
+image: /blog-docs/images/placeholder.png
 ---
 
 &emsp;pm2 是一个进程管理工具,可以用它来管理你的 node 进程，并查看 node 进程的状态，当然也支持性能监控，进程守护，负载均衡等功能。

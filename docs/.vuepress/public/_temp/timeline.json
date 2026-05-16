@@ -1,6 +1,70 @@
 {
   "site": [
     {
+      "hash": "d7b9ca3",
+      "date": "2026-05-15",
+      "time": "22:28",
+      "icon": "🎨",
+      "title": "unify design system across all components",
+      "description": "refactor: unify design system across all components",
+      "files": [
+        "styles/index.scss",
+        "theme/components/HomeBlog.vue",
+        "theme/components/HomeFooter.vue",
+        "theme/components/HomeHero.vue",
+        "theme/layouts/Layout.vue"
+      ]
+    },
+    {
+      "hash": "40f612b",
+      "date": "2026-05-15",
+      "time": "22:15",
+      "icon": "🎨",
+      "title": "add scroll-triggered navbar on homepage",
+      "description": "feat: add scroll-triggered navbar on homepage",
+      "files": [
+        "theme/layouts/Layout.vue"
+      ]
+    },
+    {
+      "hash": "9c258d2",
+      "date": "2026-05-15",
+      "time": "22:09",
+      "icon": "🎨",
+      "title": "add video background to homepage hero section",
+      "description": "feat: add video background to homepage hero section",
+      "files": [
+        "public/videos/kuroha-lineart.mp4",
+        "theme/components/HomeHero.vue"
+      ]
+    },
+    {
+      "hash": "8b2c297",
+      "date": "2026-05-15",
+      "time": "21:58",
+      "icon": "🎨",
+      "title": "scroll indicator rotates with scroll instead of auto-rotating",
+      "description": "fix: scroll indicator rotates with scroll instead of auto-rotating",
+      "files": [
+        "theme/components/HomeHero.vue"
+      ]
+    },
+    {
+      "hash": "5e1a8ed",
+      "date": "2026-05-15",
+      "time": "21:50",
+      "icon": "🎨",
+      "title": "rebrand site from 论文阅读笔记 to 沉潜",
+      "description": "feat: rebrand site from 论文阅读笔记 to 沉潜",
+      "files": [
+        "config.ts",
+        "theme/components/HomeFooter.vue",
+        "theme/components/HomeHero.vue",
+        "docs/README.md",
+        "docs/profile.yml"
+      ]
+    },
+    {
       "hash": "08f11bb",
       "date": "2026-05-14",
       "time": "15:16",
@@ -700,6 +764,21 @@
   ],
   "post": [
     {
+      "hash": "633ffa0",
+      "date": "2026-05-15",
+      "time": "21:39",
+      "icon": "🔧",
+      "title": "replace dead cdn.staticaly.com with cdn.jsdelivr.net",
+      "description": "fix: replace dead cdn.staticaly.com with cdn.jsdelivr.net",
+      "files": [
+        "design-pattern/README.md",
+        "devops/docker/install.md",
+        "devops/gitlab/README.md",
+        "devops/nginx/README.md",
+        "devops/nginx/cache.md"
+      ]
+    },
+    {
       "hash": "577a070",
       "date": "2026-05-06",
       "time": "21:08",
@@ -735,6 +814,21 @@
     }
   ],
   "taxonomy": [
+    {
+      "hash": "9050900",
+      "date": "2026-05-14",
+      "time": "18:09",
+      "icon": "📂",
+      "title": "clean up dead code, fix configs, and remove unused files",
+      "description": "chore: clean up dead code, fix configs, and remove unused files",
+      "files": [
+        "config.ts",
+        "config/firendLink.ts",
+        "config/friendLink.ts",
+        "config/index.ts",
+        "public/_temp/timeline.json"
+      ]
+    },
     {
       "hash": "515886e",
       "date": "2026-05-07",
@@ -804,6 +898,17 @@
     }
   ],
   "settings": [
+    {
+      "hash": "c21eb5e",
+      "date": "2026-05-15",
+      "time": "21:53",
+      "icon": "⚙️",
+      "title": "simplify heroText to single quote",
+      "description": "chore: simplify heroText to single quote",
+      "files": [
+        "docs/README.md"
+      ]
+    },
     {
       "hash": "710377c",
       "date": "2026-05-07",

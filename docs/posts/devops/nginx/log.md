@@ -6,7 +6,7 @@ tag:
 category:
   - nginx
   - 运维
-image: https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202207201036989.jpg
+image: /blog-docs/images/placeholder.png
 ---
 
 &emsp;Nginx 日志对于统计、系统服务排错很有用。Nginx 日志主要分为两种：access_log(访问日志)和 error_log(错误日志)。通过访问日志我们可以得到用户的 IP 地址、浏览器的信息，请求的处理时间等信息。错误日志记录了访问出错的信息，可以帮助我们定位错误的原因。本文将详细描述一下如何配置 Nginx 日志。

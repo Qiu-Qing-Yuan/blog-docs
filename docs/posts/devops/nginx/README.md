@@ -7,7 +7,7 @@ tag:
 category:
   - nginx
   - 运维
-image: https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202209041530281.png
+image: /blog-docs/images/placeholder.png
 sticky: 5
 ---
 

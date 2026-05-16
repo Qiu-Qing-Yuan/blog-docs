@@ -6,7 +6,7 @@ tag:
 category:
   - nginx
   - 运维
-image: https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202207201031629.jpg
+image: /blog-docs/images/placeholder.png
 ---
 
 &emsp;nginx 的 location 指令的作用是根据用户请求的 URI 来执行不同的应用，URI 就是根据用户请求到的网址 URL 进行匹配，匹配成功了进行相关的操作。一个 location 可以用 prefix string(前缀字符串)定义，也可以通过 regular expression（正则表达式来定义）。通俗的说也就是：我们可以通过使用不同的前缀，表达不同的含义，对于不同的前缀可以分为两大类：普通 location 和正则 location
@@ -35,6 +35,6 @@ e. ”^~”和“=”都可以阻止继续匹配正则 location 两者的区别�
 
 ## location 匹配规则顺序图
 
-![](https://cdn.jsdelivr.net/gh/AnyFork/blog-images/markdown/202203141144181.png)
+![](../../_images/placeholder.png)
 
 文章参考来源：<https://www.cnblogs.com/zhaof/p/5945576.html>

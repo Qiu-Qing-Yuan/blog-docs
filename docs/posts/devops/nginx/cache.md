@@ -6,7 +6,7 @@ tag:
 category:
   - nginx
   - 运维
-image: https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202207201016051.jpg
+image: /blog-docs/images/placeholder.png
 ---
 
 &emsp;Nginx作为Web缓存服务器，它介于客户端和应用服务器之间，当用户通过浏览器访问一个URL时，web缓存服务器会去应用服务器获取要展示给用户的内容，将内容缓存到自己的服务器上，当下一次请求到来时，如果访问的是同一个URL，web缓存服务器就会直接将之前缓存的内容返回给客户端，而不是向应用服务器再次发送请求。web缓存降低了应用服务器、数据库的负载，减少了网络延迟，提高了用户访问的响应速度，增强了用户的体验。

@@ -6,7 +6,7 @@ tag:
   - Algolia
 category:
   - 运维
-image: https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202207210908451.jpg
+image: /blog-docs/images/placeholder.png
 sticky: 3
 ---
 
@@ -27,7 +27,7 @@ sticky: 3
 
 - 1、由于 VuePress 的内置搜索只会为页面的标题、h2 、 h3 以及 tags 构建搜索索引。如果你需要全文搜索，内置搜索无法实现，可则以使用 Algolia 搜索。
 - 2、使用 Algolia 搜索最大的好处就是方便，它会自动爬取网站的页面内容并构建索引，你只用申请一个 Algolia 服务，在网站上添加一些代码，就像添加统计代码一样，然后就可以实现一个全文搜索功能，操作简单还方便，容错率很高。
-- 3、使用范围广，目前很多应用的官方文档(例如：vue.js,vite,vuepress 等)均使用 Algolia 进行全文搜索，而且支持多种 Ruby、Rails、Python、PHP、JS、Java、Android、Objective-C 等多种语言，可以实现自动和手动爬取索引。展示效果如下:![配置页面](https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202207210920996.png)
+- 3、使用范围广，目前很多应用的官方文档(例如：vue.js,vite,vuepress 等)均使用 Algolia 进行全文搜索，而且支持多种 Ruby、Rails、Python、PHP、JS、Java、Android、Objective-C 等多种语言，可以实现自动和手动爬取索引。展示效果如下:![配置页面](../_images/placeholder.png)
 
 ## 如何使用 Algolia?
 
@@ -198,13 +198,13 @@ export default defineComponent({
 </style>
 ```
 
-注意其中的 container，参考 [docsearch](https://github.com/algolia/docsearch) 的官方仓库，这里提供的不是 input 输入框的选择器，而是一个挂载节点，比如 div 的选择器。如果样式自己不喜欢，可以通过修改`vuepress/styles/index.styl`覆盖目前的样式。最终效果如下：![最终效果](https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202207211001028.png)
+注意其中的 container，参考 [docsearch](https://github.com/algolia/docsearch) 的官方仓库，这里提供的不是 input 输入框的选择器，而是一个挂载节点，比如 div 的选择器。如果样式自己不喜欢，可以通过修改`vuepress/styles/index.styl`覆盖目前的样式。最终效果如下：![最终效果](../_images/placeholder.png)
 
 ## 数据爬取
 
 - 1、配置完毕后将网站进行重新部署，查看`Algolia`全局搜索是否有数据。
-- 2、如果你搜任何数据，都显示搜索不到数据，那很可能是爬取的数据有问题，我们登陆 <https://www.algolia.com/> 打开管理后台，点击左侧选项栏里的 Search，查看对应的 indexName 数据，如果 Browse 这里没有显示数据，那说明爬取的数据可能有问题，导致没有生成对应的 Records：![图示](https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202207211111162.png)
+- 2、如果你搜任何数据，都显示搜索不到数据，那很可能是爬取的数据有问题，我们登陆 <https://www.algolia.com/> 打开管理后台，点击左侧选项栏里的 Search，查看对应的 indexName 数据，如果 Browse 这里没有显示数据，那说明爬取的数据可能有问题，导致没有生成对应的 Records：![图示](../_images/placeholder.png)
   如果没有数据，那我们就查下爬取的逻辑，打开爬虫后台：<https://crawler.algolia.com/admin/crawlers/05c701e8-3f90-461a-8624-081309f68d92/overview>，点击对应 indexName 进入后台：
-  ![图示](https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202207211115127.png)如果显示成功爬取，也有 Monitoring Success 的数据，但 Records 为 0，那大概是爬虫提取数据的逻辑有问题，点击左侧选项栏中的 Editor，查看具体的爬虫逻辑：![图示](https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202207211119981.png)像 pathsToMatch 这里如果是'<https://anyfork.github.io/blog-docs/docs/>**'，但你的网址都是 [https://anyfork.github.io/blog-docs/\*\*](https://anyfork.github.io/blog-docs/**)开头的，那这里大概就是会提取错误，修改一下，然后点击右侧的数据进行测试：![图示](https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202207211126112.png)如果能像这样提取到数据，就说明没有什么问题了，点击右上角的 Save，然后切换回 Overview，点击右上角的 Restart crawling，我们重新爬取一下数据：![图示](https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202207211128410.png)除了手动进行爬取之外，`Algolia`爬虫后台会定时爬取数据。至此， VuePress 博客优化之开启 Algolia 全文搜索就配置完了，小伙伴赶紧开始吧！
+  ![图示](../_images/placeholder.png)如果显示成功爬取，也有 Monitoring Success 的数据，但 Records 为 0，那大概是爬虫提取数据的逻辑有问题，点击左侧选项栏中的 Editor，查看具体的爬虫逻辑：![图示](../_images/placeholder.png)像 pathsToMatch 这里如果是'<https://anyfork.github.io/blog-docs/docs/>**'，但你的网址都是 [https://anyfork.github.io/blog-docs/\*\*](https://anyfork.github.io/blog-docs/**)开头的，那这里大概就是会提取错误，修改一下，然后点击右侧的数据进行测试：![图示](../_images/placeholder.png)如果能像这样提取到数据，就说明没有什么问题了，点击右上角的 Save，然后切换回 Overview，点击右上角的 Restart crawling，我们重新爬取一下数据：![图示](../_images/placeholder.png)除了手动进行爬取之外，`Algolia`爬虫后台会定时爬取数据。至此， VuePress 博客优化之开启 Algolia 全文搜索就配置完了，小伙伴赶紧开始吧！
 
 **参考文章**：<https://blog.csdn.net/weixin_55475226/article/details/123363042>

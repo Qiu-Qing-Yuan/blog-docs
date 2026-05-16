@@ -7,7 +7,7 @@ tag:
   - waline
 category:
   - 运维
-image: https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202208311312129.png
+image: /blog-docs/images/placeholder.png
 ---
 
 &emsp;waline 是一款简洁、安全的评论系统，该系统包含了客户端与服务端，属于 valine 的衍生版本，增加了服务端功能，解决了 valine 阅读数据篡改，XSS 安全，用户隐私泄露等数据安全问题。waline 不仅具有 valine 功能，还提供了邮件通知、微信通知、评论后台管理、LeanCloud, MySQL, MongoDB, SQLite, PostgreSQL 多存储服务支持等诸多特性。不仅如此，Waline 默认使用 Vercel 部署，实现完全免费部署！本文着重记录 waline 服务器独立部署的过程。

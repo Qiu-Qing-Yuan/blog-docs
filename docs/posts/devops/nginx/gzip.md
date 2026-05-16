@@ -6,7 +6,7 @@ tag:
 category:
   - nginx
   - 运维
-image: https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202207201100605.jpg
+image: /blog-docs/images/placeholder.png
 ---
 
 &emsp;Nginx Gzip 压缩功能， 可以使网站的 css、js 、xml、html 等静态资源在传输时进行压缩，经过 Gzip 压缩后资源可以变为原来的 30%甚至更小，尽管这样会消耗一定的 cpu 资源，但是会节约大量的出口带宽来提高访问速度
@@ -82,7 +82,7 @@ gzip_disable "MSIE [1-6]\.";
 
 ## 客户端和服务器进行 gzip 压缩的请求和处理过程
 
-![](https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202203141006242.png)
+![](../../_images/placeholder.png)
 
 - 整个请求过程来看，开启 gzip 和不开启 gip 功能，其 http 的请求和返回过程是一致的，不同的是参数。
 - 当开启 HTTP 的 gzip 功能时，客户端发出 http 请求时，会通过 headers 中的 Accept-Encoding 属性告诉服务器“我支持 gzip 解压，解压格式（算法）deflate,sdch 为：”。Accept-Encoding:gzip,deflate,sdch。

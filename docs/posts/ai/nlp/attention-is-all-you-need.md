@@ -17,7 +17,7 @@ tag:
   - Attention
   - Seq2Seq
   - 深度学习
-image: https://cdn.jsdelivr.net/gh/AnyFork/blog-images/markdown/transformer.png
+image: /blog-docs/images/placeholder.png
 ---
 
 &emsp;本文提出了 Transformer 架构，完全基于注意力机制（Attention Mechanism），摒弃了传统的 RNN 和 CNN 结构，在机器翻译任务上取得了当时的最优效果，并成为后续 BERT、GPT 等大模型的基础架构。

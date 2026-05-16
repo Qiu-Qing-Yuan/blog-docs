@@ -7,7 +7,7 @@ tag:
   - Github Pages
 category:
   - 运维
-image: https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202207201555438.jpg
+image: /blog-docs/images/placeholder.png
 sticky: 2
 ---
 
@@ -28,11 +28,11 @@ sticky: 2
   1、在命令行终端或`Git Bash`使用命令 ssh-keygen -t rsa -C "youremail@example.com"生成 SSH Key，注意替换为自己的邮箱，连续三次回车。生成的 id_rsa 是私钥，id_rsa.pub 是公钥。(⚠️ 注意此处不要设置密码)，秘钥生成在`C:\Users\Administrator\.ssh`目录下面。如果出现`'ssh-keygen' 不是内部或外部命令，也不是可运行的程序 或批处理文件。`问题时。需要进入到 git 安装目录下面的`/usr/bin`目录执行命令。
 
   2、在 GitHub 的个人设置页面「Settings -> SSH and GPG keys」​ 配置 SSH 公钥（即：id_rsa.pub），命名随意，如下图：
-  ![GitHub 的个人设置页面](https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202207201634013.png)
+  ![GitHub 的个人设置页面](../_images/placeholder.png)
 
-  3、在 Gitee 的个人设置页面「安全设置 -> SSH 公钥」​ 配置 SSH 公钥（即：id_rsa.pub），命名随意，如下图：![ Gitee 的个人设置页面](https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202207201636995.png)
+  3、在 Gitee 的个人设置页面「安全设置 -> SSH 公钥」​ 配置 SSH 公钥（即：id_rsa.pub），命名随意，如下图：![ Gitee 的个人设置页面](../_images/placeholder.png)
 
-  4、在 GitHub 项目的「​Settings -> Secrets」路径下配置好命名为 GITEE_RSA_PRIVATE_KEY 密钥和 GITEE_PASSWORD 密钥。GITEE_RSA_PRIVATE_KEY 存放 id_rsa 私钥，GITEE_PASSWORD 账号登录的密码。如下图：![setting](https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202207201641069.png)
+  4、在 GitHub 项目的「​Settings -> Secrets」路径下配置好命名为 GITEE_RSA_PRIVATE_KEY 密钥和 GITEE_PASSWORD 密钥。GITEE_RSA_PRIVATE_KEY 存放 id_rsa 私钥，GITEE_PASSWORD 账号登录的密码。如下图：![setting](../_images/placeholder.png)
 
   5、在站点根目录下创建如下目录`.github/workflows/xxx.yml`，文件名任意起，GitHub 的 Actions 会处理.github 下的工作流文件夹 workflows 的工作流程。
 

@@ -6,7 +6,7 @@ tag:
 category:
   - nginx
   - 运维
-image: https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202207201025944.jpg
+image: /blog-docs/images/placeholder.png
 ---
 
 &emsp;日常工作中，nginx 使用非常频繁。今日抽空，顺便整理一下 linux 环境下 nginx 常用的 3 种安装方式(yum,源码编译，docker)，以备日后使用，减少不必要的错误。docker 方式比较简单，但一定要注意文件目录挂载配置，配置不正确，即使容器启动起来，nginx 也无法运行。
@@ -74,7 +74,7 @@ nginx -V
 ```
 
 **nginx 相关配置信息：**
-![](https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202203181052935.png)
+![](../../_images/placeholder.png)
 
 **yum 方式安装的默认地址和配置的默认地址**
 
@@ -165,10 +165,10 @@ ps -ef |grep nginx
 ```
 
 如果出现`nginx`进程，则表示启动成功
-![nginx](https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202209041716374.png)
+![nginx](../../_images/placeholder.png)
 
 打开浏览器，输入`nginx`地址，默认监听 80 端口，如下图：
-![nginxWeb](https://cdn.jsdelivr.net/gh/AnyFork/blog-images/main/markdown/202209041715335.png)
+![nginxWeb](../../_images/placeholder.png)
 
 如果出现访问不了，尝试关闭防火墙`systemctl stop firewalld.service`或者永久关闭防火墙`systemctl disable firewalld.service`
 
