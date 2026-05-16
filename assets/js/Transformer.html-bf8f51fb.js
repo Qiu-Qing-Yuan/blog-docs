@@ -1,0 +1,1 @@
+import{_ as e,o as r,c as o,a as s}from"./anyfork-38d347c6.js";const t={},a=s("p",null,"Transformer \u67B6\u6784\u76F8\u5173\u7B14\u8BB0",-1),n=[a];function _(c,l){return r(),o("div",null,n)}var m=e(t,[["render",_],["__file","Transformer.html.vue"]]);export{m as default};
