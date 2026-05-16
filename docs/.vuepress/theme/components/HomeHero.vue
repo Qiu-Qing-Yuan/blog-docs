@@ -610,12 +610,12 @@ const scrollToTop = () => {
   transform: translate(-50%, -50%);
   width: 34px;
   height: 34px;
-  background: #e8920d;
+  background: #1a5c3a;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #000;
+  color: #fff;
 }
 
 .scroll-arrow-down svg {
@@ -808,8 +808,8 @@ const scrollToTop = () => {
   border-radius: 50%;
 }
 
-.dot-orange { background: #e8920d; }
-.dot-yellow { background: #f5c842; }
+.dot-orange { background: #1a5c3a; }
+.dot-yellow { background: #2ecc71; }
 .dot-light { background: #e0d5c0; }
 
 .about-title {
