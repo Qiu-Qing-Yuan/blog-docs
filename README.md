@@ -1,7 +1,5 @@
 # 沉潜
 
-> 沉心潜研，探索 AI/ML/NLP/CV 前沿。
-
 - 访问地址：https://qiu-qing-yuan.github.io/blog-docs/
 
 ## 快速开始
