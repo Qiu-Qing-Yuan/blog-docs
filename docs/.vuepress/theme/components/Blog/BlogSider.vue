@@ -46,9 +46,6 @@
       </div>
     </div>
 
-    <!-- 访客地图 -->
-    <ClustrMaps />
-
     <!-- 分隔线 -->
     <div class="my-[18px] flex items-center gap-[10px]">
       <div class="flex-1 h-px bg-gradient-to-r from-transparent via-[var(--border-subtle)] to-transparent"></div>
@@ -92,6 +89,9 @@
         </a>
       </span>
     </div>
+
+    <!-- 访客地图 -->
+    <ClustrMaps />
   </div>
 </template>
 
