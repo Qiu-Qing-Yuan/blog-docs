@@ -1,8 +1,8 @@
 {
-  "name": "blog-docs",
-  "short_name": "blog-docs",
+  "name": "沉潜",
+  "short_name": "沉潜",
   "version": "1.0.0",
-  "description": "游履平生的博客",
+  "description": "沉潜的博客",
   "manifest_version": 2,
   "start_url": "/blog-docs/",
   "display": "standalone",
