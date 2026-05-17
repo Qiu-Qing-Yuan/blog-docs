@@ -1,5 +1,4 @@
 export * from './useBanner'
 export * from './useTyped'
-export * from './useLoading'
 export * from './useCount'
 export * from './usePagination'

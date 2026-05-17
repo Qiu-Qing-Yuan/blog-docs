@@ -19,13 +19,14 @@
                 :key="tab.key"
                 @click="activeTab = tab.key"
                 :class="[
-                  'px-[18px] py-[8px] rounded-[10px] text-[13px] font-[600] transition-all duration-300 whitespace-nowrap',
+                  'px-[18px] py-[8px] rounded-[10px] text-[13px] font-[600] transition-all duration-300 whitespace-nowrap inline-flex items-center gap-[6px]',
                   activeTab === tab.key
                     ? `text-white shadow-md ${tab.activeClass}`
                     : 'text-[#5a5a72] dark:text-[#9494a8] hover:opacity-80'
                 ]"
               >
-                {{ tab.icon }} {{ tab.label }}
+                <Icon :icon="tab.icon" :iconSize="14" />
+                {{ tab.label }}
                 <span v-if="data[tab.key].length" class="ml-[4px] text-[11px] opacity-70">({{ data[tab.key].length }})</span>
               </button>
             </div>
@@ -73,7 +74,7 @@
                   <!-- 头部：日期 + 图标 -->
                   <div class="flex items-center justify-between mb-[8px]">
                     <div class="flex items-center gap-[8px]">
-                      <span class="text-[16px]">{{ item.icon }}</span>
+                      <Icon :icon="item.icon" :iconSize="14" class="opacity-60" />
                       <span class="text-[12px] text-[#9494a8] font-mono">{{ item.date }}</span>
                       <span v-if="item.time" class="text-[11px] text-[#bbb] font-mono">{{ item.time }}</span>
                     </div>
@@ -105,7 +106,7 @@
 
           <!-- 空状态 -->
           <div v-else class="text-center py-[60px]">
-            <p class="text-[48px] mb-[12px]">{{ activeTabInfo.icon }}</p>
+            <Icon :icon="activeTabInfo.icon" :iconSize="48" class="opacity-30 mb-[12px]" />
             <p class="text-[14px] text-[#9494a8]">暂无{{ activeTabInfo.emptyText }}更新记录</p>
           </div>
         </div>
@@ -122,10 +123,10 @@ import { computed } from 'vue'
 const { data, loading, activeTab, currentTimeline } = useTimeline()
 
 const tabs: { key: TimelineTab; icon: string; label: string; activeClass: string }[] = [
-  { key: 'site', icon: '🛠️', label: '网站更新', activeClass: 'bg-[#1a5c3a]' },
-  { key: 'post', icon: '📄', label: '文章更新', activeClass: 'bg-[#2d8cf0]' },
-  { key: 'taxonomy', icon: '🏷️', label: '分类标签', activeClass: 'bg-[#c9963b]' },
-  { key: 'settings', icon: '⚙️', label: '站点设置', activeClass: 'bg-[#a371f7]' },
+  { key: 'site', icon: 'ToolOutlined', label: '网站更新', activeClass: 'bg-[#1a5c3a]' },
+  { key: 'post', icon: 'FileTextOutlined', label: '文章更新', activeClass: 'bg-[#2d8cf0]' },
+  { key: 'taxonomy', icon: 'BookOutlined', label: '分类标签', activeClass: 'bg-[#c9963b]' },
+  { key: 'settings', icon: 'SettingOutlined', label: '站点设置', activeClass: 'bg-[#a371f7]' },
 ]
 
 const colorMap: Record<TimelineTab, { line: string; dot: string; text: string; border: string; hoverBg: string }> = {
@@ -168,7 +169,7 @@ const emptyTextMap: Record<TimelineTab, string> = {
 
 const activeColor = computed(() => colorMap[activeTab.value])
 const activeTabInfo = computed(() => ({
-  icon: tabs.find(t => t.key === activeTab.value)?.icon || '📌',
+  icon: tabs.find(t => t.key === activeTab.value)?.icon || 'InfoCircleOutlined',
   emptyText: emptyTextMap[activeTab.value],
 }))
 </script>

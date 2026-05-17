@@ -1,8 +1,4 @@
 <template>
-  <!-- 首页加载动画 -->
-  <client-only v-if="isHome && showHomeLoading">
-    <LoadingPage />
-  </client-only>
   <!-- 首页导航栏：滚动到文章区才显示 -->
   <nav v-if="isHome" class="home-navbar" :class="{ 'navbar-visible': showNavbar }">
     <div class="home-navbar-inner">
@@ -12,6 +8,9 @@
           <Icon v-if="item.icon" :icon="item.icon" :iconSize="14" />
           <span>{{ item.text }}</span>
         </router-link>
+        <button class="home-navbar-toggle" @click="toggleDark" :title="isDark ? '浅色模式' : '深色模式'">
+          <Icon :icon="isDark ? 'SunOutlined' : 'MoonOutlined'" :iconSize="15" />
+        </button>
       </div>
     </div>
   </nav>
@@ -52,13 +51,17 @@ import HomeBlog from '../components/HomeBlog.vue'
 import HomeFooter from '@theme/HomeFooter.vue'
 import BlogItemInfo from '../components/Blog/BlogItemInfo.vue'
 import ArticleStats from '../components/Blog/ArticleStats.vue'
-import LoadingPage from '../components/global/Loading.vue'
 import { usePageData, usePageFrontmatter } from '@vuepress/client'
 import { useDarkMode } from '@vuepress/theme-default/lib/client/composables'
 import { isMobile } from '../utils'
 import { computed, ref, onMounted, onUnmounted } from 'vue'
 const page = usePageData()
 const isDark = useDarkMode()
+
+const toggleDark = () => {
+  const html = document.documentElement
+  html.classList.toggle('dark')
+}
 const frontmatter = usePageFrontmatter()
 const isHome = computed(() => frontmatter.value.home === true)
 
@@ -74,21 +77,8 @@ const navbarItems = [
 const showNavbar = ref(false)
 let navbarScrollHandler: (() => void) | null = null
 
-// 首次访问加载动画（与原 Home.vue 行为一致）
-const showHomeLoading = ref(true)
 onMounted(() => {
   if (isHome.value) {
-    const firstLoad = !sessionStorage.getItem('firstLoad')
-    if (firstLoad) {
-      setTimeout(() => {
-        showHomeLoading.value = false
-        sessionStorage.setItem('firstLoad', 'false')
-      }, 1000)
-    } else {
-      showHomeLoading.value = false
-    }
-
-    // 监听滚动，到文章区显示导航栏
     navbarScrollHandler = () => {
       const articlesEl = document.getElementById('articles')
       if (articlesEl) {
@@ -217,6 +207,35 @@ onUnmounted(() => {
 
 :global(.dark) .home-navbar-link--active::after {
   background: #4eca8a;
+}
+
+.home-navbar-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: none;
+  background: transparent;
+  color: #5a5a72;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-left: 4px;
+}
+
+.home-navbar-toggle:hover {
+  color: #1a5c3a;
+  background: rgba(26, 92, 58, 0.06);
+}
+
+:global(.dark) .home-navbar-toggle {
+  color: #9494a8;
+}
+
+:global(.dark) .home-navbar-toggle:hover {
+  color: #4eca8a;
+  background: rgba(78, 202, 138, 0.08);
 }
 
 @media (max-width: 768px) {

@@ -67,27 +67,27 @@ function classifyCommit(message, files) {
 
 function generateIcon(type, files) {
   if (type === 'site') {
-    if (files.some(f => f.includes('theme') || f.includes('styles'))) return '🎨'
-    if (files.some(f => f.includes('plugin') || f.includes('config'))) return '⚙️'
-    if (files.some(f => f.includes('admin') || f.includes('cms'))) return '📝'
-    if (files.some(f => f.includes('.github'))) return '🚀'
-    if (files.some(f => f.includes('scripts'))) return '🔧'
-    return '🛠️'
+    if (files.some(f => f.includes('theme') || f.includes('styles'))) return 'BgColorsOutlined'
+    if (files.some(f => f.includes('plugin') || f.includes('config'))) return 'SettingOutlined'
+    if (files.some(f => f.includes('admin') || f.includes('cms'))) return 'FileTextOutlined'
+    if (files.some(f => f.includes('.github'))) return 'RocketOutlined'
+    if (files.some(f => f.includes('scripts'))) return 'CodeOutlined'
+    return 'ToolOutlined'
   }
   if (type === 'post') {
-    if (files.some(f => f.includes('/ai/'))) return '📄'
-    if (files.some(f => f.includes('/devops/'))) return '🔧'
-    if (files.some(f => f.includes('/linux/'))) return '🐧'
-    if (files.some(f => f.includes('/node/'))) return '💚'
-    if (files.some(f => f.includes('/mysql/'))) return '🗄️'
-    return '📝'
+    if (files.some(f => f.includes('/ai/'))) return 'RobotOutlined'
+    if (files.some(f => f.includes('/devops/'))) return 'CloudServerOutlined'
+    if (files.some(f => f.includes('/linux/'))) return 'DesktopOutlined'
+    if (files.some(f => f.includes('/node/'))) return 'ApiOutlined'
+    if (files.some(f => f.includes('/mysql/'))) return 'DatabaseOutlined'
+    return 'FileTextOutlined'
   }
   if (type === 'taxonomy') {
-    if (files.some(f => f.includes('_categories'))) return '📂'
-    return '🏷️'
+    if (files.some(f => f.includes('_categories'))) return 'FolderOpenOutlined'
+    return 'BookOutlined'
   }
-  if (type === 'settings') return '⚙️'
-  return '📌'
+  if (type === 'settings') return 'SettingOutlined'
+  return 'InfoCircleOutlined'
 }
 
 function generateDescription(message, type, files) {

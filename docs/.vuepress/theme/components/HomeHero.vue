@@ -35,7 +35,7 @@
       <!-- 主内容 -->
       <div class="hero-content">
         <h1 class="hero-title">
-          <span class="title-line title-bold">{{ heroTitleLine1 }}</span>
+          <span class="title-line title-bold text-shimmer">{{ heroTitleLine1 }}</span>
           <span class="title-line title-light">{{ heroTitleLine2 }}</span>
         </h1>
         <p class="hero-subtitle">{{ heroSubtitle }}</p>
