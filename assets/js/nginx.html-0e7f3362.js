@@ -1,0 +1,1 @@
+import{_ as e,o as n,c as t,a as _}from"./anyfork-fba8d477.js";const c={},o=_("p",null,"Nginx \u670D\u52A1\u5668\u76F8\u5173\u7B14\u8BB0",-1),s=[o];function a(r,l){return n(),t("div",null,s)}var d=e(c,[["render",a],["__file","nginx.html.vue"]]);export{d as default};
