@@ -1,0 +1,1 @@
+import{_ as e,o as _,c as t,a as c}from"./anyfork-29c5caef.js";const o={},s=c("p",null,"\u8F6F\u4EF6\u8BBE\u8BA1\u6A21\u5F0F\u76F8\u5173\u7B14\u8BB0",-1),a=[s];function n(r,l){return _(),t("div",null,a)}var f=e(o,[["render",n],["__file","\u8BBE\u8BA1\u6A21\u5F0F.html.vue"]]);export{f as default};
