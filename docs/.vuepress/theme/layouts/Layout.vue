@@ -2,7 +2,10 @@
   <!-- 首页导航栏：滚动到文章区才显示 -->
   <nav v-if="isHome" class="home-navbar" :class="{ 'navbar-visible': showNavbar }">
     <div class="home-navbar-inner">
-      <router-link to="/" class="home-navbar-brand">沉潜</router-link>
+      <router-link to="/" class="home-navbar-brand">
+        <img class="home-navbar-logo" :src="withBase('/images/logo.png')" alt="logo" />
+        <span class="home-navbar-title">沉潜</span>
+      </router-link>
       <div class="home-navbar-links">
         <router-link v-for="item in navbarItems" :key="item.link" :to="item.link" class="home-navbar-link" active-class="home-navbar-link--active">
           <Icon v-if="item.icon" :icon="item.icon" :iconSize="14" />
@@ -11,6 +14,9 @@
         <button class="home-navbar-toggle" @click="toggleDark" :title="isDark ? '浅色模式' : '深色模式'">
           <Icon :icon="isDark ? 'SunOutlined' : 'MoonOutlined'" :iconSize="15" />
         </button>
+        <div class="home-navbar-search">
+          <Docsearch />
+        </div>
       </div>
     </div>
   </nav>
@@ -51,7 +57,7 @@ import HomeBlog from '../components/HomeBlog.vue'
 import HomeFooter from '@theme/HomeFooter.vue'
 import BlogItemInfo from '../components/Blog/BlogItemInfo.vue'
 import ArticleStats from '../components/Blog/ArticleStats.vue'
-import { usePageData, usePageFrontmatter } from '@vuepress/client'
+import { usePageData, usePageFrontmatter, withBase } from '@vuepress/client'
 import { useDarkMode } from '@vuepress/theme-default/lib/client/composables'
 import { isMobile } from '../utils'
 import { computed, ref, onMounted, onUnmounted } from 'vue'
@@ -129,13 +135,30 @@ onUnmounted(() => {
 }
 
 .home-navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.home-navbar-logo {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.home-navbar-logo:hover {
+  transform: scale(1.08);
+}
+
+.home-navbar-title {
   font-family: var(--font-serif, 'Playfair Display', 'Noto Serif SC', Georgia, serif);
   font-size: 1.25rem;
   font-weight: 700;
   color: #1a1a2e;
-  text-decoration: none;
   letter-spacing: -0.02em;
-  flex-shrink: 0;
 }
 
 .home-navbar-links {
@@ -192,6 +215,10 @@ onUnmounted(() => {
   color: #e2e0da;
 }
 
+:global(.dark) .home-navbar-title {
+  color: #e2e0da;
+}
+
 :global(.dark) .home-navbar-link {
   color: #9494a8;
 }
@@ -229,6 +256,24 @@ onUnmounted(() => {
   background: rgba(26, 92, 58, 0.06);
 }
 
+.home-navbar-search {
+  margin-left: 4px;
+}
+
+.home-navbar-search :deep(.DocSearch-Button) {
+  border-radius: 8px;
+  background: transparent;
+  margin: 0;
+}
+
+.home-navbar-search :deep(.DocSearch-Button:hover) {
+  background: rgba(26, 92, 58, 0.06);
+}
+
+:global(.dark) .home-navbar-search :deep(.DocSearch-Button:hover) {
+  background: rgba(78, 202, 138, 0.08);
+}
+
 :global(.dark) .home-navbar-toggle {
   color: #9494a8;
 }
@@ -254,6 +299,10 @@ onUnmounted(() => {
   }
 
   .home-navbar-link :deep(.icon) {
+    display: none;
+  }
+
+  .home-navbar-title {
     display: none;
   }
 }

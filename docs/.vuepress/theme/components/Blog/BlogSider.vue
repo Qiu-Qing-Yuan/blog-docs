@@ -63,6 +63,8 @@
       </span>
     </div>
 
+    <!-- 访客地图 -->
+    <ClustrMaps />
   </div>
 </template>
 
@@ -70,6 +72,7 @@
 import { useThemeData } from '@vuepress/plugin-theme-data/lib/client'
 import { usePageFrontmatter, withBase } from '@vuepress/client'
 import { useBlogCategory } from 'vuepress-plugin-blog2/lib/client'
+import ClustrMaps from './ClustrMaps.vue'
 interface ThemeData {
   author?: string;
   authorAvatar?: string;
@@ -82,6 +85,8 @@ const themeData = useThemeData() as unknown as ThemeData
 const frontmatter = usePageFrontmatter()
 const category = useBlogCategory('category')
 const tag = useBlogCategory('tag')
+
+const socialColors = ['#c0392b', '#e67e22', '#d4a017', '#1a5c3a', '#2980b9', '#8e44ad', '#16a085', '#2c3e50']
 
 const categoryGradients = [
   'linear-gradient(135deg, #1a5c3a, #2ecc71)',
