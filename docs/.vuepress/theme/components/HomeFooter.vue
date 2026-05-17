@@ -1,11 +1,11 @@
 <template>
-  <footer class="footer-wrapper mt-[48px]">
-    <div class="max-w-[900px] mx-auto px-[20px]">
+  <footer class="footer-wrapper mt-[32px]">
+    <div class="max-w-[900px] mx-auto px-[20px] pb-[24px]">
       <!-- 顶部渐变分隔 -->
-      <div class="h-px bg-gradient-to-r from-transparent via-[var(--border-subtle)] to-transparent mb-[24px]"></div>
+      <div class="h-px bg-gradient-to-r from-transparent via-[var(--border-subtle)] to-transparent mb-[16px]"></div>
 
       <!-- 主体内容 -->
-      <div class="flex flex-col items-center gap-[20px] py-[16px]">
+      <div class="flex flex-col items-center gap-[14px] py-[10px]">
         <!-- 站点信息 -->
         <div class="flex flex-col items-center gap-[6px]">
           <span class="text-[15px] font-serif font-[700] tracking-tight text-[#1a1a2e] dark:text-[#e2e0da]">沉潜</span>
@@ -52,7 +52,7 @@
       <!-- 底部信息栏 -->
       <div class="flex flex-wrap justify-center items-center gap-[6px] pt-[16px] border-t border-[var(--border-subtle)]">
         <span class="text-[11px] text-[#b0b0c0] dark:text-[#475569]">
-          <Icon icon="CopyrightCircleOutlined" :iconSize="11" class="opacity-40" /> {{ currentYear }} 游履平生
+          <Icon icon="CopyrightCircleOutlined" :iconSize="11" class="opacity-40" /> {{ currentYear }} 沉潜
         </span>
         <span class="text-[#d0d0dd] dark:text-[#2a2e3e] text-[10px]">&#183;</span>
         <span class="inline-flex items-center text-[11px] text-[#b0b0c0] dark:text-[#475569]">

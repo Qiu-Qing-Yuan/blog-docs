@@ -73,64 +73,6 @@
         </div>
       </div>
     </section>
-
-    <!-- ═══════ 第二屏：浅色介绍区 ═══════ -->
-    <section class="intro-section" ref="introRef">
-      <!-- 背景几何轮廓 -->
-      <div class="intro-geo-bg">
-        <svg class="intro-geo" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="150" cy="150" r="120" fill="none" stroke="rgba(0,0,0,0.04)" stroke-width="1"/>
-          <circle cx="150" cy="150" r="80" fill="none" stroke="rgba(0,0,0,0.03)" stroke-width="0.8"/>
-          <circle cx="150" cy="150" r="40" fill="none" stroke="rgba(0,0,0,0.02)" stroke-width="0.6"/>
-          <line x1="150" y1="30" x2="150" y2="270" stroke="rgba(0,0,0,0.03)" stroke-width="0.5"/>
-          <line x1="30" y1="150" x2="270" y2="150" stroke="rgba(0,0,0,0.03)" stroke-width="0.5"/>
-        </svg>
-      </div>
-
-      <div class="intro-content">
-        <!-- 左侧标题区 -->
-        <div class="intro-left" ref="introLeftRef">
-          <h2 class="intro-heading">
-            <span class="intro-heading-bold">Pioneering the</span>
-            <span class="intro-heading-light">Future <em>of</em></span>
-            <span class="intro-heading-bold">Artificial</span>
-            <span class="intro-heading-bold">Intelligence</span>
-          </h2>
-          <p class="intro-tagline"><strong>Building</strong> Next-Generation<br/>AI Systems</p>
-        </div>
-
-        <!-- 右侧卡片区 -->
-        <div class="intro-right" ref="introRightRef">
-          <div class="feature-cards">
-            <div class="feature-card" v-for="(card, i) in featureCards" :key="i" :style="{ animationDelay: `${i * 0.15}s` }">
-              <h3 class="feature-card-title">{{ card.title }}</h3>
-              <p class="feature-card-desc">{{ card.desc }}</p>
-            </div>
-          </div>
-          <div class="about-card" ref="aboutCardRef">
-            <div class="about-dots">
-              <span class="dot dot-orange"></span>
-              <span class="dot dot-yellow"></span>
-              <span class="dot dot-light"></span>
-            </div>
-            <h3 class="about-title">关于博客</h3>
-            <p class="about-highlight">{{ aboutHighlight }}</p>
-            <p class="about-desc">{{ aboutDesc }}</p>
-            <div class="about-tags">
-              <span class="about-tag" v-for="tag in aboutTags" :key="tag">{{ tag }}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 右侧 BACK TO TOP -->
-      <div class="side-label side-label-right" @click="scrollToTop">
-        <span class="back-to-top-arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
-        </span>
-        <span>BACK TO TOP</span>
-      </div>
-    </section>
   </div>
 </template>
 
@@ -214,41 +156,21 @@ const heroSubtitle = '沉心潜研，探索人工智能前沿，记录学术思�
 const primaryBtnText = '开始探索'
 const primaryBtnLink = '#articles'
 const secondaryBtnText = '了解更多'
-const secondaryBtnLink = '#about'
-
-const featureCards = [
-  { title: '深度学习', desc: '从理论到实践的完整探索' },
-  { title: '工程实践', desc: '生产环境中的最佳实践' }
-]
-
-const aboutHighlight = '一个专注于人工智能与软件工程的技术博客'
-const aboutDesc = '沉心潜研，在这里记录论文精读、技术探索和项目实践，分享从理论到落地的完整思考过程。'
-const aboutTags = ['论文笔记', '深度学习', '工程实践', '开源项目']
+const secondaryBtnLink = '#articles'
 
 // ─── 引用 ───
-const introRef = ref<HTMLElement>()
 const geoRef = ref<HTMLElement>()
-const introLeftRef = ref<HTMLElement>()
-const introRightRef = ref<HTMLElement>()
-const aboutCardRef = ref<HTMLElement>()
 const scrollIndicatorRef = ref<HTMLElement>()
 
 let scrollHandler: (() => void) | null = null
 
 onMounted(() => {
-  const intro = introRef.value
   const geoShapes = geoRef.value
-  const introLeft = introLeftRef.value
-  const introRight = introRightRef.value
-  const aboutCard = aboutCardRef.value
   const scrollIndicator = scrollIndicatorRef.value
-
-  if (!intro) return
 
   scrollHandler = () => {
     const scrollY = window.scrollY
 
-    // 滚动驱动圆形指示器旋转
     if (scrollIndicator) {
       const rotateDeg = scrollY * 0.5
       scrollIndicator.style.transform = `rotate(${rotateDeg}deg)`
@@ -258,25 +180,14 @@ onMounted(() => {
       }
     }
 
-    // 几何形状视差：不同层以不同速度移动，制造深度感
     if (geoShapes) {
       const shapes = geoShapes.querySelectorAll('.geo-dodeca')
       shapes.forEach((shape, i) => {
-        // 视差：越大的形状移动越慢（更远的层）
         const parallaxSpeed = 0.15 - i * 0.05
         const translateY = scrollY * parallaxSpeed
-        // 微旋转
         const rotate = scrollY * (0.02 + i * 0.01)
         ;(shape as HTMLElement).style.transform = `translateY(${translateY}px) rotate(${rotate}deg)`
       })
-    }
-
-    // 介绍区元素入场动画
-    const introRect = intro.getBoundingClientRect()
-    if (introRect.top < window.innerHeight * 0.8) {
-      if (introLeft) introLeft.classList.add('animate-in')
-      if (introRight) introRight.classList.add('animate-in')
-      if (aboutCard) aboutCard.classList.add('animate-in')
     }
   }
 
@@ -291,14 +202,7 @@ onUnmounted(() => {
 })
 
 const scrollToNext = () => {
-  const intro = introRef.value
-  if (intro) {
-    intro.scrollIntoView({ behavior: 'smooth' })
-  }
-}
-
-const scrollToTop = () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' })
+  document.getElementById('articles')?.scrollIntoView({ behavior: 'smooth' })
 }
 </script>
 
@@ -551,33 +455,6 @@ const scrollToTop = () => {
   color: rgba(255, 255, 255, 0.6);
 }
 
-.side-label-right {
-  right: 28px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: rgba(0, 0, 0, 0.25);
-}
-
-.side-label-right:hover {
-  color: rgba(0, 0, 0, 0.5);
-}
-
-.back-to-top-arrow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  background: rgba(0, 0, 0, 0.06);
-  border-radius: 50%;
-  margin-bottom: 8px;
-}
-
-.back-to-top-arrow svg {
-  width: 14px;
-  height: 14px;
-}
-
 /* ─── SCROLL DOWN 圆形指示器 ─── */
 .scroll-indicator {
   position: absolute;
@@ -627,237 +504,6 @@ const scrollToTop = () => {
 @keyframes bounce-down {
   0%, 100% { transform: translateY(-1px); }
   50% { transform: translateY(3px); }
-}
-
-/* ═══════════════════════════════════════════
-   第二屏：介绍区
-   ═══════════════════════════════════════════ */
-.intro-section {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  background: #fafafa;
-  display: flex;
-  align-items: center;
-  padding: 80px 0;
-  overflow: hidden;
-}
-
-.intro-geo-bg {
-  position: absolute;
-  top: 50%;
-  left: 40%;
-  transform: translateY(-50%);
-  width: 500px;
-  height: 500px;
-  pointer-events: none;
-  opacity: 0.5;
-}
-
-.intro-geo {
-  width: 100%;
-  height: 100%;
-}
-
-.intro-content {
-  position: relative;
-  z-index: 10;
-  display: flex;
-  gap: 60px;
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 60px;
-  align-items: flex-start;
-}
-
-/* ─── 左侧标题 ─── */
-.intro-left {
-  flex: 1;
-  opacity: 0;
-  transform: translateX(-40px);
-  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.intro-left.animate-in {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.intro-heading {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  margin: 0 0 32px 0;
-}
-
-.intro-heading-bold {
-  font-family: var(--font-serif, 'Playfair Display', 'Noto Serif SC', Georgia, serif);
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 900;
-  color: #111;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-}
-
-.intro-heading-light {
-  font-family: var(--font-serif, 'Playfair Display', 'Noto Serif SC', Georgia, serif);
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 300;
-  color: #999;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-}
-
-.intro-heading-light em {
-  font-style: italic;
-  font-weight: 300;
-}
-
-.intro-tagline {
-  font-family: var(--font-sans, 'Source Sans 3', 'Noto Sans SC', sans-serif);
-  font-size: 1rem;
-  color: #666;
-  line-height: 1.6;
-  margin: 0;
-}
-
-.intro-tagline strong {
-  color: #111;
-  font-weight: 700;
-}
-
-/* ─── 右侧卡片 ─── */
-.intro-right {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  opacity: 0;
-  transform: translateX(40px);
-  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
-}
-
-.intro-right.animate-in {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.feature-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-
-.feature-card {
-  background: #fff;
-  border-radius: var(--radius-lg, 16px);
-  padding: 28px 24px;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
-  border: 1px solid rgba(0, 0, 0, 0.04);
-  transition: all 0.3s ease;
-}
-
-.feature-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-}
-
-.feature-card-title {
-  font-family: 'Playfair Display', 'Noto Serif SC', serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #1a5c3a;
-  margin: 0 0 8px 0;
-}
-
-.feature-card-desc {
-  font-family: var(--font-sans, 'Source Sans 3', 'Noto Sans SC', sans-serif);
-  font-size: 0.85rem;
-  color: #888;
-  margin: 0;
-  line-height: 1.5;
-}
-
-/* ─── 关于卡片 ─── */
-.about-card {
-  background: #fff;
-  border-radius: var(--radius-xl, 20px);
-  padding: 32px 28px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
-  border: 1px solid rgba(0, 0, 0, 0.04);
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s;
-}
-
-.about-card.animate-in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.about-dots {
-  display: flex;
-  gap: 6px;
-  margin-bottom: 16px;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
-
-.dot-orange { background: #1a5c3a; }
-.dot-yellow { background: #2ecc71; }
-.dot-light { background: #e0d5c0; }
-
-.about-title {
-  font-family: 'Playfair Display', 'Noto Serif SC', serif;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #111;
-  margin: 0 0 12px 0;
-}
-
-.about-highlight {
-  font-family: var(--font-sans, 'Source Sans 3', 'Noto Sans SC', sans-serif);
-  font-size: 0.95rem;
-  color: #1a5c3a;
-  font-weight: 600;
-  margin: 0 0 8px 0;
-  line-height: 1.5;
-}
-
-.about-desc {
-  font-family: var(--font-sans, 'Source Sans 3', 'Noto Sans SC', sans-serif);
-  font-size: 0.85rem;
-  color: #888;
-  margin: 0 0 20px 0;
-  line-height: 1.6;
-}
-
-.about-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.about-tag {
-  display: inline-block;
-  padding: 6px 16px;
-  background: #f5f5f5;
-  border-radius: 100px;
-  font-family: var(--font-sans, 'Source Sans 3', 'Noto Sans SC', sans-serif);
-  font-size: 0.78rem;
-  color: #555;
-  font-weight: 500;
-  transition: all 0.2s ease;
-}
-
-.about-tag:hover {
-  background: #1a5c3a;
-  color: #fff;
 }
 
 /* ═══════════════════════════════════════════
@@ -923,25 +569,6 @@ const scrollToTop = () => {
   }
 
   .side-label {
-    display: none;
-  }
-
-  .intro-content {
-    flex-direction: column;
-    padding: 0 24px;
-    gap: 40px;
-  }
-
-  .intro-heading-bold,
-  .intro-heading-light {
-    font-size: 2rem;
-  }
-
-  .feature-cards {
-    grid-template-columns: 1fr;
-  }
-
-  .intro-geo-bg {
     display: none;
   }
 }

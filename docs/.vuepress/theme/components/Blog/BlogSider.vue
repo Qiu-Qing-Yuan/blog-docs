@@ -46,9 +46,6 @@
       </div>
     </div>
 
-    <!-- 访问统计 -->
-    <SiteStats />
-
     <!-- 访客地图 -->
     <ClustrMaps />
 

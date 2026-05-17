@@ -376,7 +376,7 @@ npm run docs:dev
   link: https://coderhdy.com/
   bgColor: '#FCE5BF'
   textColor: '#7B2532'
-- name: 游履平生
+- name: 沉潜
   desc: 不积跬步,无以至千里.不积小流,无以成江海
   avatar: https://qiu-qing-yuan.github.io/blog-docs/images/placeholder.png
   link: https://anyfork.gitee.io/blog-docs/
@@ -540,7 +540,7 @@ npm run docs:dev
         link: https://coderhdy.com/
         bgColor: '#FCE5BF'
         textColor: '#7B2532'
-      - name: 游履平生
+      - name: 沉潜
         desc: 不积跬步,无以至千里.不积小流,无以成江海
         avatar: https://qiu-qing-yuan.github.io/blog-docs/images/placeholder.png
         link: https://anyfork.gitee.io/blog-docs/
@@ -779,7 +779,7 @@ module.exports = {
     seoPlugin({
       hostname: 'https://anyfork.github.io/',
       author: {
-        name: '游履平生',
+        name: '沉潜',
         url: 'https://anyfork.github.io/blog-docs/'
       }
     })
@@ -891,7 +891,7 @@ module.exports = {
     //复制加版权插件，https://vuepress-theme-hope.github.io/v2/copyright/zh/config.html
     copyrightPlugin({
       hostname: 'https://anyfork.github.io/blog-docs/',
-      author: '游履平生',
+      author: '沉潜',
       global: true
     })
   ]

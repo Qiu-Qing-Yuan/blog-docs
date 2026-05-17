@@ -1,6 +1,45 @@
 {
   "site": [
     {
+      "hash": "cb5e983",
+      "date": "2026-05-17",
+      "time": "18:03",
+      "icon": "🎨",
+      "title": "integrate ClustrMaps visitor globe widget into sidebar",
+      "description": "feat: integrate ClustrMaps visitor globe widget into sidebar",
+      "files": [
+        "theme/components/Blog/BlogSider.vue",
+        "theme/components/Blog/ClustrMaps.vue"
+      ]
+    },
+    {
+      "hash": "54a0e5d",
+      "date": "2026-05-16",
+      "time": "12:16",
+      "icon": "🎨",
+      "title": "homepage navbar navigation, display, and dark mode",
+      "description": "fix: homepage navbar navigation, display, and dark mode",
+      "files": [
+        "theme/components/HomeHero.vue",
+        "theme/layouts/Layout.vue"
+      ]
+    },
+    {
+      "hash": "bc45c63",
+      "date": "2026-05-16",
+      "time": "12:07",
+      "icon": "🛠️",
+      "title": "replace broken CDN images with local placeholder",
+      "description": "fix: replace broken CDN images with local placeholder",
+      "files": [
+        "public/_temp/timeline.json",
+        "public/images/placeholder.png",
+        "_images/placeholder.png",
+        "ai/nlp/attention-is-all-you-need.md",
+        "design-pattern/README.md"
+      ]
+    },
+    {
       "hash": "d7b9ca3",
       "date": "2026-05-15",
       "time": "22:28",

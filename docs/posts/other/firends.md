@@ -107,7 +107,7 @@ category:
   desc: 理想成为大牛的小陈同学
   bgColor: rgb(243 126 150);
   textColor: 'rgb(102 48 72)'
-- name: 游履平生
+- name: 沉潜
   desc: 不积跬步,无以至千里.不积小流,无以成江海
   avatar: https://qiu-qing-yuan.github.io/blog-docs/images/placeholder.png
   link: https://anyfork.gitee.io/blog-docs/
@@ -145,7 +145,7 @@ category:
 如需要友链，请<a> 留言 👇 </a> 告知，申请前请记得先添加本站哦～, 并使用如下格式：
 
 ```yaml
-- name: 游履平生
+- name: 沉潜
   desc: 不积跬步,无以至千里.不积小流,无以成江海
   avatar: https://anyfork.gitee.io/blog-docs/images/user.jpg
   link: https://anyfork.gitee.io/blog-docs/

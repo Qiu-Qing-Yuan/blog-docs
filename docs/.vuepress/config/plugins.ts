@@ -55,7 +55,7 @@ export const plugins = [
     seoPlugin({
         hostname: 'https://anyfork.github.io/',
         author: {
-            name: '游履平生',
+            name: '沉潜',
             url: 'https://anyfork.github.io/blog-docs/'
         }
     }),
@@ -77,7 +77,7 @@ export const plugins = [
     //复制加版权插件，https://vuepress-theme-hope.github.io/v2/copyright/zh/config.html
     copyrightPlugin({
         hostname: 'https://anyfork.github.io/blog-docs/',
-        author: "游履平生",
+        author: "沉潜",
         global: true
     }),
     //动态title特效插件

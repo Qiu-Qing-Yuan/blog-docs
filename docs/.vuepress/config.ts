@@ -35,7 +35,7 @@ export default defineUserConfig({
   ],
   theme: AnyForkTheme({
     logo: "/images/logo.png",
-    author: profile.author || "游履平生",
+    author: profile.author || "沉潜",
     authorAvatar: profile.authorAvatar || "/images/logo.png",
     //仓库地址
     repo: 'https://github.com/Qiu-Qing-Yuan/blog-docs',
